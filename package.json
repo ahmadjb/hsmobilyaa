@@ -1,7 +1,7 @@
 {
   "name": "personal-portfolio",
   "version": "0.1.0",
-  "homepage": "https://killer-abhi.github.io/Portfolio",
+  "homepage": "/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -29,7 +29,6 @@
     "predeploy": "npm run build",
     "dev": "react-scripts start",
     "deploy": "gh-pages -d build"
-
   },
   "eslintConfig": {
     "extends": [
