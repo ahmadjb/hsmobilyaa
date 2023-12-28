@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
+import HSlogo from "../../Data/newlogo.png";
+
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import './navbar.css';
@@ -12,6 +14,7 @@ import ColorModal from "./ColorModal";
 import Routes from "./Routes";
 
 import PersonalData from "../../Data/PersonalData";
+import { Height } from "@mui/icons-material";
 
 const Navbar = () => {
 
@@ -78,9 +81,8 @@ const Navbar = () => {
         <div className="main">
             <div className="navbar" style={{ backgroundColor: bgColor }}>
                 <div className="logoContainer">
-                    <div id="logo">
-                        {PersonalData.firstName}&nbsp;&nbsp;{PersonalData.lastName}
-                    </div>
+                <img src={HSlogo} alt="degree" style={{ width: "150px", height: "75px" }} />
+                <div style={{ paddingLeft: 10, fontWeight:'bolder', marginTop: 30, color: 'rgb(19, 39, 127)' , fontFamily:'inherit'}}> MİRA DEKOR</div>
                 </div>
                 <div className="navsContainer" style={{ color: nonThemeColor }}>
                     <Routes />

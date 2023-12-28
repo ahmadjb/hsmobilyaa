@@ -48,4 +48,113 @@
 		opacity: 1;
 		transform: translateX(0);
 	}
+	
 }
+.photo-carousel-image {
+	width: 100%;
+	height: auto;
+	border: 2px solid #ccc;
+	/* Add any additional styles you want here */
+  }
+  /* styles.css */
+
+.photo-slider-container {
+	text-align: center;
+	margin: 20px;
+  }
+  
+  .photo-container {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+  }
+  
+  .photo {
+	width: 20%;
+	height: auto;
+	margin-right: 10px;
+  }
+  
+  .title {
+	font-size: 18px;
+	margin-bottom: 10px;
+  }
+  
+  .button-container {
+	margin-top: 10px;
+  }
+  
+  .button {
+	padding: 8px 16px;
+	font-size: 16px;
+	margin-right: 10px;
+	cursor: pointer;
+  }
+  
+/*/* PhotoSlider.css */
+/* PhotoSlider.css */
+
+.photo-slider-container {
+    overflow: hidden;
+	border: 2px solid red; /* Add the border style, width, and color */
+	height: 500px;
+}
+
+.photo-slider {
+    display: flex;
+    transition: transform 2s ease; /* Add a smooth transition effect on the transform property */
+}
+
+.photo2 {
+    width: 20%;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 10px;
+    
+}
+
+.photo-slider-container-new {
+    overflow: hidden;
+	border: 2px solid red; /* Add the border style, width, and color */
+	height: 200px;
+	padding: 50px;
+	
+}
+
+.photo-slider-new {
+    display: flex;
+    transition: transform 2s ease; /* Add a smooth transition effect on the transform property */
+	justify-content: center;
+	align-items: center;
+}
+
+.photo-new {
+    width: 90%;
+    height: auto;
+	margin-left: 10px;
+    border-radius: 10px;
+	border: 2px solid red; /* Add the border style, width, and color */
+    align-items: last baseline;
+    justify-items: center;
+	
+    
+}
+.photo-new-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 200px;
+    margin-right: 10px;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+
+
+
+  
+  /* You can add more styles based on your preferences */
+  
+  
+
+  

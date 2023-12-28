@@ -16,6 +16,7 @@
 	margin-right: auto;
 	margin-left: 5%;
 	font-size: 2rem;
+	display: flex;
 }
 #logo{
 	font-family: "Alex Brush";
