@@ -151,7 +151,27 @@
 }
 
 
+/* styles.css */
 
+.photo-carousel-container {
+	overflow: "";
+	padding-top: 20px;
+  }
+  
+  .photo-slider {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+  }
+
+  
+  .photo {
+	width: 100%;
+	height: 150%;
+	/* Any additional styling for .photo */
+
+  }
+  
+  
   
   /* You can add more styles based on your preferences */
   
