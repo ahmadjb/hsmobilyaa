@@ -54,12 +54,12 @@ const Workcard = () => {
         }
     };
 
-    const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 2));
+    const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
 
     return (
-        <div style={{ padding: 30, paddingTop: 160 }}>
+        <div style={{ padding: 30, paddingTop: 100 }}>
             <div className="photo-slider-container-new">
-                <div style={{ paddingLeft: 10, fontWeight: 'bolder', marginTop: -25, color: 'rgb(19, 39, 127)', fontSize: 30, fontFamily: 'inherit' }}>
+                <div style={{ paddingLeft: 10, fontWeight: 'bolder', marginTop: -15, color: 'rgb(19, 39, 127)', fontSize: 30, fontFamily: 'inherit' }}>
 
                     Yatak Odaları</div>
 
@@ -85,7 +85,7 @@ const Workcard = () => {
 
                 </div>
 
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 10 }}>
                     <button className='cool-button' onClick={navigateToPrevPhoto} disabled={currentPhotoIndex === 0}>
                         Previous
                     </button>
