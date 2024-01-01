@@ -16,7 +16,7 @@ const Projects = (props) => {
     let projects = ProjectsData.DUMMY_PROJECTS;
     return (
         <React.Fragment>
-            <div className={styles.projects}>
+            { /*<div className={styles.projects}>
                 <section className={styles.projectImg}>
                     <img src={projectCoverImg} alt="" />
                 </section>
@@ -36,7 +36,8 @@ const Projects = (props) => {
                 <a target="_blank" rel="noreferrer" href={`${SocialData.githubLink}?tab=repositories`}>
                     <Button className={styles.moreProjectBtn}>More Projects</Button>
                 </a>
-            </div>
+            </div> */}
+            <div>3rd page</div>
         </React.Fragment>
     )
 };

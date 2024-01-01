@@ -39,7 +39,7 @@ const PhotoSlider = () => {
     const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + 5);
 
     return (
-        <div>
+        <div style={{paddingTop:100}}>
             <div className="photo-slider-container">
                 
                     <div className="photo-slider" style={{ transform: `translateX(-${currentPhotoIndex}%)`}}>

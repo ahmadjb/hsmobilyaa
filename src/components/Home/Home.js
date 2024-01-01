@@ -7,8 +7,8 @@ import { autoTypeData } from "../../Data/PersonalData";
 import Workcard from "./lastWorks";
 import Worktype from "./worktype";
 import photo1 from '../../Data/1st.webp';
-import photo2 from '../../Data/2nd.webp';
-import photo3 from '../../Data/3rd.webp';
+import photo2 from '../../Data/nn4.png';
+import photo3 from '../../Data/1st.webp';
 import photo4 from '../../Data/4th.webp';
 import { Height } from "@mui/icons-material";
 
@@ -80,10 +80,10 @@ function Home(props) {
     return (
       <div className="photo-carousel-container">
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ backgroundColor: 'red', padding: 10, alignItems: 'center', display: 'flex' }}>
+          <div style={{ backgroundColor: '', padding: 10, alignItems: 'center', display: 'flex' }}>
             <LeftArrow onClick={navigateToPrevPhoto} />
           </div>
-          <div style={{ borderColor: 'blue', borderRadius: 10, borderStyle: 'solid', borderWidth: 2, overflow: 'hidden', width: '90%', height: mainPhoto }}>
+          <div style={{ borderColor: 'white', borderRadius: 20, borderStyle: 'solid', borderWidth: 3, overflow: 'hidden', width: '92%', height: mainPhoto }}>
             <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
               <div className="" style={photoSliderStyle}>
                 {photos.map((photo, index) => (
@@ -92,12 +92,13 @@ function Home(props) {
               </div>
             </div>
           </div>
-          <div style={{ backgroundColor: 'red', padding: 10, alignItems: 'center', display: 'flex' }}>
+          <div style={{ backgroundColor: '', padding: 10, alignItems: 'center', display: 'flex' }}>
             <RightArrow onClick={navigateToNextPhoto} />
           </div>
         </div>
-        <Workcard />
+       
         <Worktype />
+        <Workcard />
       </div>
     );
   };

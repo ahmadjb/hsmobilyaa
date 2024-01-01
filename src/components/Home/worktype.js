@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import photo1 from '../../Data/md.png';
 import photo2 from '../../Data/2nd.webp';
 import photo3 from '../../Data/3rd.webp';
@@ -6,35 +6,35 @@ import photo4 from '../../Data/4th.webp';
 const Workcard = () => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
     const isMobile = window.innerWidth;
-    
-  const [googleDrivePhotos, setGoogleDrivePhotos] = useState([]);
 
-  useEffect(() => {
-    const fetchPhotos = async () => {
-      try {
-        // Replace 'YOUR_API_KEY' with your actual Google API key
-        const apiKey = 'AIzaSyDFtPXqUjoqLNfudVHyGL-IDpATIqSh4Jw';
-        const folderId = '1jiGiH8rrbV4btrq_IxYCT432AXB9GOzY'; // Replace with the ID of your Google Drive folder
+    const [googleDrivePhotos, setGoogleDrivePhotos] = useState([]);
 
-        // Fetch the list of files in the folder
-        const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`);
-        const data = await response.json();
+    useEffect(() => {
+        const fetchPhotos = async () => {
+            try {
+                // Replace 'YOUR_API_KEY' with your actual Google API key
+                const apiKey = 'AIzaSyDFtPXqUjoqLNfudVHyGL-IDpATIqSh4Jw';
+                const folderId = '1jiGiH8rrbV4btrq_IxYCT432AXB9GOzY'; // Replace with the ID of your Google Drive folder
 
-        // Extract download URLs for each image file
-        const photos = data.files
-          .filter((file) => file.mimeType.startsWith('image/'))
-          .map((file) => `https://drive.google.com/uc?id=${file.id}`);
+                // Fetch the list of files in the folder
+                const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`);
+                const data = await response.json();
 
-        setGoogleDrivePhotos(photos);
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    };
+                // Extract download URLs for each image file
+                const photos = data.files
+                    .filter((file) => file.mimeType.startsWith('image/'))
+                    .map((file) => `https://drive.google.com/uc?id=${file.id}`);
 
-    fetchPhotos();
-  }, []);
+                setGoogleDrivePhotos(photos);
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        };
 
-  
+        fetchPhotos();
+    }, []);
+
+
 
     console.log(isMobile);
     console.log(googleDrivePhotos);
@@ -57,15 +57,18 @@ const Workcard = () => {
     const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 2));
 
     return (
-        <div>
+        <div style={{ padding: 30, paddingTop: 160 }}>
             <div className="photo-slider-container-new">
+                <div style={{ paddingLeft: 10, fontWeight: 'bolder', marginTop: -25, color: 'rgb(19, 39, 127)', fontSize: 30, fontFamily: 'inherit' }}>
+
+                    Yatak Odaları</div>
 
                 <div className="photo-slider-new " style={{ transform: `translateX(-${currentPhotoIndex}%)` }}>
 
 
                     {visiblePhotos.map((photo, index) => (
                         <div className='photo-new-container'>
-                            <div> 
+                            <div>
                                 <img
                                     className='photo-new '
                                     key={index}
@@ -76,20 +79,24 @@ const Workcard = () => {
                             </div>
                         </div>
 
+
                     ))}
 
+
+                </div>
+
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 20 }}>
+                    <button className='cool-button' onClick={navigateToPrevPhoto} disabled={currentPhotoIndex === 0}>
+                        Previous
+                    </button>
+                    <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
+                        Next
+                    </button>
                 </div>
 
             </div>
             <h1>{`Photo ${currentPhotoIndex + 1} to ${currentPhotoIndex + 5}`}</h1>
-            <div>
-                <button onClick={navigateToPrevPhoto} disabled={currentPhotoIndex === 0}>
-                    Previous
-                </button>
-                <button onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
-                    Next
-                </button>
-            </div>
+
         </div>
     );
 };

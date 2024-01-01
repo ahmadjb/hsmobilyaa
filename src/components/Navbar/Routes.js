@@ -4,19 +4,19 @@ function Dropdown(props) {
     return (
         <React.Fragment>
             <NavLink activeClassName="active" to="/home">
-                <div className="navs">Home</div>
+                <div className="navs">Ana Sayfa</div>
             </NavLink>
             <NavLink to="/education" activeClassName="active">
-                <div className="navs">Education</div>
+                <div className="navs">2nd page</div>
             </NavLink>
             <NavLink to="/certifications" activeClassName="active">
                 {/* <div className="navs">Certifications</div> */}
             </NavLink>
             <NavLink to="/projects" activeClassName="active">
-                <div className="navs">Projects</div>
+                <div className="navs">3rd page</div>
             </NavLink>
             <NavLink to="/about-me" activeClassName="active">
-                <div className="navs">About Me</div>
+                <div className="navs">4th page</div>
             </NavLink>
         </React.Fragment>
     )

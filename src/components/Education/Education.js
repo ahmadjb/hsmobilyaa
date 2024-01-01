@@ -14,7 +14,7 @@ function Education(props) {
     const languagesDone=EducationData.codingStatus;
     return (
         <Fragment>
-            <div className={classes.educationHeader}>
+            {/*<div className={classes.educationHeader}>
                 <div className={classes.eduImg}>
                     <img src={EducationImg} alt="" srcset="" />
                 </div>
@@ -35,7 +35,8 @@ function Education(props) {
                 </div>
             </div>
             <Degree />
-            <Certifications />
+            <Certifications />*/}
+            <div>2nd page</div>
         </Fragment>
     )
 }

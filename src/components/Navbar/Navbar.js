@@ -81,8 +81,8 @@ const Navbar = () => {
         <div className="main">
             <div className="navbar" style={{ backgroundColor: bgColor }}>
                 <div className="logoContainer">
-                <img src={HSlogo} alt="degree" style={{ width: "150px", height: "75px" }} />
-                <div style={{ paddingLeft: 10, fontWeight:'bolder', marginTop: 30, color: 'rgb(19, 39, 127)' , fontFamily:'inherit'}}> MİRA DEKOR</div>
+                <img src={HSlogo} alt="degree" style={{ width: "130px", height: "65px" ,paddingTop:20,paddingBottom:10}} />
+                <div style={{ paddingLeft: 10, fontWeight:'bolder', marginTop: 40, color: 'rgb(19, 39, 127)' , fontFamily:'inherit'}}> MİRA DEKOR</div>
                 </div>
                 <div className="navsContainer" style={{ color: nonThemeColor }}>
                     <Routes />
@@ -93,11 +93,11 @@ const Navbar = () => {
                         <div id="darkModeBtn" style={{ display: "none" }}><DarkModeIcon /></div>
                     </div>*/}
 
-                    <div className="colorSelector" onClick={handleColorSelector} style={{ backgroundColor: activeColor }}>
+                   { /*<div className="colorSelector" onClick={handleColorSelector} style={{ backgroundColor: activeColor }}>
                         {
                             isColorModalShown && <ColorModal selectColor={changeColor} onConfirm={handleColorSelector} />
                         }
-                    </div>
+                    </div>*/}
 
                     <input type="checkbox" onClick={handleDropDown} ref={menuRef} id="burger-toggle" />
                     <label htmlFor="burger-toggle" className="burger-menu">

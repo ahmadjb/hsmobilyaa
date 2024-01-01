@@ -13,7 +13,7 @@ const AboutMe = () => {
 
     return (
         <Fragment>
-            <div className={classes.contactMe}>
+         {/*   <div className={classes.contactMe}>
                 <div className={classes.avatar}>
                     <img src={Photo} alt="" style={{borderColor:uiColor}} />
                 </div>
@@ -30,7 +30,8 @@ const AboutMe = () => {
                     </a>
                 </div>
             </div>
-            <GetInTouch />
+            <GetInTouch /> */}
+            <div> 4nd page</div>
         </Fragment>
     )
 };
