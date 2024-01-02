@@ -107,33 +107,33 @@ main{
 /* PhotoSlider.css */
 
 button {
-    /* Basic styling */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px; /* Add rounded corners */
-    cursor: pointer;
-    padding: 10px 15px;
-    margin: 0 5px; /* Add some spacing between buttons */
-  
-    /* Background and text colors */
-    background-color: #54a0ff; /* Light blue background */
-    color: #fff; /* White text */
-  
-    /* Hover effects */
-    &:hover {
-      background-color: #3b85f5; /* Darker blue on hover */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    }
-  
-    /* Disabled state */
-    &:disabled {
-      background-color: #ddd; /* Light gray background */
-      color: #999; /* Darker gray text */
-      cursor: not-allowed;
-    }
+  /* Basic styling */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: sans-serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer;
+  padding: 10px 15px;
+  margin: 0 5px; /* Add some spacing between buttons */
+
+  /* Background and text colors */
+  background-color: #54a0ff; /* Light blue background */
+  color: #fff; /* White text */
+
+  /* Hover effects */
+  &:hover {
+    background-color: #3b85f5; /* Darker blue on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
   }
-  
+
+  /* Disabled state */
+  &:disabled {
+    background-color: #ddd; /* Light gray background */
+    color: #999; /* Darker gray text */
+    cursor: not-allowed;
+  }
+}
+

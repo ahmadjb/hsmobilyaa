@@ -10,6 +10,12 @@ import photo1 from '../../Data/1st.webp';
 import photo2 from '../../Data/nn4.png';
 import photo3 from '../../Data/1st.webp';
 import photo4 from '../../Data/4th.webp';
+
+import photoo1 from '../../Data/la1.jpg';
+import photoo2 from '../../Data/la2.jpg';
+import photoo3 from '../../Data/la3.jpg';
+import photoo4 from '../../Data/la4.jpg';
+import photoo5 from '../../Data/la5.jpg';
 import { Height } from "@mui/icons-material";
 
 function Home(props) {
@@ -80,7 +86,7 @@ function Home(props) {
     return (
       <div className="photo-carousel-container">
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-          <div style={{ backgroundColor: '', padding: 10, alignItems: 'center', display: 'flex' }}>
+          <div className="left-arrow">
             <LeftArrow onClick={navigateToPrevPhoto} />
           </div>
           <div style={{ borderColor: 'white', borderRadius: 20, borderStyle: 'solid', borderWidth: 3, overflow: 'hidden', width: '92%', height: mainPhoto }}>
@@ -92,11 +98,44 @@ function Home(props) {
               </div>
             </div>
           </div>
-          <div style={{ backgroundColor: '', padding: 10, alignItems: 'center', display: 'flex' }}>
+          <div className="right-arrow">
             <RightArrow onClick={navigateToNextPhoto} />
           </div>
         </div>
-       
+        <div className="photo-container">
+          <div className="col-12 col-md-4" >
+            <img src={photoo1} alt="Image 1" className="constant-photo" />
+            <div className="photo-text text-style-container" >
+              <div className="text-style-2">text2</div>
+            </div>
+          </div>
+          <div className="col-12 col-md-4">
+            <img src={photoo2} alt="Image 2" className="constant-photo" />
+            <div className="photo-text text-style-container">
+              <div className="text-style-2">text3</div>
+            </div>
+          </div>
+          <div className="col-12 col-md-4">
+            <img src={photoo3} alt="Image 3" className="constant-photo" />
+            <div className="photo-text text-style-container">
+              <div className="text-style-2">text3</div>
+            </div>
+          </div>
+          <div className="col-12 col-md-4">
+            <img src={photoo1} alt="Image 4" className="constant-photo" />
+            <div className="photo-text text-style-container" >
+              <div className="text-style-2">text4</div>
+            </div>
+          </div>
+          <div className="col-12 col-md-4">
+            <img src={photoo5} alt="Image 5" className="constant-photo" />
+            <div className="photo-text text-style-container" >
+              <div className="text-style-2">text5</div>
+            </div>
+          </div>
+        </div>
+
+
         <Worktype />
         <Workcard />
       </div>

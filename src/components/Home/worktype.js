@@ -59,7 +59,7 @@ const Workcard = () => {
     return (
         <div style={{ padding: 30, paddingTop: 100 }}>
             <div className="photo-slider-container-new">
-                <div style={{ paddingLeft: 10, fontWeight: 'bolder', marginTop: -15, color: 'rgb(19, 39, 127)', fontSize: 30, fontFamily: 'inherit' }}>
+                <div className='text-style'>
 
                     Yatak Odaları</div>
 

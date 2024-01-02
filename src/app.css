@@ -67,6 +67,7 @@
   .photo-container {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	margin-bottom: 20px;
   }
   
@@ -120,7 +121,7 @@
 	border: 3px solid gray;/* Add the border style, width, and color */
 	height: 230px;
 	padding: 50px;
-	border-radius: 20px;
+	border-radius: 10px;
 	
 	
 }
@@ -215,4 +216,199 @@
     }
   }
   
+/* styles.css or styles.scss */
 
+/* styles.css or styles.scss */
+
+.constant-photo-container {
+	width: 70%;
+	height: 120%;
+	border-radius: 5px;
+	overflow: hidden; /* Ensure that the image doesn't overflow its container */
+  }
+  .constant-photo {
+	width: 90%;
+	height: 80%;
+	object-fit: cover; /* Maintain aspect ratio and cover the container */
+	border-radius: 18px;
+	padding: 10px;
+  }
+  
+
+  @media (max-width: 767px) {
+	.constant-photo {
+		width: 85%;
+		height: 150%;
+		border-radius: 14px;
+	}
+  }
+
+  .photo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 3%;
+	padding-top: 5%;
+  }
+  @media (max-width: 767px) {
+	.photo-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-left: 5%;
+		padding-right: 5%;
+		padding-top: 5%;
+	  }
+  }
+  .photo-text {
+	margin-top: 2px;
+	text-align: center;
+  }
+  
+/* styles.css or styles.scss */
+
+.text-style {
+	padding-left: 10px;
+	font-weight: bold;
+	margin-top: -15px;
+	color: rgb(19, 39, 127);
+	font-size: 30px;
+	font-family: inherit;
+  }
+  @media (max-width: 767px) {
+	.text-style {
+		padding-left: 10px;
+		font-weight: bold;
+		margin-top: -15px;
+		color: rgb(19, 39, 127);
+		font-size: 30px;
+		font-family: inherit;
+	  }
+  }
+  .text-style-container {
+	
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-family: inherit;
+	font-Size:25px;
+	margin-Top:7px;
+	width: 100%;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -25%;
+	
+  }
+  @media (max-width: 767px) {
+	.text-style-container {
+		padding-left: 5px;
+		font-weight: bolder;
+		color: rgb(19, 39, 127);
+		font-family: inherit;
+		font-Size:10px;
+		margin-Top:7px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: -55%;
+		
+	  }
+  }
+  /* styles.css or styles.scss */
+  .text-style-2 {
+	
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-family: inherit;
+	font-Size:25px;
+	margin-Top:7px;
+	width: 100%;
+	background-color: white;
+	border-radius: 3px;
+	width: 70%;
+	opacity: 0.8;
+	
+  }
+  @media (max-width: 767px) {
+	.text-style-2 {
+	
+		font-weight: bold;
+		color: rgb(19, 39, 127);
+		font-family: inherit;
+		font-Size:10px;
+		margin-Top:7px;
+		width: 100%;
+		background-color: white;
+		border-radius: 3px;
+		width: 70%;
+		
+	  }
+  }
+
+.logo-text {
+	padding-left: 10px;
+	font-weight: bolder;
+	margin-top: 40px;
+	color: rgb(19, 39, 127);
+	font-family: inherit;
+  }
+  
+  @media (max-width: 767px) {
+	.logo-text {
+		padding-left: 10px;
+		font-weight: bolder;
+		margin-top: 35px;
+		color: rgb(19, 39, 127);
+		font-family: inherit;
+		font-size: 20px;
+	  }
+	  
+  }
+
+  /* styles.css or styles.scss */
+
+.mira-logo {
+	width: 130px;
+	height: 65px;
+	padding-top: 20px;
+	padding-bottom: 10px;
+  }
+
+  @media (max-width: 767px) {
+	.mira-logo {
+		width: 90px;
+		height: 45px;
+		padding-top: 20px;
+		padding-bottom: 10px;
+	  }
+	  
+  }
+  
+
+.left-arrow{
+	padding-left: 70px;
+	align-items: center;
+	display: flex;
+}
+
+.right-arrow{
+	padding-right: 70px;
+	align-items: center;
+	display: flex;
+}
+
+@media (max-width: 767px) {
+	.left-arrow{
+		padding-left: 10px;
+		align-items: center;
+		display: flex;
+	}
+	
+	.right-arrow{
+		padding-right: 10px;
+		align-items: center;
+		display: flex;
+	}
+	  
+  }

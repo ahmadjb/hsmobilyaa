@@ -81,8 +81,8 @@ const Navbar = () => {
         <div className="main">
             <div className="navbar" style={{ backgroundColor: bgColor }}>
                 <div className="logoContainer">
-                <img src={HSlogo} alt="degree" style={{ width: "130px", height: "65px" ,paddingTop:20,paddingBottom:10}} />
-                <div style={{ paddingLeft: 10, fontWeight:'bolder', marginTop: 40, color: 'rgb(19, 39, 127)' , fontFamily:'inherit'}}> MİRA DEKOR</div>
+                <img src={HSlogo} alt="degree" className="mira-logo" />
+                <div className="logo-text"> MİRA DEKOR</div>
                 </div>
                 <div className="navsContainer" style={{ color: nonThemeColor }}>
                     <Routes />

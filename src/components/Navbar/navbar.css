@@ -190,7 +190,7 @@
 		left: 25%;
 		width: 50%;
 		height: 3px;
-		background: purple;
+		background: #13277f;
 		border-radius: 10px;
 		overflow: hidden;
 		transition: 0.5s;
@@ -253,7 +253,7 @@
 	}
 	.active {
 		width: max-content;
-		border-bottom: 4px solid purple;
+		border-bottom: 4px solid #13277f;
 	}
 	.navs{pointer-events: none;}
 }
