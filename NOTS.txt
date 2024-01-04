@@ -1,0 +1,1 @@
+-split the name of the images after the '.'

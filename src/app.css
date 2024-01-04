@@ -118,13 +118,24 @@
 
 .photo-slider-container-new {
     overflow: hidden;
-	border: 3px solid gray;/* Add the border style, width, and color */
-	height: 230px;
-	padding: 50px;
+	border: 2px solid gray;/* Add the border style, width, and color */
+	height: 40vh;
+	padding: 20px;
 	border-radius: 10px;
 	
 	
 }
+@media (max-width: 767px) {
+	.photo-slider-container-new {
+		overflow: hidden;
+		border: 2px solid gray;/* Add the border style, width, and color */
+		height: 45vh;
+		padding: 10px;
+		border-radius: 10px;
+		
+		
+	}
+  }
 
 .photo-slider-new {
     display: flex;
@@ -160,7 +171,7 @@
 
 .photo-carousel-container {
 	overflow: "hidden";
-	padding-top: 20px;
+	padding-top: 6px;
 
   }
   
@@ -270,7 +281,8 @@
 .text-style {
 	padding-left: 10px;
 	font-weight: bold;
-	margin-top: -15px;
+	margin-top: -5px;
+	padding-bottom: 20px;
 	color: rgb(19, 39, 127);
 	font-size: 30px;
 	font-family: inherit;
@@ -279,7 +291,7 @@
 	.text-style {
 		padding-left: 10px;
 		font-weight: bold;
-		margin-top: -15px;
+		margin-top: -5px;
 		color: rgb(19, 39, 127);
 		font-size: 30px;
 		font-family: inherit;
@@ -318,11 +330,12 @@
   /* styles.css or styles.scss */
   .text-style-2 {
 	
+    padding: 7px 5px;
 	font-weight: bold;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
 	font-Size:25px;
-	margin-Top:7px;
+	margin-Top:0px;
 	width: 100%;
 	background-color: white;
 	border-radius: 3px;
@@ -411,4 +424,157 @@
 		display: flex;
 	}
 	  
+  }
+
+  .photo-new-container {
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease;
+}
+
+.photo-new-container:hover .overlay {
+    opacity: 1; /* Show the overlay on hover */
+}
+
+.eye-icon {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+	margin-right: 20px;
+}
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    border: 2px solid white; /* Optional: Add a border around the image */
+}
+
+.image-modal button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+/* Add these styles to your ModalPhoto component's CSS */
+.modal-photo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+}
+@media (max-width: 767px) {
+	.modal-photo {
+		position: fixed;
+		justify-content: center;
+		align-items: center;
+		transform: translate(-50%, -50%);
+		z-index: 1000;
+	}
+
+}
+
+.modal-photo-content {
+    position: relative;
+    max-width: 150%;
+    max-height: 150%;
+    overflow: auto;
+    background: white; /* Optional: Add a background color */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a box shadow for a bordered look */
+    border-radius: 8px; /* Optional: Add rounded corners */
+}
+@media (max-width: 767px) {
+	.modal-photo-content {
+		position: relative;
+		width: 180%;
+		max-width: 200%;
+		max-height: 200%;
+		overflow: auto;
+		margin-left: -40%;
+		background: white; /* Optional: Add a background color */
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a box shadow for a bordered look */
+		border-radius: 8px; /* Optional: Add rounded corners */
+	}
+	  
+  }
+
+.modal-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.modal-photo button {
+    position: relative;
+    bottom: 10px; /* Adjusted to be at the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+	background-color: #13277f;
+}
+
+.backOf-model{
+	width: 100%;
+	height: 5000px;
+	z-index: 99999;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	background-color: #060d179f;
+}
+
+.close-button {
+    /* Basic styling */
+	width: 100%;
+	display: flex;
+    align-items: end;
+    justify-content: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    border: none;
+    border-radius: 0px; /* Add rounded corners */
+    cursor: pointer;
+    padding: 10px 15px;
+  /* Add some spacing between buttons */
+  
+    /* Background and text colors */
+    background-color:  rgb(19, 39, 127); /* Light blue background */
+    color: #fff; /* White text */
+  
+    /* Hover effects */
+    &:hover {
+      background-color: #3b85f5; /* Darker blue on hover */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+  
   }

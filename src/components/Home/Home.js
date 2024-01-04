@@ -5,7 +5,8 @@ import RightArrow from './RightArrow';
 import { useSelector } from "react-redux";
 import { autoTypeData } from "../../Data/PersonalData";
 import Workcard from "./lastWorks";
-import Worktype from "./worktype";
+import Worktype from "./Bedrooms";
+import Doors from "./Doors"
 import photo1 from '../../Data/1st.webp';
 import photo2 from '../../Data/nn4.png';
 import photo3 from '../../Data/1st.webp';
@@ -23,6 +24,97 @@ function Home(props) {
   const uiColor = useSelector(state => state.uiColor);
   const [isMobile, setIsMobile] = useState(window.innerWidth);
   const [mainPhoto, setMainPhoto] = useState(isMobile < 800 ? '20vh' : '55vh');
+  const [bedroomsUrl, setBedroomsUrl] = useState([]);
+  const [bedroomsNames, setBedroomsNames] = useState([]);
+  const [doorsUrl, setDoorsUrl] = useState([]);
+  const [doorsNames, setDoorsNames] = useState([]);
+  
+  const [dataLoaded1, setDataLoaded1] = useState(false);
+  const [dataLoaded2, setDataLoaded2] = useState(false);
+
+
+
+
+
+
+  useEffect(() => {
+
+    //bedrooms
+    const fetchPhotos = async () => {
+      try {
+        // Replace 'YOUR_API_KEY' with your actual Google API key
+        const apiKey = 'AIzaSyDFtPXqUjoqLNfudVHyGL-IDpATIqSh4Jw';
+        const folderId = '1Bs5IIwWdsmAQfdxIJbb913WuUvKVH6ul'; // Replace with the ID of your Google Drive folder
+
+        // Fetch the list of files in the folder
+        const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`);
+        const data = await response.json();
+
+        // Extract download URLs for each image file
+        // Extract download URLs and names for each image file
+        const photos = data.files
+          .filter((file) => file.mimeType.startsWith('image/'))
+          .map((file) => ({
+            url: `https://drive.google.com/uc?id=${file.id}`,
+            name: file.name
+          }));
+
+        const photoUrls = photos.map((photo) => photo.url);
+        setBedroomsUrl(photoUrls);
+
+        // Extract names
+        const photoNames = photos.map((photo) => photo.name);
+        setBedroomsNames(photoNames);
+        setDataLoaded1(true); // Mark data as loaded
+
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
+
+  
+  useEffect(() => {
+
+    //doors
+    const fetchPhotos = async () => {
+      try {
+        // Replace 'YOUR_API_KEY' with your actual Google API key
+        const apiKey = 'AIzaSyDFtPXqUjoqLNfudVHyGL-IDpATIqSh4Jw';
+        const folderId = '1Yvg0i0i7YDl2roBMZjx7FufVBMD_93lT'; // Replace with the ID of your Google Drive folder
+
+        // Fetch the list of files in the folder
+        const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`);
+        const data = await response.json();
+
+        // Extract download URLs for each image file
+        // Extract download URLs and names for each image file
+        const photos = data.files
+          .filter((file) => file.mimeType.startsWith('image/'))
+          .map((file) => ({
+            url: `https://drive.google.com/uc?id=${file.id}`,
+            name: file.name
+          }));
+
+        const photoUrls = photos.map((photo) => photo.url);
+        setDoorsUrl(photoUrls);
+
+        // Extract names
+        const photoNames = photos.map((photo) => photo.name);
+        setDoorsNames(photoNames);
+        setDataLoaded2(true); // Mark data as loaded
+
+      } catch (error) {
+        console.error('Error fetching images:', error);
+      }
+    };
+
+    fetchPhotos();
+  }, []);
+
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -85,6 +177,7 @@ function Home(props) {
 
     return (
       <div className="photo-carousel-container">
+
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div className="left-arrow">
             <LeftArrow onClick={navigateToPrevPhoto} />
@@ -136,19 +229,21 @@ function Home(props) {
         </div>
 
 
-        <Worktype />
+        <Worktype googleDrivePhotos={bedroomsUrl} photosExplenation={bedroomsNames} />
+        <Doors  doorsUrl={doorsUrl} doorsNames={doorsNames} />
         <Workcard />
+        
       </div>
     );
   };
 
   return (
     <main>
+     {dataLoaded1 && dataLoaded2 && (
       <div className="photo-carousel-container">
         <PhotoCarousel />
       </div>
-
-      {/* Additional content */}
+      )}
     </main>
   );
 }
