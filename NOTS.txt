@@ -1,1 +1,3 @@
 -split the name of the images after the '.'
+-the eye must be constant
+ -the sofit moving must removed from the phone versıon

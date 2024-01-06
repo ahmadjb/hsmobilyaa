@@ -11,12 +11,14 @@ import photo1 from '../../Data/1st.webp';
 import photo2 from '../../Data/nn4.png';
 import photo3 from '../../Data/1st.webp';
 import photo4 from '../../Data/4th.webp';
-
 import photoo1 from '../../Data/la1.jpg';
 import photoo2 from '../../Data/la2.jpg';
 import photoo3 from '../../Data/la3.jpg';
 import photoo4 from '../../Data/la4.jpg';
 import photoo5 from '../../Data/la5.jpg';
+import LastWorksPhoto from '../../Data/lastwork.svg';
+import LastWorkToLeft from "./LastWorkToLeft"
+import LastWorkToRight from "./LastWorkToRight"
 import { Height } from "@mui/icons-material";
 
 function Home(props) {
@@ -28,7 +30,7 @@ function Home(props) {
   const [bedroomsNames, setBedroomsNames] = useState([]);
   const [doorsUrl, setDoorsUrl] = useState([]);
   const [doorsNames, setDoorsNames] = useState([]);
-  
+
   const [dataLoaded1, setDataLoaded1] = useState(false);
   const [dataLoaded2, setDataLoaded2] = useState(false);
 
@@ -75,7 +77,7 @@ function Home(props) {
     fetchPhotos();
   }, []);
 
-  
+
   useEffect(() => {
 
     //doors
@@ -227,22 +229,31 @@ function Home(props) {
             </div>
           </div>
         </div>
+        <div className="container-last-works"></div>
+        <div className="last-works" >
+          <div>
+            <img className="mira-last-work" src={LastWorksPhoto} />
+          </div>
+        </div>
 
 
+
+        <LastWorkToLeft />
+        <LastWorkToRight />
         <Worktype googleDrivePhotos={bedroomsUrl} photosExplenation={bedroomsNames} />
-        <Doors  doorsUrl={doorsUrl} doorsNames={doorsNames} />
+        <Doors doorsUrl={doorsUrl} doorsNames={doorsNames} />
         <Workcard />
-        
+
       </div>
     );
   };
 
   return (
     <main>
-     {dataLoaded1 && dataLoaded2 && (
-      <div className="photo-carousel-container">
-        <PhotoCarousel />
-      </div>
+      {dataLoaded1 && dataLoaded2 && (
+        <div className="photo-carousel-container">
+          <PhotoCarousel />
+        </div>
       )}
     </main>
   );

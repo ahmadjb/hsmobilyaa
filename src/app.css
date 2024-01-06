@@ -6,14 +6,17 @@
 	color: inherit;
 	font-family: "Barlow Condensed";
 }
+
 .App {
 	/* max-width: ; */
 	/* margin:0rem auto; */
 	/* transition:all 0.25s linear 0s; */
 }
+
 .app-content {
 	margin-top: 5rem;
 }
+
 @media (max-width: 768px) {
 	.app-content {
 		margin-top: 4rem;
@@ -29,141 +32,143 @@
 	opacity: 1;
 	transition: opacity 0.3s ease-in;
 }
+
 @keyframes renderFromLeft {
 	0% {
 		opacity: 0;
 		transform: translateX(-100%);
 	}
+
 	100% {
 		opacity: 1;
 		transform: translateX(0);
 	}
 }
+
 @keyframes renderFromRight {
 	0% {
 		opacity: 0;
 		transform: translateX(100%);
 	}
+
 	100% {
 		opacity: 1;
 		transform: translateX(0);
 	}
-	
+
 }
+
 .photo-carousel-image {
 	width: 100%;
 	height: auto;
 	border: 2px solid #ccc;
 	/* Add any additional styles you want here */
-  }
-  /* styles.css */
+}
+
+/* styles.css */
 
 .photo-slider-container {
 	text-align: center;
-	margin: 20px;
-	padding-top: 100px;
-  }
-  
-  .photo-container {
+	padding-top: 10px;
+}
+
+.photo-container {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 20px;
-  }
-  
-  .photo {
+}
+
+.photo {
 	width: 20%;
 	height: auto;
 	margin-right: 10px;
-  }
-  
-  .title {
+}
+
+.title {
 	font-size: 18px;
 	margin-bottom: 10px;
-  }
-  
-  .button-container {
+}
+
+.button-container {
 	margin-top: 10px;
-  }
-  
-  .button {
+}
+
+.button {
 	padding: 8px 16px;
 	font-size: 16px;
 	margin-right: 10px;
 	cursor: pointer;
-  }
-  
+}
+
 /*/* PhotoSlider.css */
 /* PhotoSlider.css */
 
-.photo-slider-container {
-    overflow: hidden;
-	border: 2px solid red; /* Add the border style, width, and color */
-	padding-top: 10px;
-	height: 500px;
-}
 
-.photo-slider {
-    display: flex;
-    transition: transform 2s ease; /* Add a smooth transition effect on the transform property */
-}
+
 
 .photo2 {
-    width: 20%;
-    height: auto;
-    margin-right: 10px;
-    border-radius: 10px;
-    
+	width: 20%;
+	height: auto;
+	margin-right: 10px;
+	border-radius: 10px;
+
 }
 
 .photo-slider-container-new {
-    overflow: hidden;
-	border: 2px solid gray;/* Add the border style, width, and color */
+	overflow: hidden;
+	border: 2px solid gray;
+	/* Add the border style, width, and color */
 	height: 40vh;
 	padding: 20px;
 	border-radius: 10px;
-	
-	
+
+
 }
+
 @media (max-width: 767px) {
 	.photo-slider-container-new {
 		overflow: hidden;
-		border: 2px solid gray;/* Add the border style, width, and color */
+		border: 2px solid gray;
+		/* Add the border style, width, and color */
 		height: 45vh;
 		padding: 10px;
 		border-radius: 10px;
-		
-		
+
+
 	}
-  }
+}
 
 .photo-slider-new {
-    display: flex;
-    transition: transform 2s ease; /* Add a smooth transition effect on the transform property */
+	display: flex;
+	transition: transform 2s ease;
+	/* Add a smooth transition effect on the transform property */
 	justify-content: center;
 	align-items: center;
 }
 
 .photo-new {
-    width: 90%;
-    height: auto;
+	width: 90%;
+	height: auto;
 	margin-left: 10px;
-    border-radius: 10px;
-	border: 2px solid white; /* Add the border style, width, and color */
-    align-items: last baseline;
-    justify-items: center;
-	
-    
+	border-radius: 10px;
+	border: 2px solid white;
+	/* Add the border style, width, and color */
+	align-items: last baseline;
+	justify-items: center;
+
+
 }
+
 .photo-new-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 200px;
-    margin-right: 10px;
-    border-radius: 10px;
-    /*border: 2px solid red; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 90%;
+	height: 200px;
+	margin-right: 10px;
+	border-radius: 10px;
+	/*border: 2px solid red; */
 }
 
 
@@ -173,60 +178,68 @@
 	overflow: "hidden";
 	padding-top: 6px;
 
-  }
-  
-  .photo-slider {
+}
+
+.photo-slider {
 	display: flex;
 	transition: transform 0.5s ease-in-out;
-  }
+}
 
-  
-  .photo {
+
+.photo {
 	width: 100%;
 	height: 150%;
 	margin-right: 10px;
 	/* Any additional styling for .photo */
 
-  }
-  
-  
-  
-  /* You can add more styles based on your preferences */
-  
-  
+}
 
-  
+
+
+/* You can add more styles based on your preferences */
+
+
+
+
 .cool-button {
-    /* Basic styling */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    border: none;
-    border-radius: 5px; /* Add rounded corners */
-    cursor: pointer;
-    padding: 10px 15px;
-    margin: 0 5px; /* Add some spacing between buttons */
-  
-    /* Background and text colors */
-    background-color:  rgb(19, 39, 127); /* Light blue background */
-    color: #fff; /* White text */
-  
-    /* Hover effects */
-    &:hover {
-      background-color: #3b85f5; /* Darker blue on hover */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    }
-  
-    /* Disabled state */
-    &:disabled {
-      background-color: #ddd; /* Light gray background */
-      color: #999; /* Darker gray text */
-      cursor: not-allowed;
-    }
-  }
-  
+	/* Basic styling */
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	border: none;
+	border-radius: 5px;
+	/* Add rounded corners */
+	cursor: pointer;
+	padding: 10px 15px;
+	margin: 0 5px;
+	/* Add some spacing between buttons */
+
+	/* Background and text colors */
+	background-color: rgb(19, 39, 127);
+	/* Light blue background */
+	color: #fff;
+	/* White text */
+
+	/* Hover effects */
+	&:hover {
+		background-color: #3b85f5;
+		/* Darker blue on hover */
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		/* Add a subtle shadow */
+	}
+
+	/* Disabled state */
+	&:disabled {
+		background-color: #ddd;
+		/* Light gray background */
+		color: #999;
+		/* Darker gray text */
+		cursor: not-allowed;
+	}
+}
+
 /* styles.css or styles.scss */
 
 /* styles.css or styles.scss */
@@ -235,33 +248,37 @@
 	width: 70%;
 	height: 120%;
 	border-radius: 5px;
-	overflow: hidden; /* Ensure that the image doesn't overflow its container */
-  }
-  .constant-photo {
+	overflow: hidden;
+	/* Ensure that the image doesn't overflow its container */
+}
+
+.constant-photo {
 	width: 90%;
 	height: 80%;
-	object-fit: cover; /* Maintain aspect ratio and cover the container */
+	object-fit: cover;
+	/* Maintain aspect ratio and cover the container */
 	border-radius: 18px;
 	padding: 10px;
-  }
-  
+}
 
-  @media (max-width: 767px) {
+
+@media (max-width: 767px) {
 	.constant-photo {
 		width: 85%;
 		height: 150%;
 		border-radius: 14px;
 	}
-  }
+}
 
-  .photo-container {
+.photo-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding-left: 3%;
 	padding-top: 5%;
-  }
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
 	.photo-container {
 		display: flex;
 		justify-content: center;
@@ -269,13 +286,14 @@
 		padding-left: 5%;
 		padding-right: 5%;
 		padding-top: 5%;
-	  }
-  }
-  .photo-text {
+	}
+}
+
+.photo-text {
 	margin-top: 2px;
 	text-align: center;
-  }
-  
+}
+
 /* styles.css or styles.scss */
 
 .text-style {
@@ -286,8 +304,9 @@
 	color: rgb(19, 39, 127);
 	font-size: 30px;
 	font-family: inherit;
-  }
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
 	.text-style {
 		padding-left: 10px;
 		font-weight: bold;
@@ -295,69 +314,73 @@
 		color: rgb(19, 39, 127);
 		font-size: 30px;
 		font-family: inherit;
-	  }
-  }
-  .text-style-container {
-	
+	}
+}
+
+.text-style-container {
+
 	font-weight: bold;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
-	font-Size:25px;
-	margin-Top:7px;
+	font-Size: 25px;
+	margin-Top: 7px;
 	width: 100%;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-top: -25%;
-	
-  }
-  @media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
 	.text-style-container {
 		padding-left: 5px;
 		font-weight: bolder;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
-		font-Size:10px;
-		margin-Top:7px;
+		font-Size: 10px;
+		margin-Top: 7px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		margin-top: -55%;
-		
-	  }
-  }
-  /* styles.css or styles.scss */
-  .text-style-2 {
-	
-    padding: 7px 5px;
+
+	}
+}
+
+/* styles.css or styles.scss */
+.text-style-2 {
+
+	padding: 7px 5px;
 	font-weight: bold;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
-	font-Size:25px;
-	margin-Top:0px;
+	font-Size: 25px;
+	margin-Top: 0px;
 	width: 100%;
 	background-color: white;
 	border-radius: 3px;
 	width: 70%;
 	opacity: 0.8;
-	
-  }
-  @media (max-width: 767px) {
+
+}
+
+@media (max-width: 767px) {
 	.text-style-2 {
-	
+		padding: 2px 3px;
 		font-weight: bold;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
-		font-Size:10px;
-		margin-Top:7px;
-		width: 100%;
+		font-Size: 10px;
+		margin-Top: 1%;
+		width: 90%;
 		background-color: white;
 		border-radius: 3px;
-		width: 70%;
-		
-	  }
-  }
+		width: 60%;
+
+	}
+}
 
 .logo-text {
 	padding-left: 10px;
@@ -365,131 +388,138 @@
 	margin-top: 40px;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
-  }
-  
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
 	.logo-text {
-		padding-left: 10px;
+		padding-left: 7px;
 		font-weight: bolder;
-		margin-top: 35px;
+		margin-top: 40px;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
-		font-size: 20px;
-	  }
-	  
-  }
+		font-size: 17px;
+		display:inline;
+	}
 
-  /* styles.css or styles.scss */
+}
+
+/* styles.css or styles.scss */
 
 .mira-logo {
 	width: 130px;
 	height: 65px;
 	padding-top: 20px;
 	padding-bottom: 10px;
-  }
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
 	.mira-logo {
 		width: 90px;
 		height: 45px;
 		padding-top: 20px;
 		padding-bottom: 10px;
-	  }
-	  
-  }
-  
+	}
 
-.left-arrow{
+}
+
+
+.left-arrow {
 	padding-left: 70px;
 	align-items: center;
 	display: flex;
 }
 
-.right-arrow{
+.right-arrow {
 	padding-right: 70px;
 	align-items: center;
 	display: flex;
 }
 
 @media (max-width: 767px) {
-	.left-arrow{
+	.left-arrow {
 		padding-left: 10px;
 		align-items: center;
 		display: flex;
 	}
-	
-	.right-arrow{
+
+	.right-arrow {
 		padding-right: 10px;
 		align-items: center;
 		display: flex;
 	}
-	  
-  }
 
-  .photo-new-container {
-    position: relative;
+}
+
+.photo-new-container {
+	position: relative;
 }
 
 .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    opacity: 0; /* Initially hidden */
-    transition: opacity 0.3s ease;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	opacity: 0;
+	/* Initially hidden */
+	transition: opacity 0.3s ease;
 }
 
 .photo-new-container:hover .overlay {
-    opacity: 1; /* Show the overlay on hover */
+	opacity: 1;
+	/* Show the overlay on hover */
 }
 
 .eye-icon {
-    font-size: 24px;
-    color: white;
-    cursor: pointer;
+	font-size: 24px;
+	color: white;
+	cursor: pointer;
 	margin-right: 20px;
 }
+
 .image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 999;
 }
 
 .image-modal img {
-    max-width: 90%;
-    max-height: 90%;
-    border: 2px solid white; /* Optional: Add a border around the image */
+	max-width: 90%;
+	max-height: 90%;
+	border: 2px solid white;
+	/* Optional: Add a border around the image */
 }
 
 .image-modal button {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    color: white;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: none;
+	color: white;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
 }
+
 /* Add these styles to your ModalPhoto component's CSS */
 .modal-photo {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
 }
+
 @media (max-width: 767px) {
 	.modal-photo {
 		position: fixed;
@@ -502,14 +532,18 @@
 }
 
 .modal-photo-content {
-    position: relative;
-    max-width: 150%;
-    max-height: 150%;
-    overflow: auto;
-    background: white; /* Optional: Add a background color */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a box shadow for a bordered look */
-    border-radius: 8px; /* Optional: Add rounded corners */
+	position: relative;
+	max-width: 150%;
+	max-height: 150%;
+	overflow: auto;
+	background: white;
+	/* Optional: Add a background color */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	/* Optional: Add a box shadow for a bordered look */
+	border-radius: 8px;
+	/* Optional: Add rounded corners */
 }
+
 @media (max-width: 767px) {
 	.modal-photo-content {
 		position: relative;
@@ -518,32 +552,36 @@
 		max-height: 200%;
 		overflow: auto;
 		margin-left: -40%;
-		background: white; /* Optional: Add a background color */
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: Add a box shadow for a bordered look */
-		border-radius: 8px; /* Optional: Add rounded corners */
+		background: white;
+		/* Optional: Add a background color */
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+		/* Optional: Add a box shadow for a bordered look */
+		border-radius: 8px;
+		/* Optional: Add rounded corners */
 	}
-	  
-  }
+
+}
 
 .modal-photo img {
-    width: 100%;
-    height: auto;
-    display: block;
+	width: 100%;
+	height: auto;
+	display: block;
 }
 
 .modal-photo button {
-    position: relative;
-    bottom: 10px; /* Adjusted to be at the bottom */
-    left: 50%;
-    transform: translateX(-50%);
-    background: none;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+	position: relative;
+	bottom: 10px;
+	/* Adjusted to be at the bottom */
+	left: 50%;
+	transform: translateX(-50%);
+	background: none;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
 	background-color: #13277f;
 }
 
-.backOf-model{
+.backOf-model {
 	width: 100%;
 	height: 5000px;
 	z-index: 99999;
@@ -554,27 +592,132 @@
 }
 
 .close-button {
-    /* Basic styling */
+	/* Basic styling */
 	width: 100%;
 	display: flex;
-    align-items: end;
-    justify-content: center;
-    font-family: sans-serif;
-    font-weight: bold;
-    border: none;
-    border-radius: 0px; /* Add rounded corners */
-    cursor: pointer;
-    padding: 10px 15px;
-  /* Add some spacing between buttons */
-  
-    /* Background and text colors */
-    background-color:  rgb(19, 39, 127); /* Light blue background */
-    color: #fff; /* White text */
-  
-    /* Hover effects */
-    &:hover {
-      background-color: #3b85f5; /* Darker blue on hover */
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+	align-items: end;
+	justify-content: center;
+	font-family: sans-serif;
+	font-weight: bold;
+	border: none;
+	border-radius: 0px;
+	/* Add rounded corners */
+	cursor: pointer;
+	padding: 10px 15px;
+	/* Add some spacing between buttons */
+
+	/* Background and text colors */
+	background-color: rgb(19, 39, 127);
+	/* Light blue background */
+	color: #fff;
+	/* White text */
+
+	/* Hover effects */
+	&:hover {
+		background-color: #3b85f5;
+		/* Darker blue on hover */
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+		/* Add a subtle shadow */
+	}
+
+}
+
+.container-last-works {
+	padding-top: 40px;
+}
+
+@media (max-width: 767px) {
+	.container-last-works {
+		padding-top: 70px;
+	}
+}
+
+.last-works {
+	width: 100%;
+	height: 15vh;
+	background-color: rgba(34, 20, 81, 0.284);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+
+@media (max-width: 767px) {
+
+	.last-works {
+		width: 100%;
+		height: 7vh;
+		background-color: rgba(34, 20, 81, 0.284);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 5px;
+	}
+
+	.container-last-works {
+		padding-top: 0px;
+	}
+}
+
+.mira-last-work {
+	width: 500px;
+}
+
+@media (max-width: 767px) {
+	.mira-last-work {
+		width: 200px;
+	}
+
+}
+
+.photo-slider-container {
+    overflow: hidden;
+}
+
+.photo-slider-to-left {
+    display: flex;
+    animation: moveLeftToRight 30s linear infinite; /* Adjust the duration as needed */
+}
+
+.photo-slider-to-right {
+    display: flex;
+    animation: moveRightToLeft 30s linear infinite; /* Adjust the duration as needed */
+}
+.photo-slider-to-right:hover {
+    animation-play-state: paused; /* Pause the animation when hovering over the slider */
+}
+.photo-slider-to-left:hover {
+    animation-play-state: paused; /* Pause the animation when hovering over the slider */
+}
+.photo-slider-item {
+    flex: 0 0 33.33%;
+    padding: 5px;
+}
+
+.photo-slider-item img {
+    width: 100%;
+    height: auto;
+    display: block; /* Fix for potential spacing issues */
+    border: none; /* Remove any potential borders */
+	border-radius: 5px;
+}
+
+@keyframes moveLeftToRight {
+    0% {
+        transform: translateX(0%);
     }
-  
-  }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes moveRightToLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
