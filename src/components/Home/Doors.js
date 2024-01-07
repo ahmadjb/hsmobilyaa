@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
-
+import {EyeOutlined } from '@ant-design/icons'; 
 import {RightOutlined} from '@ant-design/icons';
 import {LeftOutlined} from '@ant-design/icons'; 
 
@@ -61,7 +61,7 @@ const Workcard = (props) => {
                             />
                             <div className="overlay">
                                 <span className="eye-icon" onClick={() => openImageModal(photo)}>
-                                    👁️
+                                <EyeOutlined />
                                 </span>
                             </div>
                             <div className='photo-explenation'> {doorsNames[0][currentPhotoIndex + index + 1]}</div>

@@ -551,6 +551,17 @@
 	user-select: 'none';
 }
 
+@media (max-width: 767px) {
+	.eye-icon {
+		font-size: 24px;
+		color: white;
+		cursor: pointer;
+		margin-right: 30px;
+		user-select: 'none';
+	}
+
+}
+
 .image-modal {
 	position: fixed;
 	top: 0;

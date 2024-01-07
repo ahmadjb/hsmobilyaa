@@ -19,7 +19,7 @@ import photoo5 from '../../Data/la5.jpg';
 import LastWorksPhoto from '../../Data/lastwork.svg';
 import LastWorkToLeft from "./LastWorkToLeft"
 import LastWorkToRight from "./LastWorkToRight"
-import { Height } from "@mui/icons-material";
+import { Height, Padding, PaddingTwoTone } from "@mui/icons-material";
 
 function Home(props) {
   const nonThemeColor = useSelector(state => state.nonThemeColor);
@@ -242,6 +242,8 @@ function Home(props) {
         <LastWorkToRight />
         <Worktype googleDrivePhotos={bedroomsUrl} photosExplenation={bedroomsNames} />
         <Doors doorsUrl={doorsUrl} doorsNames={doorsNames} />
+
+        <div style={{display:'flex',justifyContent:'center',alignItems:'center',fontSize:60,paddingTop:30}}> Geliştirilmekte</div>
         <Workcard />
 
       </div>
