@@ -116,11 +116,8 @@
 }
 
 .photo-slider-container-new {
-	overflow: hidden;
-	border: 2px solid gray;
+
 	/* Add the border style, width, and color */
-	height: 40vh;
-	padding: 20px;
 	border-radius: 10px;
 
 
@@ -128,20 +125,13 @@
 
 @media (max-width: 767px) {
 	.photo-slider-container-new {
-		overflow: hidden;
-		border: 2px solid gray;
-		/* Add the border style, width, and color */
-		height: 45vh;
-		padding: 10px;
-		border-radius: 10px;
-
-
+		
 	}
 }
 
 .photo-slider-new {
 	display: flex;
-	transition: transform 2s ease;
+	transition: transform 5s ease;
 	/* Add a smooth transition effect on the transform property */
 	justify-content: center;
 	align-items: center;
@@ -150,7 +140,7 @@
 .photo-new {
 	width: 90%;
 	height: auto;
-	margin-left: 10px;
+	margin-left: 15px;
 	border-radius: 10px;
 	border: 2px solid white;
 	/* Add the border style, width, and color */
@@ -209,22 +199,25 @@
 	font-family: sans-serif;
 	font-weight: bold;
 	border: none;
-	border-radius: 5px;
+	border-radius: 500px;
 	/* Add rounded corners */
 	cursor: pointer;
-	padding: 10px 15px;
-	margin: 0 5px;
+	
+	height: 50px;
+	width: 50px;
 	/* Add some spacing between buttons */
 
 	/* Background and text colors */
-	background-color: rgb(19, 39, 127);
+	background-color: rgb(228, 228, 236);
 	/* Light blue background */
-	color: #fff;
+	color: rgb(19, 39, 127);
+	font-size:20px ;
+	border: 1px solid  rgb(19, 39, 127);
 	/* White text */
 
 	/* Hover effects */
 	&:hover {
-		background-color: #3b85f5;
+		background-color: #abc1d0;
 		/* Darker blue on hover */
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 		/* Add a subtle shadow */
@@ -300,19 +293,19 @@
 	padding-left: 10px;
 	font-weight: bold;
 	margin-top: -5px;
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 	color: rgb(19, 39, 127);
-	font-size: 30px;
+	font-size: 40px;
 	font-family: inherit;
 }
 
 @media (max-width: 767px) {
 	.text-style {
-		padding-left: 10px;
+		padding-left: 0px;
 		font-weight: bold;
 		margin-top: -5px;
 		color: rgb(19, 39, 127);
-		font-size: 30px;
+		font-size: 25px;
 		font-family: inherit;
 	}
 }
@@ -462,7 +455,9 @@
 	height: 100%;
 	display: flex;
 	justify-content: flex-end;
-	align-items: center;
+	align-items: self-start;
+	padding-top: 15px;
+	padding-left: 7px;
 	opacity: 0;
 	/* Initially hidden */
 	transition: opacity 0.3s ease;
@@ -471,6 +466,26 @@
 .photo-new-container:hover .overlay {
 	opacity: 1;
 	/* Show the overlay on hover */
+}
+@media (max-width: 767px) {
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: flex-end;
+		align-items: self-start;
+		padding-top: 10px;
+		opacity: 0;
+		/* Initially hidden */
+		transition: opacity 0.3s ease;
+	}
+	.photo-new-container .overlay {
+		opacity: 1;
+		/* Show the overlay on hover */
+	}
 }
 
 .eye-icon {
@@ -633,20 +648,37 @@
 }
 
 .last-works {
+	/* Fullscreen width and height for a seamless mirror surface */
 	width: 100%;
-	height: 15vh;
-	background-color: rgba(34, 20, 81, 0.284);
+	height: 12vh;
+  
+	/* Remove border and background color for transparency */
+	border: none;
+	background-color: transparent;
+  
+	/* Center and stretch content for optimal positioning */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border-radius: 5px;
-}
+  
+	/* Optional: Add subtle gradient overlay for depth */
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.977) 0%, rgba(68, 72, 167, 0.24) 100%);
+  
+	/* Optional: Add subtle border for visual separation */
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.611);
+  }
+  
+  /* Ensure transparency for content within the mirror element */
+  .last-works > * {
+	background-color: transparent;
+  }
+  
 
 
 @media (max-width: 767px) {
 
 	.last-works {
-		width: 100%;
+		width: 99%;
 		height: 7vh;
 		background-color: rgba(34, 20, 81, 0.284);
 		display: flex;
@@ -721,3 +753,10 @@
     }
 }
 
+.photo-explenation{
+	color:  rgb(19, 39, 127);;
+	padding-left: 5%;
+	font-size: 20px;
+	font-weight: 200;
+	font-family: 'sans-serif';
+}

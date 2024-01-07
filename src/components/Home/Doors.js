@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
 
+import {RightOutlined} from '@ant-design/icons';
+import {LeftOutlined} from '@ant-design/icons'; 
+
 const Workcard = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
     const isMobile = window.innerWidth;
@@ -35,45 +38,49 @@ const Workcard = (props) => {
     };
     
     return (
-        <div style={{ padding: 30, paddingTop: 80 }}>
-            <div className="photo-slider-container-new">
-                <div className='text-style'>
-                    Kapılar
-                </div>
-                <div className="photo-slider-new " style={{ transform: `translateX(-${currentPhotoIndex}%)` }}>
-                    {visiblePhotos.map((photo, index) => (
-                        <div className='photo-new-container' key={index}>
-                            <div>
-                                <img
-                                    className='photo-new '
-                                    src={photo}
-                                    alt={`Photo ${currentPhotoIndex + index + 1}`}
-                                />
-                                <div className="overlay">
-                                    <span className="eye-icon" onClick={() => openImageModal(photo)}>
-                                        👁️
-                                    </span>
-                                </div>
-                                {doorsNames[0][currentPhotoIndex + index + 1]}
-                            </div>
-                        </div>
-                    ))}
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 10 }}>
+        <div style={{ paddingTop: 50 }}>
+        <div className="photo-slider-container-new">
+            <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <div className='text-style'>
+                Kapılar
+            </div>
+            </div>
+            <div className="photo-slider-new " >
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,marginLeft:10}}>
                     <button className='cool-button' onClick={navigateToPrevPhoto} disabled={currentPhotoIndex === 0}>
-                        Önceki
+                        <LeftOutlined />
                     </button>
+                </div>
+                {visiblePhotos.map((photo, index) => (
+                    <div className='photo-new-container' key={index}>
+                        <div>
+                            <img
+                                className='photo-new '
+                                src={photo}
+                                alt={`Photo ${currentPhotoIndex + index + 1}`}
+                            />
+                            <div className="overlay">
+                                <span className="eye-icon" onClick={() => openImageModal(photo)}>
+                                    👁️
+                                </span>
+                            </div>
+                            <div className='photo-explenation'> {doorsNames[0][currentPhotoIndex + index + 1]}</div>
+                        </div>
+                    </div>
+                ))}
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,marginRight:10}}>
                     <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
-                        Sonraki
+                    <RightOutlined />
                     </button>
                 </div>
             </div>
 
-            {/* Use ModalPhoto component for displaying the selected image */}
-            {selectedImage && (
-                <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
-            )}
         </div>
+        {/* Use ModalPhoto component for displaying the selected image */}
+        {selectedImage && (
+            <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
+        )}
+    </div>
     );
 };
 

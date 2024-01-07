@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
+import {RightOutlined} from '@ant-design/icons';
+import {LeftOutlined} from '@ant-design/icons'; 
 import photo1 from '../../Data/md.png';
 import photo2 from '../../Data/2nd.webp';
 import photo3 from '../../Data/3rd.webp';
@@ -44,12 +46,19 @@ const Workcard = (props) => {
 
     const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
     return (
-        <div style={{ padding: 30, paddingTop: 80 }}>
+        <div style={{ paddingTop: 50 }}>
             <div className="photo-slider-container-new">
+                <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
                 <div className='text-style'>
                     Yatak Odaları
                 </div>
-                <div className="photo-slider-new " style={{ transform: `translateX(-${currentPhotoIndex}%)` }}>
+                </div>
+                <div className="photo-slider-new " >
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,marginLeft:10}}>
+                        <button className='cool-button' onClick={navigateToPrevPhoto} disabled={currentPhotoIndex === 0}>
+                            <LeftOutlined />
+                        </button>
+                    </div>
                     {visiblePhotos.map((photo, index) => (
                         <div className='photo-new-container' key={index}>
                             <div>
@@ -63,22 +72,20 @@ const Workcard = (props) => {
                                         👁️
                                     </span>
                                 </div>
-                                {bedroomsNames[0][currentPhotoIndex + index + 1]}
+                                <div className='photo-explenation'> {bedroomsNames[0][currentPhotoIndex + index + 1]}</div>
                             </div>
                         </div>
                     ))}
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,marginRight:10}}>
+                        <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
+                        <RightOutlined />
+                        </button>
+                    </div>
                 </div>
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', paddingTop: 10 }}>
-                    <button className='cool-button' onClick={navigateToPrevPhoto} disabled={currentPhotoIndex === 0}>
-                        Önceki
-                    </button>
-                    <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
-                        Sonraki
-                    </button>
-                </div>
+
             </div>
-              {/* Use ModalPhoto component for displaying the selected image */}
-              {selectedImage && (
+            {/* Use ModalPhoto component for displaying the selected image */}
+            {selectedImage && (
                 <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
             )}
         </div>
