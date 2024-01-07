@@ -149,6 +149,18 @@
 
 
 }
+@media (max-width: 767px) {
+	.photo-new {
+		width: 90%;
+		height: auto;
+		margin-left: 17px;
+		border-radius: 10px;
+		border: 2px solid white;
+		/* Add the border style, width, and color */
+		align-items: last baseline;
+		justify-items: center;
+	}
+}
 
 .photo-new-container {
 	display: flex;
@@ -230,6 +242,49 @@
 		color: #999;
 		/* Darker gray text */
 		cursor: not-allowed;
+	}
+}
+@media (max-width: 767px) {
+	.cool-button {
+		/* Basic styling */
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-family: sans-serif;
+		font-weight: bold;
+		border: none;
+		border-radius: 500px;
+		/* Add rounded corners */
+		cursor: pointer;
+		
+		height: 35px;
+		width: 35px;
+		/* Add some spacing between buttons */
+	
+		/* Background and text colors */
+		background-color: rgb(228, 228, 236);
+		/* Light blue background */
+		color: rgb(19, 39, 127);
+		font-size:20px ;
+		border: 1px solid  rgb(19, 39, 127);
+		/* White text */
+	
+		/* Hover effects */
+		&:hover {
+			background-color: #abc1d0;
+			/* Darker blue on hover */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			/* Add a subtle shadow */
+		}
+	
+		/* Disabled state */
+		&:disabled {
+			background-color: #ddd;
+			/* Light gray background */
+			color: #999;
+			/* Darker gray text */
+			cursor: not-allowed;
+		}
 	}
 }
 
@@ -493,6 +548,7 @@
 	color: white;
 	cursor: pointer;
 	margin-right: 20px;
+	user-select: 'none';
 }
 
 .image-modal {

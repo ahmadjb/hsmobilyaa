@@ -68,7 +68,7 @@ const Workcard = (props) => {
                                     alt={`Photo ${currentPhotoIndex + index + 1}`}
                                 />
                                 <div className="overlay">
-                                    <span className="eye-icon" onClick={() => openImageModal(photo)}>
+                                    <span className="eye-icon" onClick={() => openImageModal(photo)} >
                                         👁️
                                     </span>
                                 </div>
