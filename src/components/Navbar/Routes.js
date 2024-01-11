@@ -18,6 +18,9 @@ function Dropdown(props) {
             <NavLink to="/about-me" activeClassName="active">
                 <div className="navs">4th page</div>
             </NavLink>
+            <NavLink to="/admin" activeClassName="active">
+                <div className="navs">admin</div>
+            </NavLink>
         </React.Fragment>
     )
 }

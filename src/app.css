@@ -237,7 +237,7 @@
 
 	/* Disabled state */
 	&:disabled {
-		background-color: #ddd;
+		background-color: #d0a6a62d;
 		/* Light gray background */
 		color: #999;
 		/* Darker gray text */
@@ -827,3 +827,45 @@
 	font-weight: 200;
 	font-family: 'sans-serif';
 }
+
+/* Container styles */
+.center-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+  }
+  
+  /* Section styles */
+  .form-section {
+	margin-top: 20px;
+	text-align: center;
+  }
+  
+  /* Input and button styles */
+  .input-field {
+	margin-top: 10px;
+	padding: 8px;
+	font-size: 16px;
+	width: 200px; /* Adjust width as needed */
+  }
+  
+  .file-input {
+	margin-top: 10px;
+  }
+  
+  .action-button {
+	margin-top: 10px;
+	padding: 10px;
+	font-size: 16px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	cursor: pointer;
+  }
+  
+  .action-button[disabled] {
+	background-color: #ccc;
+	cursor: not-allowed;
+  }

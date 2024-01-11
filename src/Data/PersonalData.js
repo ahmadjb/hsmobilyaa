@@ -1,7 +1,7 @@
 const PersonalData = {
     firstName: "Ahmad",
     lastName: "Cbeili",
-    nickName:"<  killer - abhi >",
+    nickName:"< A-C >",
     mobNo:"+905530173042",
     email:"ahmad119966.aa@gmail.com",
     address:"tu",

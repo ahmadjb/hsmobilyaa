@@ -11,6 +11,7 @@ import Education from './components/Education/Education';
 import Certifications from "./components/Certifications/Certifications";
 import Projects from "./components/Projects/Project";
 import AboutMe from "./components/About Me/AboutMe";
+import Admin from './components/Admin/Admin';
 
 import { useSelector } from "react-redux";
 
@@ -46,9 +47,13 @@ const App=()=> {
                             <Route path="/projects">
                                 <Projects />
                             </Route>
+                            <Route path="/admin">
+                                <Admin />
+                            </Route>
                             <Route path="*">
                                 <Redirect to="/home" />
                             </Route>
+                           
                             {/* <ProgrammingSkills /> */}
                         </Switch>
                     </CSSTransition>

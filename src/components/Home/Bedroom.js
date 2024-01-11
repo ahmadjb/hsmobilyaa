@@ -11,20 +11,12 @@ const Workcard = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
     const isMobile = window.innerWidth;
 
-    const [bedrooms, setBedrooms] = useState(props.googleDrivePhotos);
-    const [bedroomsNames, setBedroomsNames] = useState([props.photosExplenation]);
+    const [bedrooms, setBedrooms] = useState(props.bedrooms);
+    const [selectedImage, setSelectedImage] = useState(null);
     
 
-    const [selectedImage, setSelectedImage] = useState(null);
-
-
-
-
-    console.log("eeeeeeeee");
-    console.log(bedroomsNames);
-    const photos = bedrooms;
-
-    const maxIndex = photos.length - 5;
+   
+    const maxIndex = bedrooms.length - 5;
 
     const navigateToNextPhoto = () => {
         if (currentPhotoIndex < maxIndex) {
@@ -46,7 +38,8 @@ const Workcard = (props) => {
         setSelectedImage(null);
     };
 
-    const visiblePhotos = photos.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
+    const visiblePhotos = bedrooms.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
+    
     return (
         <div style={{ paddingTop: 50 }}>
             <div className="photo-slider-container-new">
@@ -61,21 +54,17 @@ const Workcard = (props) => {
                             <LeftOutlined />
                         </button>
                     </div>
-                    {visiblePhotos.map((photo, index) => (
+                    {visiblePhotos.map((item, index) => (
                         <div className='photo-new-container' key={index}>
-                            <div>
-                                <img
-                                    className='photo-new '
-                                    src={photo}
-                                    alt={`Photo ${currentPhotoIndex + index + 1}`}
-                                />
-                                <div className="overlay">
-                                    <span className="eye-icon" onClick={() => openImageModal(photo)} >
+
+                            {item.imgUrl && <img className='photo-new ' src={item.imgUrl} alt={item.txtval} />}
+                            <div className="overlay">
+                                <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
                                     <EyeOutlined />
-                                    </span>
-                                </div>
-                                <div className='photo-explenation'> {bedroomsNames[0][currentPhotoIndex + index + 1]}</div>
+                                </span>
                             </div>
+                            <div className='photo-explenation'> {item.txtval}</div>
+
                         </div>
                     ))}
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' ,marginRight:10}}>

@@ -1,3 +1,9 @@
+
+import { imgDB, txtDB } from '../Admin/firebaseConfig'; 
+import { v4 } from 'uuid';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getDocs, addDoc, collection } from 'firebase/firestore';
+
 import React, { useEffect, useState } from "react";
 import Typewriter from 'typewriter-effect/dist/core';
 import LeftArrow from './LeftArrow';
@@ -5,7 +11,7 @@ import RightArrow from './RightArrow';
 import { useSelector } from "react-redux";
 import { autoTypeData } from "../../Data/PersonalData";
 import Workcard from "./lastWorks";
-import Worktype from "./Bedrooms";
+import Bedrooms from "./Bedroom";
 import Doors from "./Doors"
 import photo1 from '../../Data/1st.webp';
 import photo2 from '../../Data/nn4.png';
@@ -17,8 +23,8 @@ import photoo3 from '../../Data/la3.jpg';
 import photoo4 from '../../Data/la4.jpg';
 import photoo5 from '../../Data/la5.jpg';
 import LastWorksPhoto from '../../Data/lastwork.svg';
-import LastWorkToLeft from "./LastWorkToLeft"
-import LastWorkToRight from "./LastWorkToRight"
+import LastWorkToLeft from "./LastWorkToLeftt";
+import LastWorkToRight from "./LastWorkToRight";
 import { Height, Padding, PaddingTwoTone } from "@mui/icons-material";
 
 function Home(props) {
@@ -31,90 +37,44 @@ function Home(props) {
   const [doorsUrl, setDoorsUrl] = useState([]);
   const [doorsNames, setDoorsNames] = useState([]);
 
-  const [dataLoaded1, setDataLoaded1] = useState(false);
-  const [dataLoaded2, setDataLoaded2] = useState(false);
+  const [dataLoaded1, setDataLoaded1] = useState(true);
+  const [dataLoaded2, setDataLoaded2] = useState(true);
+
+  
+  const [doors, setDoors] = useState([]);
+  
+  const [bedrooms, setBedrooms] = useState([]);
 
 
+  const getDataDoors = async () => {
+    const valRef = collection(txtDB, 'doors');
+    const dataDB = await getDocs(valRef);
+    const alldata = dataDB.docs.map(val=>({...val.data(),id:val.id}));
+    setDoors(alldata);
+        
+  
+}
 
+const getDataBedRooms = async () => {
+  const valRef = collection(txtDB, 'bedrooms');
+  const dataDB = await getDocs(valRef);
+  const alldata = dataDB.docs.map(val=>({...val.data(),id:val.id}));
+  setBedrooms(alldata);
+      
 
+}
 
+useEffect(() => {
+  getDataBedRooms();
+},[]);
 
-  useEffect(() => {
+useEffect(() => {
+  getDataDoors();
+},[]);
+console.log("data");
+console.log(doors);
+  
 
-    //bedrooms
-    const fetchPhotos = async () => {
-      try {
-        // Replace 'YOUR_API_KEY' with your actual Google API key
-        const apiKey = 'AIzaSyDFtPXqUjoqLNfudVHyGL-IDpATIqSh4Jw';
-        const folderId = '1Bs5IIwWdsmAQfdxIJbb913WuUvKVH6ul'; // Replace with the ID of your Google Drive folder
-
-        // Fetch the list of files in the folder
-        const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`);
-        const data = await response.json();
-
-        // Extract download URLs for each image file
-        // Extract download URLs and names for each image file
-        const photos = data.files
-          .filter((file) => file.mimeType.startsWith('image/'))
-          .map((file) => ({
-            url: `https://drive.google.com/uc?id=${file.id}`,
-            name: file.name
-          }));
-
-        const photoUrls = photos.map((photo) => photo.url);
-        setBedroomsUrl(photoUrls);
-
-        // Extract names
-        const photoNames = photos.map((photo) => photo.name);
-        setBedroomsNames(photoNames);
-        setDataLoaded1(true); // Mark data as loaded
-
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    };
-
-    fetchPhotos();
-  }, []);
-
-
-  useEffect(() => {
-
-    //doors
-    const fetchPhotos = async () => {
-      try {
-        // Replace 'YOUR_API_KEY' with your actual Google API key
-        const apiKey = 'AIzaSyDFtPXqUjoqLNfudVHyGL-IDpATIqSh4Jw';
-        const folderId = '1Yvg0i0i7YDl2roBMZjx7FufVBMD_93lT'; // Replace with the ID of your Google Drive folder
-
-        // Fetch the list of files in the folder
-        const response = await fetch(`https://www.googleapis.com/drive/v3/files?q='${folderId}'+in+parents&key=${apiKey}`);
-        const data = await response.json();
-
-        // Extract download URLs for each image file
-        // Extract download URLs and names for each image file
-        const photos = data.files
-          .filter((file) => file.mimeType.startsWith('image/'))
-          .map((file) => ({
-            url: `https://drive.google.com/uc?id=${file.id}`,
-            name: file.name
-          }));
-
-        const photoUrls = photos.map((photo) => photo.url);
-        setDoorsUrl(photoUrls);
-
-        // Extract names
-        const photoNames = photos.map((photo) => photo.name);
-        setDoorsNames(photoNames);
-        setDataLoaded2(true); // Mark data as loaded
-
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    };
-
-    fetchPhotos();
-  }, []);
 
 
 
@@ -240,8 +200,8 @@ function Home(props) {
 
         <LastWorkToLeft />
         <LastWorkToRight />
-        <Worktype googleDrivePhotos={bedroomsUrl} photosExplenation={bedroomsNames} />
-        <Doors doorsUrl={doorsUrl} doorsNames={doorsNames} />
+        <Bedrooms bedrooms={bedrooms} />
+        <Doors doors={doors} />
 
         <div style={{display:'flex',justifyContent:'center',alignItems:'center',fontSize:60,paddingTop:30}}> Geliştirilmekte</div>
         <Workcard />
