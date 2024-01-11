@@ -11,7 +11,7 @@ const Workcard = (props) => {
     const [doors, setDoors] = useState(props?.doors);
     const [selectedImage, setSelectedImage] = useState(null);
 
-    
+
     const maxIndex = doors?.length - 5;
 
     const navigateToNextPhoto = () => {
@@ -70,17 +70,26 @@ const Workcard = (props) => {
                     ))}*/}
 
                     {visiblePhotos.map((item, index) => (
-                        <div className='photo-new-container' key={index}>
 
-                            {item.imgUrl && <img className='photo-new ' src={item.imgUrl} alt={item.txtval} />}
-                            <div className="overlay">
-                                <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
-                                    <EyeOutlined />
-                                </span>
+                        <div className='photo-new-container' key={index}>
+                            <div className='card-container'>
+                                {item.imgUrl && <img className='photo-new ' src={item.imgUrl} alt={item.txtval} />}
+
+                                <div className="overlay">
+
+                                    <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
+                                        <EyeOutlined />
+                                    </span>
+                                </div>
+                                
+                                <div style={{backgroundColor:'',width:'100%',paddingLeft:20}}>
+                                    <div className='photo-explenation'> {item.txtval}</div>
+                                </div>
                             </div>
-                            <div className='photo-explenation'> {item.txtval}</div>
+                           
 
                         </div>
+
                     ))}
 
 

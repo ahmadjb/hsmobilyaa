@@ -138,9 +138,8 @@
 }
 
 .photo-new {
-	width: 90%;
-	height: auto;
-	margin-left: 15px;
+	max-width: 90%;
+	max-height: 70%;
 	border-radius: 10px;
 	border: 2px solid white;
 	/* Add the border style, width, and color */
@@ -149,11 +148,22 @@
 
 
 }
+.card-container{
+background-color: rgba(18, 7, 53, 0.144);
+width: 100%;
+height: 80%;
+border-radius: 10px;
+justify-content: center;
+align-items: center;
+display: flex; 
+flex-direction: column;
+margin-left: 5px;
+}
+
 @media (max-width: 767px) {
 	.photo-new {
 		width: 90%;
 		height: auto;
-		margin-left: 17px;
 		border-radius: 10px;
 		border: 2px solid white;
 		/* Add the border style, width, and color */
@@ -163,11 +173,11 @@
 }
 
 .photo-new-container {
-	display: flex;
+	
 	align-items: center;
 	justify-content: center;
 	width: 90%;
-	height: 200px;
+	height: 300px;
 	margin-right: 10px;
 	border-radius: 10px;
 	/*border: 2px solid red; */
@@ -215,8 +225,10 @@
 	/* Add rounded corners */
 	cursor: pointer;
 	
-	height: 50px;
-	width: 50px;
+	height: 40px;
+	width: 40px;
+	margin-top: -150%;
+	
 	/* Add some spacing between buttons */
 
 	/* Background and text colors */
@@ -512,7 +524,7 @@
 	justify-content: flex-end;
 	align-items: self-start;
 	padding-top: 15px;
-	padding-left: 7px;
+	
 	opacity: 0;
 	/* Initially hidden */
 	transition: opacity 0.3s ease;
@@ -822,7 +834,7 @@
 
 .photo-explenation{
 	color:  rgb(19, 39, 127);;
-	padding-left: 5%;
+	padding-left: 10%;
 	font-size: 20px;
 	font-weight: 200;
 	font-family: 'sans-serif';
