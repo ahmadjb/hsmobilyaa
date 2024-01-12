@@ -141,7 +141,7 @@
 	max-width: 90%;
 	max-height: 70%;
 	border-radius: 10px;
-	border: 2px solid white;
+	border: 1px solid white;
 	/* Add the border style, width, and color */
 	align-items: last baseline;
 	justify-items: center;
@@ -149,7 +149,7 @@
 
 }
 .card-container{
-background-color: rgba(18, 7, 53, 0.144);
+background-color: rgba(19, 10, 50, 0.144);
 width: 100%;
 height: 80%;
 border-radius: 10px;
@@ -165,7 +165,7 @@ margin-left: 5px;
 		width: 90%;
 		height: auto;
 		border-radius: 10px;
-		border: 2px solid white;
+		border: 1px solid white;
 		/* Add the border style, width, and color */
 		align-items: last baseline;
 		justify-items: center;
@@ -309,16 +309,14 @@ margin-left: 5px;
 	height: 120%;
 	border-radius: 5px;
 	overflow: hidden;
-	/* Ensure that the image doesn't overflow its container */
 }
 
 .constant-photo {
-	width: 90%;
+	width: 85%;
 	height: 80%;
 	object-fit: cover;
-	/* Maintain aspect ratio and cover the container */
 	border-radius: 18px;
-	padding: 10px;
+	box-shadow: 12px 9px 9px rgba(31, 31, 31, 0.592);
 }
 
 
@@ -327,6 +325,7 @@ margin-left: 5px;
 		width: 85%;
 		height: 150%;
 		border-radius: 14px;
+	box-shadow: 6px 5px 9px rgba(31, 31, 31, 0.592);
 	}
 }
 
@@ -376,6 +375,24 @@ margin-left: 5px;
 		font-family: inherit;
 	}
 }
+.text-style-3 {
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-size: 22px;
+	font-family: inherit;
+}
+
+@media (max-width: 767px) {
+	.text-style-3 {
+		font-weight: bold;
+		color: rgb(19, 39, 127);
+		font-size: 15px;
+		font-family: inherit;
+		padding: 10px;
+	}
+}
+
+
 
 .text-style-container {
 
@@ -383,28 +400,27 @@ margin-left: 5px;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
 	font-Size: 25px;
-	margin-Top: 7px;
 	width: 100%;
 	border-radius: 10px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-top: -25%;
+	margin-left: -7.5%;
 
 }
 
 @media (max-width: 767px) {
 	.text-style-container {
-		padding-left: 5px;
 		font-weight: bolder;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
 		font-Size: 10px;
-		margin-Top: 7px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-top: -55%;
+		margin-top: -37%;
+		
 
 	}
 }
@@ -432,8 +448,8 @@ margin-left: 5px;
 		font-weight: bold;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
-		font-Size: 10px;
-		margin-Top: 1%;
+		font-Size: 7px;
+		margin-Top: 4px;
 		width: 90%;
 		background-color: white;
 		border-radius: 3px;
@@ -445,7 +461,7 @@ margin-left: 5px;
 .logo-text {
 	padding-left: 10px;
 	font-weight: bolder;
-	margin-top: 40px;
+	margin-top: 25px;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
 }
@@ -454,7 +470,7 @@ margin-left: 5px;
 	.logo-text {
 		padding-left: 7px;
 		font-weight: bolder;
-		margin-top: 40px;
+		margin-top: 25px;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
 		font-size: 17px;
@@ -466,17 +482,17 @@ margin-left: 5px;
 /* styles.css or styles.scss */
 
 .mira-logo {
-	width: 130px;
-	height: 65px;
-	padding-top: 20px;
-	padding-bottom: 10px;
+	width: 15%;
+	height: auto;
+	padding-top: 5px;
+	padding-bottom: 15px;
 }
 
 @media (max-width: 767px) {
 	.mira-logo {
-		width: 90px;
-		height: 45px;
-		padding-top: 20px;
+		width: 20%;
+		height: auto;
+		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 
@@ -726,6 +742,7 @@ margin-left: 5px;
 	}
 }
 
+
 .last-works {
 	/* Fullscreen width and height for a seamless mirror surface */
 	width: 100%;
@@ -749,6 +766,31 @@ margin-left: 5px;
   
   /* Ensure transparency for content within the mirror element */
   .last-works > * {
+	background-color: transparent;
+  }
+
+  .main-page-top-menu{
+
+  /* Fullscreen width and height for a seamless mirror surface */
+	width: 100%;
+	height: 7vh;
+  
+	/* Remove border and background color for transparency */
+	border: none;
+	background-color: transparent;
+  
+	/* Center and stretch content for optimal positioning */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  
+	/* Optional: Add subtle gradient overlay for depth */
+	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.977) 0%, rgba(68, 72, 167, 0.24) 100%);
+  
+	/* Optional: Add subtle border for visual separation */
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.611);
+  }
+  .main-page-top-menu > * {
 	background-color: transparent;
   }
   
@@ -881,3 +923,19 @@ margin-left: 5px;
 	background-color: #ccc;
 	cursor: not-allowed;
   }
+.page-of-images{
+	max-height: 200px;
+	max-width: 400px;
+}
+
+.main-contianer{
+
+	padding-left: 10%;
+	padding-right: 10%;
+}
+@media (max-width: 767px) {
+	.main-contianer{
+
+	}
+
+}

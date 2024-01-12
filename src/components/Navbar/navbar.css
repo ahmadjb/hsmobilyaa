@@ -27,6 +27,8 @@
 	margin-left: auto;
 	flex-wrap: wrap;
 	margin-right: 1rem;
+	margin-top: -7%;
+	padding-left: 5%;
 }
 .navsContainer a{
 	text-decoration: none;
@@ -38,6 +40,7 @@
 	padding: 0.5rem 1rem 0.5rem 1rem;
 	/* margin-left: 1rem; */
 	font-size: 1.5rem;
+	color: rgb(19, 39, 127);;
 }
 .active {
 	/* margin-left: 1rem; */
@@ -174,6 +177,7 @@
 		/* margin-left: 1rem; */
 		/* margin-right: 0rem; */
 		--burger-menu-radius: 3em;
+		margin-top: -30%;
 		position: relative;
 		/* top: 5vh;
 		left: 5vw; */
@@ -187,7 +191,7 @@
 	}
 	.burger-menu .line {
 		position: absolute;
-		left: 25%;
+		left: 40%;
 		width: 50%;
 		height: 3px;
 		background: #13277f;

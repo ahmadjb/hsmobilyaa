@@ -1,8 +1,10 @@
 
-import { imgDB, txtDB } from '../Admin/firebaseConfig'; 
+import { imgDB, txtDB } from '../Admin/firebaseConfig';
 import { v4 } from 'uuid';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, addDoc, collection } from 'firebase/firestore';
+import { Link } from 'react-router-dom';
+
 
 import React, { useEffect, useState } from "react";
 import Typewriter from 'typewriter-effect/dist/core';
@@ -40,40 +42,40 @@ function Home(props) {
   const [dataLoaded1, setDataLoaded1] = useState(true);
   const [dataLoaded2, setDataLoaded2] = useState(true);
 
-  
+
   const [doors, setDoors] = useState([]);
-  
+
   const [bedrooms, setBedrooms] = useState([]);
 
 
   const getDataDoors = async () => {
     const valRef = collection(txtDB, 'doors');
     const dataDB = await getDocs(valRef);
-    const alldata = dataDB.docs.map(val=>({...val.data(),id:val.id}));
+    const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setDoors(alldata);
-        
-  
-}
 
-const getDataBedRooms = async () => {
-  const valRef = collection(txtDB, 'bedrooms');
-  const dataDB = await getDocs(valRef);
-  const alldata = dataDB.docs.map(val=>({...val.data(),id:val.id}));
-  setBedrooms(alldata);
-      
 
-}
+  }
 
-useEffect(() => {
-  getDataBedRooms();
-},[]);
+  const getDataBedRooms = async () => {
+    const valRef = collection(txtDB, 'bedrooms');
+    const dataDB = await getDocs(valRef);
+    const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
+    setBedrooms(alldata);
 
-useEffect(() => {
-  getDataDoors();
-},[]);
-console.log("data");
-console.log(doors);
-  
+
+  }
+
+  useEffect(() => {
+    getDataBedRooms();
+  }, []);
+
+  useEffect(() => {
+    getDataDoors();
+  }, []);
+  //console.log("data");
+  //console.log(doors);
+
 
 
 
@@ -139,6 +141,21 @@ console.log(doors);
 
     return (
       <div className="photo-carousel-container">
+        <div className='main-page-top-menu'>
+          <div style={{ width: 800 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
+              <div className='text-style-3'>Yatak odaları</div>
+              <div className='text-style-3'>Vestiyer</div>
+              <div className='text-style-3'>Koltuk</div>
+              <div className='text-style-3'>Kapı</div>
+            </div>
+
+          </div>
+
+
+        </div>
+        <div style={{ paddingTop: 20 }}></div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <div className="left-arrow">
@@ -158,34 +175,34 @@ console.log(doors);
           </div>
         </div>
         <div className="photo-container">
-          <div className="col-12 col-md-4" >
+          <div>
             <img src={photoo1} alt="Image 1" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2">text2</div>
+              <div className="text-style-2">Mutfak</div>
             </div>
           </div>
-          <div className="col-12 col-md-4">
+          <div>
             <img src={photoo2} alt="Image 2" className="constant-photo" />
             <div className="photo-text text-style-container">
-              <div className="text-style-2">text3</div>
+              <div className="text-style-2">Yatak odaları</div>
             </div>
           </div>
-          <div className="col-12 col-md-4">
+          <div>
             <img src={photoo3} alt="Image 3" className="constant-photo" />
             <div className="photo-text text-style-container">
-              <div className="text-style-2">text3</div>
+              <div className="text-style-2">Vestiyer</div>
             </div>
           </div>
-          <div className="col-12 col-md-4">
+          <div >
             <img src={photoo1} alt="Image 4" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2">text4</div>
+              <div className="text-style-2">Koltuk</div>
             </div>
           </div>
-          <div className="col-12 col-md-4">
+          <div >
             <img src={photoo5} alt="Image 5" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2">text5</div>
+              <div className="text-style-2">Kapı</div>
             </div>
           </div>
         </div>
@@ -203,7 +220,7 @@ console.log(doors);
         <Bedrooms bedrooms={bedrooms} />
         <Doors doors={doors} />
 
-        <div style={{display:'flex',justifyContent:'center',alignItems:'center',fontSize:60,paddingTop:30}}> Geliştirilmekte</div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
         <Workcard />
 
       </div>

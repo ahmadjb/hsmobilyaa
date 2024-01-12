@@ -1,9 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-
 import HSlogo from "../../Data/newlogo.png";
-
+import { Link } from 'react-router-dom';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import './navbar.css';
@@ -21,7 +20,7 @@ const Navbar = () => {
     const menuRef = useRef();
     const dispatch = useDispatch();
     const activeNavRoute = useLocation();
-    
+
     const nonThemeColor = useSelector(state => state.nonThemeColor);
     const changeColor = (newColor) => {
         dispatch(themeActions.changeThemeColor(newColor));
@@ -60,14 +59,14 @@ const Navbar = () => {
         setIsDropDownVisible((prevState) => !prevState);
     }
 
-    
-    let systemTheme='light';
+
+    let systemTheme = 'light';
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        systemTheme='dark';
+        systemTheme = 'dark';
     }
 
     useEffect(() => {
-        if (systemTheme==='dark') {
+        if (systemTheme === 'dark') {
             handleModeChange();
         }
     }, [systemTheme]);
@@ -80,10 +79,11 @@ const Navbar = () => {
     return (
         <div className="main">
             <div className="navbar" style={{ backgroundColor: bgColor }}>
-                <div className="logoContainer">
-                <img src={HSlogo} alt="degree" className="mira-logo" />
-                <div className="logo-text"> MİRA DEKOR</div>
-                </div>
+                
+                    <Link to="/home" className="logoContainer" style={{ textDecoration: 'none' }}>
+                        <img src={HSlogo} alt="degree" className="mira-logo" />
+                        <div className="logo-text"> MİRA DEKOR</div>
+                    </Link>
                 <div className="navsContainer" style={{ color: nonThemeColor }}>
                     <Routes />
                 </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
                         <div id="darkModeBtn" style={{ display: "none" }}><DarkModeIcon /></div>
                     </div>*/}
 
-                   { /*<div className="colorSelector" onClick={handleColorSelector} style={{ backgroundColor: activeColor }}>
+                    { /*<div className="colorSelector" onClick={handleColorSelector} style={{ backgroundColor: activeColor }}>
                         {
                             isColorModalShown && <ColorModal selectColor={changeColor} onConfirm={handleColorSelector} />
                         }

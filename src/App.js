@@ -12,11 +12,14 @@ import Certifications from "./components/Certifications/Certifications";
 import Projects from "./components/Projects/Project";
 import AboutMe from "./components/About Me/AboutMe";
 import Admin from './components/Admin/Admin';
+import DoorPage from './components/Top menu/DoorPage';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 import { useSelector } from "react-redux";
 
-const App=()=> {
-    const location=useLocation();
+const App = () => {
+    const location = useLocation();
     const theme = useSelector(state => state.theme);
     return (
         <div className="App" style={theme}>
@@ -50,10 +53,13 @@ const App=()=> {
                             <Route path="/admin">
                                 <Admin />
                             </Route>
+                            <Route path="/doorPage">
+                                <DoorPage />
+                            </Route>
                             <Route path="*">
                                 <Redirect to="/home" />
                             </Route>
-                           
+
                             {/* <ProgrammingSkills /> */}
                         </Switch>
                     </CSSTransition>
