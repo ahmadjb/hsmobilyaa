@@ -4,17 +4,18 @@
 	justify-content: center;
 }
 .navbar {
-	height: 5rem;
+	height: 7rem;
 	display: flex;
 	position: fixed;
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
 	z-index: 1000;
+	height: 14%;
 }
-.logoContainer {
-	margin-right: auto;
-	margin-left: 5%;
+.logoContainer  {
+	padding-left: 20;
+	width: 30%;
 	font-size: 2rem;
 	display: flex;
 }
@@ -26,9 +27,8 @@
 	gap: 1rem;
 	margin-left: auto;
 	flex-wrap: wrap;
-	margin-right: 1rem;
-	margin-top: -7%;
-	padding-left: 5%;
+	margin-top: 1.7%;
+	padding-left: 12%;
 }
 .navsContainer a{
 	text-decoration: none;
@@ -108,9 +108,10 @@
 }
 @media (max-width: 768px) {
 	.navbar {
-		height: 4rem;
+		height: 6rem;
 	}
 	.logoContainer {
+		width: 50%;
 		margin-left: 1rem;
 		font-size: 1.5rem;
 	}
@@ -270,3 +271,7 @@
 		opacity: 1;
 	}
 }
+
+/**{
+	border: 1px solid red;
+}*/

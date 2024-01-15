@@ -141,6 +141,7 @@ function Home(props) {
 
     return (
       <div className="photo-carousel-container">
+      <div style={{paddingTop:25}}></div>
         <div className='main-page-top-menu'>
           <div style={{ width: 800 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

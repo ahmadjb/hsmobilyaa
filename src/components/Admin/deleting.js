@@ -62,7 +62,7 @@ const Deleting = () => {
                 <div className='text-style-3 red-text' style={{ color: 'red' }}> İlgili öğeyi silmek için lütfen sil düğmesine tıklayınız:</div>
                 <div className='items-container'>
                     {loading ? (
-                        <p className='loading-message'>Loading...</p>
+                        <p className='loading-message'>Yükleniyor...</p>
                     ) : (
                         data.map((item,index) => (
                            

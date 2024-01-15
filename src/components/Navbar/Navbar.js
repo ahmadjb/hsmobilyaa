@@ -77,15 +77,17 @@ const Navbar = () => {
     }, [activeNavRoute])
 
     return (
-        <div className="main">
+        <div className="main" >
             <div className="navbar" style={{ backgroundColor: bgColor }}>
-                
-                    <Link to="/home" className="logoContainer" style={{ textDecoration: 'none' }}>
+                <div className="row " style={{paddingLeft:'5%',marginTop:0}}>
+
+                    <Link to="/home" className="logoContainer col-md-4 mb-6" style={{ textDecoration: 'none', backgroundColor: '' }}>
                         <img src={HSlogo} alt="degree" className="mira-logo" />
                         <div className="logo-text"> MİRA DEKOR</div>
                     </Link>
-                <div className="navsContainer" style={{ color: nonThemeColor }}>
-                    <Routes />
+                    <div className="navsContainer col-md-8 mb-6 " style={{ color: nonThemeColor }}>
+                        <Routes />
+                    </div>
                 </div>
                 <div className="selectTheme">
                     {/*<div className="selectMode" onClick={handleModeChange}>

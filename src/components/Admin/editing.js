@@ -1,0 +1,179 @@
+// Editing.js
+import React, { useState, useEffect } from 'react';
+import { imgDB, txtDB } from './firebaseConfig';
+import { collection, updateDoc, doc, getDoc, getDocs } from 'firebase/firestore';
+import { v4 } from 'uuid';
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+
+const Editing = () => {
+
+    const [data, setData] = useState([]);
+    const [txtDoors, setTxtDoors] = useState("");
+    const [imgDoors, setImgDoors] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [editingId, setEditingId] = useState(""); // Set the desired ID
+
+    const fetchData = async () => {
+        setLoading(true);
+
+        try {
+            const valRef = collection(txtDB, 'doors'); // Change 'doors' to your collection name
+            const dataDB = await getDocs(valRef);
+            const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
+            setData(alldata);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            // Handle the error as needed
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const handleUpload = async (e, setImage) => {
+        const imgs = ref(imgDB, `Imgs/${v4()}`);
+
+        setLoading(true);
+
+        try {
+            const snapshot = await uploadBytes(imgs, e.target.files[0]);
+            const url = await getDownloadURL(snapshot.ref);
+            setImage(url);
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            // Handle the error as needed
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        // Fetch the existing data for editing when editingId changes
+        const fetchDataForEditing = async () => {
+            setLoading(true);
+            try {
+                if (editingId) {
+                    const valRef = doc(collection(txtDB, 'doors'), editingId);
+                    const docSnap = await getDoc(valRef);
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        setTxtDoors(data.txtval);
+                        setImgDoors(data.imgUrl);
+                    }
+                }
+            } catch (error) {
+                console.error("Error fetching data for editing:", error);
+                // Handle the error as needed
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchDataForEditing();
+    }, [editingId]);
+
+
+    const handleUpdate = async (id) => {
+        setLoading(true);
+    
+        try {
+            if (id) {
+                const valRef = collection(txtDB, 'doors');
+                const updateData = {};
+    
+                if (txtDoors !== "") {
+                    updateData.txtval = txtDoors;
+                }
+    
+                if (imgDoors !== "") {
+                    updateData.imgUrl = imgDoors;
+                }
+    
+                await updateDoc(doc(valRef, id), updateData);
+    
+                // Update local state after successful update
+                setData((prevData) => {
+                    const updatedData = prevData.map(item => {
+                        if (item.id === id) {
+                            return {
+                                ...item,
+                                txtval: updateData.txtval || item.txtval,
+                                imgUrl: updateData.imgUrl || item.imgUrl,
+                            };
+                        }
+                        return item;
+                    });
+                    return updatedData;
+                });
+    
+                alert(`Data with ID ${id} updated successfully in 'doors' collection`);
+                setEditingId(""); // Reset the editing state
+            }
+        } catch (error) {
+            console.error("Error updating data:", error);
+            // Handle the error as needed
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+
+    console.log(txtDoors);
+    console.log(imgDoors);
+    return (
+
+
+        <div className='text-style-3 delete-container'>
+            kapıları düzenleme sayfası
+            <div className='text-style-2 inner-container'>
+
+                <div className='text-style-3 red-text' style={{ color: '#dca534' }}>Gerekli verileri doldurun ve ardından ilgili öğe için düzenle butona tıklayın</div>
+                <div className='items-container'>
+                    {loading ? (
+                        <p className='loading-message'>Yükleniyor...</p>
+                    ) : (
+                        data.map((item, index) => (
+
+                            <div className={`row mb-4${index !== data.length - 1 ? ' separator-line' : ''}`} key={item.id}>
+                                {/* For medium and larger screens, use Bootstrap's grid system */}
+                                <div className="col-md-4 mb-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '' }}>
+                                    <img className="item-image" src={item.imgUrl} />
+                                </div>
+                                <div className="col-md-8 mb-4" style={{ backgroundColor: '' }}>
+                                    <div className="text-style-3 item-text " style={{ backgroundColor: '' }}>
+                                        {item.txtval}
+                                    </div>
+                                    <div className="delete-button-container row">
+                                        <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
+                                            <input
+                                                className="input-field"
+                                                onChange={(e) => setTxtDoors(e.target.value)}
+                                            />
+                                        </div>
+                                        <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
+                                            <input className="file-input" style={{fontSize:20}} type='file' onChange={(e) => handleUpload(e, setImgDoors)} />
+                                        </div>
+                                        <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
+                                            <button
+                                                className="action-button edit-button"
+                                                onClick={() => handleUpdate(item.id)}
+                                                disabled={loading}
+                                            >Düzenle
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))
+                    )}
+                </div>
+            </div>
+
+        </div>
+    );
+};
+
+export default Editing;
+
