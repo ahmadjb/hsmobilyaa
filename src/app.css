@@ -439,6 +439,7 @@ margin-left: 5px;
 	border-radius: 3px;
 	width: 70%;
 	opacity: 0.8;
+	
 
 }
 
@@ -1120,3 +1121,99 @@ margin-left: 5px;
     border-bottom: 1px solid #ccc; /* Adjust the color and thickness as needed */
     padding-bottom: 10px; /* Optional: Add some spacing between rows */
 }
+
+.admin-text-1{
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-size: 42px;
+	font-family: inherit;
+}
+.admin-text-2{
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-family: inherit;
+	font-Size: 25px;
+	border-radius: 3px;
+}
+
+@media (max-width: 767px) {
+	.admin-text-1{
+		font-weight: bold;
+		color: rgb(19, 39, 127);
+		font-size: 22px;
+		font-family: inherit;
+	}
+	.admin-text-2{
+		font-weight: bold;
+		color: rgb(19, 39, 127);
+		font-family: inherit;
+		font-Size: 15px;
+		border-radius: 3px;
+	}
+	.mob-button{
+		padding-bottom: 10px;
+	}
+}
+/* Add these styles to your global CSS or in a style sheet */
+.mob-button{
+	padding-bottom: 0px;
+}
+
+
+.action-button {
+	display: block;
+	width: 100%;
+	padding: 10px;
+	text-align: center;
+	cursor: pointer;
+	transition: background-color 0.3s ease, color 0.3s ease;
+	padding-left: 40px;
+	padding-right: 40px;
+	border-radius: 7px;
+	height: 100%;
+	font-size: 20px;
+	font-weight: 400;
+
+  }
+  @media (max-width: 767px) {
+	.mob-button{
+		padding-bottom: 10px;
+	}
+	.action-button {
+		display: block;
+		width: 100%;
+		padding: 10px;
+		text-align: center;
+		cursor: pointer;
+		transition: background-color 0.3s ease, color 0.3s ease;
+		padding-left: 40px;
+		padding-right: 40px;
+		border-radius: 7px;
+		height: 90%;
+		font-size: 20px;
+		font-weight: 400;
+	
+	  }
+}
+  
+  .adding-button {
+	background-color: #4caf50; /* Green color */
+	color: #fff; /* White text */
+  }
+  
+  .deleting-button {
+	background-color: #Dc3545; /* Red color */
+	color: #fff; /* White text */
+  }
+  
+  .editing-button {
+	background-color: #dca534; /* Blue color */
+	color: #fff; /* White text */
+  }
+  
+  /* Hover effect */
+  .action-button:hover {
+	background-color: #555; /* Dark background on hover */
+	color: #fff; /* White text on hover */
+  }
+  

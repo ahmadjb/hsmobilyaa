@@ -26,6 +26,7 @@ const imgDB = getStorage(app);
 const txtDB = getFirestore(app);
 
 export {imgDB,txtDB};
+export { app };
 
 
 

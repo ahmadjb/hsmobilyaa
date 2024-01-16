@@ -83,21 +83,6 @@ const Adding = () => {
     }, []);
 
 
-    const handleDelete = async (id, collectionName) => {
-        setLoading(true);
-      
-        try {
-          const valRef = collection(txtDB, collectionName);
-          await deleteDoc(doc(valRef, id));
-          alert(`Data with ID ${id} deleted successfully from ${collectionName} collection`);
-          getData(); // Refresh the data after deletion
-        } catch (error) {
-          console.error(`Error deleting data from ${collectionName} collection:`, error);
-          // Handle the error as needed
-        } finally {
-          setLoading(false);
-        }
-      };
     
         return (
         <div className="center-container">
@@ -109,8 +94,7 @@ const Adding = () => {
                 <input className="file-input" type='file' onChange={(e) => handleUpload(e, setImgDoors)} /><br />
                 <button className="action-button" onClick={handleClick} disabled={loading}>Add</button>
                 </div>
-                <button className="action-button" onClick={() => handleDelete("6BYUpBmxxOEO0cX47rVb", 'doors')} disabled={loading}>Delete</button>
-            </div>
+             </div>
 
             <div className="form-section">
                 <div className='text-style'>yatak odaları</div>

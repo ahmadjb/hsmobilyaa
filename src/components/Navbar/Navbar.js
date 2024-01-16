@@ -78,8 +78,8 @@ const Navbar = () => {
 
     return (
         <div className="main" >
-            <div className="navbar" style={{ backgroundColor: bgColor }}>
-                <div className="row " style={{paddingLeft:'5%',marginTop:0}}>
+            <div className="navbar" style={{ backgroundColor: bgColor}}>
+                <div className="row " style={{paddingLeft:'5%',marginTop:0,backgroundColor:''}}>
 
                     <Link to="/home" className="logoContainer col-md-4 mb-6" style={{ textDecoration: 'none', backgroundColor: '' }}>
                         <img src={HSlogo} alt="degree" className="mira-logo" />
