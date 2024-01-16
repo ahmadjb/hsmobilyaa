@@ -4,6 +4,7 @@ import { v4 } from 'uuid';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, addDoc, collection } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
+import WhatsAppIcon from '../WhatsApp/whatsApp';
 
 
 import React, { useEffect, useState } from "react";
@@ -150,6 +151,8 @@ function Home(props) {
               <div className='text-style-3'>Vestiyer</div>
               <div className='text-style-3'>Koltuk</div>
               <div className='text-style-3'>Kapı</div>
+              <div>
+              <WhatsAppIcon phoneNumber="+905530173042" /></div>
             </div>
 
           </div>
