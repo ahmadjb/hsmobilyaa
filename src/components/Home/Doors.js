@@ -37,7 +37,7 @@ const Workcard = (props) => {
     };
 
     return (
-        <div style={{ paddingTop: 50 }}>
+        <div style={{ paddingTop: 20 }}>
             <div className="photo-slider-container-new">
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div className='text-style'>

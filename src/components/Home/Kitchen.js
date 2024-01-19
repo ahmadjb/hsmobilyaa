@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
+import { EyeOutlined } from '@ant-design/icons';
 import { RightOutlined } from '@ant-design/icons';
 import { LeftOutlined } from '@ant-design/icons';
-import { EyeOutlined } from '@ant-design/icons';
-import photo1 from '../../Data/md.png';
-import photo2 from '../../Data/2nd.webp';
-import photo3 from '../../Data/3rd.webp';
-import photo4 from '../../Data/4th.webp';
-const Workcard = (props) => {
+
+const Kitchen = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
     const isMobile = window.innerWidth;
 
-    const [bedrooms, setBedrooms] = useState(props.bedrooms);
+    const [kitchen, setKitchen] = useState(props?.kitchen);
     const [selectedImage, setSelectedImage] = useState(null);
 
 
-
-    const maxIndex = bedrooms.length - 5;
+    const maxIndex = kitchen?.length - 5;
 
     const navigateToNextPhoto = () => {
         if (currentPhotoIndex < maxIndex) {
@@ -30,6 +26,8 @@ const Workcard = (props) => {
         }
     };
 
+    const visiblePhotos = kitchen?.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
+
     const openImageModal = (imageUrl) => {
         setSelectedImage(imageUrl);
     };
@@ -38,14 +36,12 @@ const Workcard = (props) => {
         setSelectedImage(null);
     };
 
-    const visiblePhotos = bedrooms.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
-
     return (
         <div style={{ paddingTop: 20 }}>
             <div className="photo-slider-container-new">
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div className='text-style'>
-                        Yatak Odaları
+                        Mutfaklar
                     </div>
                 </div>
                 <div className="photo-slider-new " >
@@ -54,6 +50,25 @@ const Workcard = (props) => {
                             <LeftOutlined />
                         </button>
                     </div>
+                    {/* {doors.map((photo, index) => (
+                        <div className='photo-new-container' key={index}>
+                            <div>
+                                <img
+                                    className='photo-new '
+                                    src={photo}
+                                    alt={`Photo ${currentPhotoIndex + index + 1}`}
+                                />
+
+                                <div className="overlay">
+                                    <span className="eye-icon" onClick={() => openImageModal(photo)}>
+                                        <EyeOutlined />
+                                    </span>
+                                </div>
+                                <div className='photo-explenation'> {doorsNames[0][currentPhotoIndex + index + 1]}</div>
+                            </div>
+                        </div>
+                    ))}*/}
+
                     {visiblePhotos.map((item, index) => (
 
                         <div className='photo-new-container' key={index}>
@@ -66,16 +81,18 @@ const Workcard = (props) => {
                                         <EyeOutlined />
                                     </span>
                                 </div>
-
-                                <div style={{ backgroundColor: '', width: '100%', paddingLeft: 20 }}>
+                                
+                                <div style={{backgroundColor:'',width:'100%',paddingLeft:20}}>
                                     <div className='photo-explenation'> {item.txtval}</div>
                                 </div>
                             </div>
-
+                           
 
                         </div>
 
                     ))}
+
+
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: 10 }}>
                         <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
                             <RightOutlined />
@@ -88,9 +105,12 @@ const Workcard = (props) => {
             {selectedImage && (
                 <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
             )}
+
+            <div>
+
+            </div>
         </div>
     );
-
 };
 
-export default Workcard;
+export default Kitchen;

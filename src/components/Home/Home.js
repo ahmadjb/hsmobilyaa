@@ -15,6 +15,7 @@ import { useSelector } from "react-redux";
 import { autoTypeData } from "../../Data/PersonalData";
 import Workcard from "./lastWorks";
 import Bedrooms from "./Bedroom";
+import Kitchen from './Kitchen';
 import Doors from "./Doors"
 import photo1 from '../../Data/1st.webp';
 import photo2 from '../../Data/nn4.png';
@@ -45,8 +46,8 @@ function Home(props) {
 
 
   const [doors, setDoors] = useState([]);
-
   const [bedrooms, setBedrooms] = useState([]);
+  const [kitchens, setKitchens] = useState([]);
 
 
   const getDataDoors = async () => {
@@ -67,15 +68,24 @@ function Home(props) {
 
   }
 
-  useEffect(() => {
-    getDataBedRooms();
-  }, []);
+  const getDataKitchen = async () => {
+    const valRef = collection(txtDB, 'kitchen');
+    const dataDB = await getDocs(valRef);
+    const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
+    setKitchens(alldata);
+
+
+  }
 
   useEffect(() => {
+    getDataKitchen();
+    getDataBedRooms();
     getDataDoors();
   }, []);
-  //console.log("data");
-  //console.log(doors);
+
+ 
+  console.log("data");
+  console.log(kitchens);
 
 
 
@@ -221,8 +231,11 @@ function Home(props) {
 
         <LastWorkToLeft />
         <LastWorkToRight />
+
+        <Kitchen kitchen={kitchens} />
         <Bedrooms bedrooms={bedrooms} />
-        <Doors doors={doors} />
+        <Doors doors={doors} /> 
+        
 
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
         <Workcard />
