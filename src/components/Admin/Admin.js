@@ -81,7 +81,7 @@ const Admin = () => {
                         <Editing />
                     )}
                     {adminPhoto && (
-                        <div> <img  style={{marginTop:'-15%'}} src={EditPhoto} alt="Image 1" /></div>
+                        <div> <img  style={{marginTop:'-15%'}} src={EditPhoto} alt="Image 1" className='admin-photo' /></div>
                     )}
 
                 </>
