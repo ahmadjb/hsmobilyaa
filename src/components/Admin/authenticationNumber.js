@@ -10,7 +10,7 @@ import { signInWithPhoneNumber } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { Toaster } from 'react-hot-toast';
-import {auth} from './firebaseConfig' 
+import { auth } from './firebaseConfig'
 
 
 
@@ -25,35 +25,35 @@ const App = ({ sendDataToParent }) => {
 
     const handleClick = () => {
         // Call the function passed from the parent
-        if(ph=="905530173042" || ph==""){
+        if (ph == "905530173042" || ph == "") {
             toast.success("Doğru, lütfen şifrenizi giriniz");
             setShowOPT(true);
         }
-        else{
+        else {
             toast.error("Bu telefon numarası yöneticiye ait değil, tekrar deneyin lütfen!!");
         }
-       
+
     };
 
     const verifyPassword = () => {
         // Call the function passed from the parent
-        if(password=="123456"){
+        if (password == "123456") {
             setShowOPT(false);
             setLogin(false);
             sendDataToParent(login);
-            
+
 
         }
-        else{
+        else {
             toast.error("Şifre yanlış, lütfen tekrar deneyin");
 
         }
-      
+
     };
 
 
 
-{/*const onSignup = async () => {
+    {/*const onSignup = async () => {
     try {
         setLoading(true);
         console.log("Auth Object:", auth);
@@ -72,78 +72,83 @@ const App = ({ sendDataToParent }) => {
     }
 };
 */}
-      
 
-      
-   
-return (
-    <section className="bg-emerald-500 flex items-center justify-center h-screen admin-contaner">
-        <div>
 
-            <Toaster toastOptions={{ duration: 4000 }} />
-            {
-                showOPT ?
 
-                    <div className="container">
-                        <h1 className="heading">
-                        Mira'nın yönetici sayfasına<br /> hoş geldiniz
-                        </h1>
 
-                        <div className="lockIcon">
-                            <BsFillShieldLockFill size={30} />
+    return (
+        <section className=" flex items-center justify-center h-screen ">
+            <div>
+                <Toaster toastOptions={{ duration: 4000 }} />
+                {
+                    showOPT ?
+
+                        <div className="container">
+                            <h1 className="heading">
+                                Mira'nın yönetici sayfasına<br /> hoş geldiniz
+                            </h1>
+
+                            <div className="lockIcon">
+                                <BsFillShieldLockFill size={30} />
+                            </div>
+
+                            <label htmlFor="otp" className="label">
+                                Şifrenizi giriniz
+                            </label>
+
+                            <div className="" >
+                                <OtbInput
+                                    value={password}
+                                    onChange={setPassword}
+                                    OTPLength={6}
+                                    otpTypr="phoneNumber"
+                                    disabled={false}
+                                    autoFocus
+                                    className="otbInput"
+                                ></OtbInput>
+                            </div>
+
+                            <button onClick={verifyPassword} className="verifyButton">
+                                {loading && <CgSpinner size={30} className="spinner animate-spin" />}
+                                <span>Şifreyi doğrula</span>
+                            </button>
+                            <div>
+                                Note: you can enter from "1-6" as a password to see the admin page, then you can do any test you want, there is no problem. </div>
                         </div>
+                        :
+                        <div className="container">
+                            <h1 className="heading">
+                                Mira'nın yönetici sayfasına<br /> hoş geldiniz
+                            </h1>
 
-                        <label htmlFor="otp" className="label">
-                            Şifrenizi giriniz
-                        </label>
+                            <div className="lockIcon">
+                                <BsTelephoneFill size={30} />
+                            </div>
 
-                        <div className="" >
-                            <OtbInput
-                                value={password}
-                                onChange={setPassword}
-                                OTPLength={6}
-                                otpTypr="phoneNumber"
-                                disabled={false}
-                                autoFocus
-                                className="otbInput"
-                            ></OtbInput>
+                            <label htmlFor="" className="label">
+                                Telefon numaranızı giriniz
+                            </label>
+
+                            <PhoneInput
+                                country={"in"}
+                                value={ph}
+                                onChange={setPh} />
+
+                            <button onClick={handleClick} className="verifyButton">
+                                {loading && <CgSpinner size={30} className="spinner animate-spin" />}
+                                <span>Numaramı doğrula</span>
+                            </button>
+                            <div>
+                                Note: you can click on the button of "Numaramı doğrula" without entering any number to pass this step(temporary).
+                            </div>
                         </div>
+                }
 
-                        <button  onClick={verifyPassword} className="verifyButton">
-                            {loading && <CgSpinner size={30} className="spinner animate-spin" />}
-                            <span>Şifreyi doğrula</span>
-                        </button>
-                    </div>
-                    :
-                    <div className="container">
-                        <h1 className="heading">
-                        Mira'nın yönetici sayfasına<br /> hoş geldiniz
-                        </h1>
+            </div>
 
-                        <div className="lockIcon">
-                            <BsTelephoneFill size={30} />
-                        </div>
 
-                        <label htmlFor="" className="label">
-                        Telefon numaranızı giriniz
-                        </label>
-
-                        <PhoneInput
-                            country={"in"}
-                            value={ph}
-                            onChange={setPh} />
-
-                        <button onClick={handleClick} className="verifyButton">
-                            {loading && <CgSpinner size={30} className="spinner animate-spin" />}
-                            <span>Numaramı doğrula</span>
-                        </button>
-                    </div>
-            }
-           
-        </div>
-
-    </section>
-);
-    };
+        </section>
+    );
+};
 
 export default App;

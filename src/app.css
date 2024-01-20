@@ -1258,9 +1258,7 @@ section {
   
   .otbInput {
 	width: 100%;
-	padding: 0.5rem;
 	font-size: 1rem;
-	border: 1px solid #4f4f4f; /* Dark gray border */
 	border-radius: 0.25rem;
 	outline: none;
 	box-sizing: border-box;
@@ -1304,9 +1302,21 @@ section {
   }
 
   .admin-contaner{
-	
+	width: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	padding-bottom: 30%;
   }
+  @media (max-width: 767px) {
+	.admin-contaner{
+		width: 90%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 30%;
+	  }
+}
 
   .admin-photo{
 	width: 100%;
@@ -1314,6 +1324,6 @@ section {
   .admin-arrow{
 	cursor: pointer;
 	display: flex;
-		
+
   }
  

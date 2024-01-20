@@ -46,7 +46,7 @@ const Admin = () => {
             <div style={{ paddingTop: 40 }}></div>
 
             {!openAdminPage ? (
-                <div style={{ padding: "7%" }}>
+                <div className='admin-contaner'>
                     <AuthenticationNumber sendDataToParent={handleChildData} />
                 </div>
             ) : (
