@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
 import { RightOutlined } from '@ant-design/icons';
 import { LeftOutlined } from '@ant-design/icons';
@@ -58,17 +59,31 @@ const Workcard = (props) => {
 
                         <div className='photo-new-container' key={index}>
                             <div className='card-container'>
-                                {item.imgUrl && <img className='photo-new ' src={item.imgUrl} alt={item.txtval} />}
 
-                                <div className="overlay">
-
-                                    <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
-                                        <EyeOutlined />
-                                    </span>
+                                <div className='centered' style={{ height: '80%', backgroundColor: '' }}>
+                                    {item.imgUrl && <img className='photo-new ' src={item.imgUrl} alt={item.txtval} />}
                                 </div>
 
-                                <div style={{ backgroundColor: '', width: '100%', paddingLeft: 20 }}>
-                                    <div className='photo-explenation'> {item.txtval}</div>
+                                <div style={{ backgroundColor: '', width: '100%', height: '20%' }}>
+                                    <div className='row'>
+                                        <div className='col-md-8 col-8' style={{ wordWrap: 'break-word', paddingLeft: 20 }}>
+                                            <div className='photo-explenation'> {item.txtval}</div>
+                                        </div>
+                                        <div className='col-md-4 col-4' style={{ backgroundColor: '' }}>
+                                            <div className='centered'>
+                                                <div>
+                                                    <div className="overlay">
+                                                        <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
+                                                            <EyeOutlined />
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div style={{ zIndex: 9 }}>
+                                                    <WhatsAppIcon phoneNumber="+905530173042" imageUrl={item.imgUrl} text={item.txtval} />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

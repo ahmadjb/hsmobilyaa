@@ -151,7 +151,7 @@
 .card-container{
 background-color: rgba(48, 34, 124, 0.144);
 width: 100%;
-height: 80%;
+height: 90%;
 border-radius: 10px;
 justify-content: center;
 align-items: center;
@@ -173,11 +173,10 @@ margin-left: 5px;
 }
 
 .photo-new-container {
-	
 	align-items: center;
 	justify-content: center;
 	width: 90%;
-	height: 300px;
+	height: 45vh;
 	margin-right: 10px;
 	border-radius: 10px;
 	/*border: 2px solid red; */
@@ -575,7 +574,7 @@ margin-left: 5px;
 
 .eye-icon {
 	font-size: 24px;
-	color: white;
+	color: rgba(18, 22, 131, 0.748);
 	cursor: pointer;
 	margin-right: 20px;
 	user-select: 'none';
@@ -584,7 +583,7 @@ margin-left: 5px;
 @media (max-width: 767px) {
 	.eye-icon {
 		font-size: 24px;
-		color: white;
+		color: rgba(18, 22, 131, 0.748);
 		cursor: pointer;
 		margin-right: 30px;
 		user-select: 'none';
@@ -1325,5 +1324,42 @@ section {
 	cursor: pointer;
 	display: flex;
 
+  }/* ScrollButtons.css */
+
+.scroll-buttons-container {
+	position: fixed;
+	top: 80%; /* Adjust this value to position it according to your needs */
+	left: 20px;
+	display: flex;
+	flex-direction: column;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+	z-index: 9999;
   }
- 
+  @media (max-width: 767px) {
+	.scroll-buttons-container {
+		position: fixed;
+		top: 87%; /* Adjust this value to position it according to your needs */
+		left: 20px;
+		display: flex;
+		flex-direction: column;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		z-index: 9999;
+	  }
+}
+  
+  .scroll-buttons-container.visible {
+	opacity: 1;
+  }
+  
+  .scroll-button {
+	margin-bottom: 10px;
+	background-color: rgb(19, 39, 127);;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	cursor: pointer;
+  }
+  

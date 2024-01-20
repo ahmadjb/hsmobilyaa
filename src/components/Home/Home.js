@@ -5,6 +5,8 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, addDoc, collection } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import WhatsAppIcon from '../WhatsApp/whatsApp';
+import ScrollButtons from './ScrollButtons';
+
 
 
 import React, { useEffect, useState } from "react";
@@ -84,8 +86,7 @@ function Home(props) {
   }, []);
 
  
-  console.log("data");
-  console.log(kitchens);
+  
 
 
 
@@ -249,6 +250,8 @@ function Home(props) {
       {dataLoaded1 && dataLoaded2 && (
         <div className="photo-carousel-container">
           <PhotoCarousel />
+          <ScrollButtons />
+         
         </div>
       )}
     </main>
