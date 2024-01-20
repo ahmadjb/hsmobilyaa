@@ -1,17 +1,19 @@
 // Editing.js
 import React, { useState, useEffect } from 'react';
-import { imgDB, txtDB } from './firebaseConfig';
+import { imgDB, txtDB } from '../firebaseConfig';
 import { collection, updateDoc, doc, getDoc, getDocs } from 'firebase/firestore';
 import { v4 } from 'uuid';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { CaretRightFilled, CaretDownFilled } from '@ant-design/icons';
 
-const Editing = () => {
+const EditingDoors = () => {
 
     const [data, setData] = useState([]);
     const [txtDoors, setTxtDoors] = useState("");
     const [imgDoors, setImgDoors] = useState("");
     const [loading, setLoading] = useState(false);
     const [editingId, setEditingId] = useState(""); // Set the desired ID
+    const [openMenu, setOpenMenu] = useState(false); // Set the desired ID
 
     const fetchData = async () => {
         setLoading(true);
@@ -118,14 +120,30 @@ const Editing = () => {
         }
     };
     
-
-    console.log(txtDoors);
-    console.log(imgDoors);
+    const openmenuToSowPage = () => {
+        setOpenMenu(prevOpenMenu => !prevOpenMenu);
+    };
+   
     return (
 
 
-        <div className='text-style-3 delete-container'>
-            kapıları düzenleme sayfası
+        <div className='text-admin-1'  style={{paddingTop:30}}>
+          
+            <div onClick={openmenuToSowPage} className='row admin-arrow'>
+                <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
+                kapıları düzenleme sayfası
+                </div>
+                <div className='col-md-4 col-3'>
+                    {openMenu ? (
+
+                        <CaretDownFilled style={{ marginTop: 10 }} />
+                    ) : (
+                        <CaretRightFilled style={{ marginTop: 10 }} />
+                    )}
+                </div>
+            </div>
+
+            {openMenu ? (
             <div className='text-style-2 inner-container'>
 
                 <div className='text-style-3 red-text' style={{ color: '#dca534' }}>Gerekli verileri doldurun ve ardından ilgili öğe için düzenle butona tıklayın</div>
@@ -170,10 +188,10 @@ const Editing = () => {
                     )}
                 </div>
             </div>
-
+            ) : ""}
         </div>
     );
 };
 
-export default Editing;
+export default EditingDoors;
 

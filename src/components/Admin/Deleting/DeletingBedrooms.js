@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { txtDB } from './firebaseConfig';
+import { txtDB } from '../firebaseConfig';
 import { collection, getDocs, deleteDoc, doc } from 'firebase/firestore';
 import { EyeOutlined } from '@ant-design/icons';
+import { CaretRightFilled, CaretDownFilled } from '@ant-design/icons';
 
-import ModalPhoto from '../Home/ModalPhoto'; // Make sure the path is correct
+import ModalPhoto from '../../Home/ModalPhoto';// Make sure the path is correct
 
-const Deleting = () => {
+const DeletingKitchen = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
+    
+    const [openMenu, setOpenMenu] = useState(false); // Set the desired ID
 
     const openImageModal = (imageUrl) => {
         setSelectedImage(imageUrl);
@@ -22,7 +25,7 @@ const Deleting = () => {
         setLoading(true);
 
         try {
-            const valRef = collection(txtDB, 'doors'); // Change 'doors' to your collection name
+            const valRef = collection(txtDB, 'bedrooms'); // Change 'doors' to your collection name
             const dataDB = await getDocs(valRef);
             const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
             setData(alldata);
@@ -42,7 +45,7 @@ const Deleting = () => {
         setLoading(true);
 
         try {
-            const valRef = collection(txtDB, 'doors'); // Change 'doors' to your collection name
+            const valRef = collection(txtDB, 'bedrooms'); // Change 'doors' to your collection name
             await deleteDoc(doc(valRef, id));
             alert(`Data with ID ${id} deleted successfully from 'doors' collection`);
             fetchData(); // Refresh the data after deletion
@@ -53,10 +56,27 @@ const Deleting = () => {
             setLoading(false);
         }
     };
+    const openmenuToSowPage = () => {
+        setOpenMenu(prevOpenMenu => !prevOpenMenu);
+    };
+
 
     return (
-        <div className='text-style-3 delete-container'>
-            Kapılar Silme Sayfası
+        <div className='text-admin-1 ' style={{paddingTop:30}}>
+           
+            <div onClick={openmenuToSowPage} className='row admin-arrow'>
+                <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
+                Yatak Odaları Silme Sayfası
+                </div>
+                <div className='col-md-4 col-3'>
+                    {openMenu ? (
+                        <CaretDownFilled style={{ marginTop: 10 }} />
+                    ) : (
+                        <CaretRightFilled style={{ marginTop: 10 }} />
+                    )}
+                </div>
+            </div>
+            {openMenu ? (
             <div className='text-style-2 inner-container'>
 
                 <div className='text-style-3 red-text' style={{ color: 'red' }}> İlgili öğeyi silmek için lütfen sil düğmesine tıklayınız:</div>
@@ -80,7 +100,7 @@ const Deleting = () => {
                                             </span>
                                         </div>
                                         <button className="delete-button" onClick={() => handleDelete(item.id)} disabled={loading}>
-                                            Delete
+                                            Sil
                                         </button>
                                     </div>
                                 </div>
@@ -90,11 +110,13 @@ const Deleting = () => {
                     )}
                 </div>
             </div>
+            ) : ""}
             {selectedImage && (
                 <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
             )}
+            
         </div>
     );
 };
 
-export default Deleting;
+export default DeletingKitchen;

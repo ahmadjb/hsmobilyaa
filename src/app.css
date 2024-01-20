@@ -981,6 +981,8 @@ margin-left: 5px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 	font-size: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
   }
   
   .delete-button:hover {
@@ -1309,3 +1311,9 @@ section {
   .admin-photo{
 	width: 100%;
   }
+  .admin-arrow{
+	cursor: pointer;
+	display: flex;
+		
+  }
+ 

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AuthenticationNumber from './authenticationNumber';
-import Adding from './adding';
-import Deleting from './deleting';
-import Editing from './editing';
+import Adding from './addingPage';
+import Deleting from './deletingPage';
+import Editing from './editingPage';
 import EditPhoto from '../../Data/editPhoto.png';
 
 const Admin = () => {
