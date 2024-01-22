@@ -11,7 +11,7 @@ const WhatsAppIcon = ({ phoneNumber }) => {
             <img
                 src={whatsAppPhoto} // Replace with the path to your WhatsApp icon image
                 alt="WhatsApp"
-                width="50" // Adjust the size as needed
+                width="65" // Adjust the size as needed
                
             />
         </a>

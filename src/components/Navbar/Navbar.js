@@ -5,6 +5,11 @@ import HSlogo from "../../Data/newlogo.png";
 import { Link } from 'react-router-dom';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import useMediaQuery from '@mui/material/useMediaQuery';  // Import the useMediaQuery hook from Material-UI
+
+
+
+import WhatsAppIcon from '../WhatsApp/whatsApp';
 import './navbar.css';
 
 import { themeActions } from "../../store/theme";
@@ -16,6 +21,9 @@ import PersonalData from "../../Data/PersonalData";
 import { Height } from "@mui/icons-material";
 
 const Navbar = () => {
+
+    const isMobile = useMediaQuery('(max-width: 800px)');  // Use the useMediaQuery hook to check the screen size
+
 
     const menuRef = useRef();
     const dispatch = useDispatch();
@@ -32,6 +40,7 @@ const Navbar = () => {
 
     // const [mode, setMode] = useState("light");
     const [isDropDownVisible, setIsDropDownVisible] = useState(false);
+    const [iswhatsapp, setIswhatsapp] = useState(false);
     const [isColorModalShown, setColorModalShown] = useState(false);
 
 
@@ -74,25 +83,37 @@ const Navbar = () => {
     useEffect(() => {
         handleDropDown();
         menuRef.current.checked = false;
-    setIsDropDownVisible(false);
+        setIsDropDownVisible(false);
+        
+
+
     }, [activeNavRoute])
 
     const handleLogoClick = () => {
-    // Only navigate if not on a mobile device
-    setIsDropDownVisible(true);
-};
+        // Only navigate if not on a mobile device
+        setIsDropDownVisible(true);
+    };
 
     return (
         <div className="main" >
-            <div className="navbar" style={{ backgroundColor: bgColor}}>
-                <div className="row " style={{paddingLeft:'5%',marginTop:0,backgroundColor:''}}>
+            <div className="navbar" style={{ backgroundColor: bgColor }}>
+                <div className="row " style={{ paddingLeft: '2%', marginTop: 0, backgroundColor: '' }}>
 
-                    <Link to="/home"  onClick={handleLogoClick} className="logoContainer col-md-4 col-8" style={{ textDecoration: 'none', backgroundColor: '' }}>
+                    <Link to="/home" onClick={handleLogoClick} className="logoContainer col-md-3 col-8" style={{ textDecoration: 'none', backgroundColor: '' }}>
                         <img src={HSlogo} alt="degree" className="mira-logo" />
                         <div className="logo-text"> MİRA DEKOR</div>
                     </Link>
-                    <div className="navsContainer col-md-8 col-4 " style={{ color: nonThemeColor }}>
+                    <div className="navsContainer col-md-7 col-4 " style={{ color: nonThemeColor, backgroundColor: '' }}>
                         <Routes />
+                    </div>
+                    <div className="col-md-2 centered" style={{ backgroundColor: '' }}>
+
+                    {!isMobile && (
+                            <div>
+                                <WhatsAppIcon phoneNumber="+905530173042" />
+                            </div>
+                        )}
+                        
                     </div>
                 </div>
                 <div className="selectTheme">
@@ -117,6 +138,9 @@ const Navbar = () => {
             </div>
             {isDropDownVisible && <div className="mob-nav" style={{ color: nonThemeColor }}>
                 <Routes />
+                {isMobile && <div>
+                    <WhatsAppIcon phoneNumber="+905530173042" />
+                </div>}
             </div>}
         </div>
     )

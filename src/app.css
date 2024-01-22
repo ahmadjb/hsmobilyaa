@@ -461,7 +461,8 @@ margin-left: 5px;
 .logo-text {
 	padding-left: 10px;
 	font-weight: bolder;
-	margin-top: 28px;
+	font-size: 40px;
+	margin-top: 20px;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
 }
@@ -482,8 +483,8 @@ margin-left: 5px;
 /* styles.css or styles.scss */
 
 .mira-logo {
-	width: 30%;
-	padding-top: 15px;
+	width: 40%;
+	padding-top: 0px;
 	padding-bottom: 15px;
 	padding-left: 1%;
 }
@@ -911,7 +912,10 @@ margin-left: 5px;
 	padding-left: 10%;
 	font-size: 20px;
 	font-weight: 200;
-	font-family: 'sans-serif';
+	font-family: inherit;
+	font-weight: bold;
+
+
 }
 
 /* Container styles */

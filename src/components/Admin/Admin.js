@@ -43,7 +43,7 @@ const Admin = () => {
 
     return (
         <div className="center-container">
-            <div style={{ paddingTop: 40 }}></div>
+            <div style={{ paddingTop: 100 }}></div>
 
             {!openAdminPage ? (
                 <div className='admin-contaner'>

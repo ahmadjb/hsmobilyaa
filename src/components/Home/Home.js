@@ -162,8 +162,7 @@ function Home(props) {
               <div className='text-style-3'>Vestiyer</div>
               <div className='text-style-3'>Koltuk</div>
               <div className='text-style-3'>Kapı</div>
-              <div>
-                <WhatsAppIcon phoneNumber="+905530173042" /></div>
+              
             </div>
 
           </div>
