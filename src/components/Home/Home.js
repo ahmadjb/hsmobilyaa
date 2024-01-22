@@ -85,8 +85,8 @@ function Home(props) {
     getDataDoors();
   }, []);
 
- 
-  
+
+
 
 
 
@@ -153,17 +153,17 @@ function Home(props) {
 
     return (
       <div className="photo-carousel-container">
-      <div style={{paddingTop:25}}></div>
+        <div style={{ paddingTop: 25 }}></div>
         <div className='main-page-top-menu'>
           <div style={{ width: 800 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
+              <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
               <div className='text-style-3'>Yatak odaları</div>
               <div className='text-style-3'>Vestiyer</div>
               <div className='text-style-3'>Koltuk</div>
               <div className='text-style-3'>Kapı</div>
               <div>
-              <WhatsAppIcon phoneNumber="+905530173042" /></div>
+                <WhatsAppIcon phoneNumber="+905530173042" /></div>
             </div>
 
           </div>
@@ -235,8 +235,8 @@ function Home(props) {
 
         <Kitchen kitchen={kitchens} />
         <Bedrooms bedrooms={bedrooms} />
-        <Doors doors={doors} /> 
-        
+        <Doors doors={doors} />
+
 
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
         <Workcard />
@@ -251,7 +251,7 @@ function Home(props) {
         <div className="photo-carousel-container">
           <PhotoCarousel />
           <ScrollButtons />
-         
+
         </div>
       )}
     </main>

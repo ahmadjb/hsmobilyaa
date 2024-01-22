@@ -14,7 +14,7 @@ const Workcard = (props) => {
     const [selectedImage, setSelectedImage] = useState(null);
 
 
-    const maxIndex = doors?.length - 5;
+    const maxIndex = Math.max(0, doors?.length - (isMobile ? 1 : 5));
 
     const navigateToNextPhoto = () => {
         if (currentPhotoIndex < maxIndex) {

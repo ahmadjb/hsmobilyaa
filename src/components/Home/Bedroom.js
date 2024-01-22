@@ -17,7 +17,7 @@ const Workcard = (props) => {
 
 
 
-    const maxIndex = bedrooms.length - 5;
+    const maxIndex = Math.max(0, bedrooms?.length - (isMobile ? 1 : 5));
 
     const navigateToNextPhoto = () => {
         if (currentPhotoIndex < maxIndex) {

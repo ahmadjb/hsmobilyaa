@@ -1,3 +1,7 @@
--split the name of the images after the '.'
--the eye must be constant
- -the sofit moving must removed from the phone versıon
+-take care of my linkedin
+-my header/ in web mobile desgin
+-my footer
+-my social media
+-page of the latest work
+-page of contact
+-adding the number of the items ın the admin parts, to imagen the number of ıtems we have

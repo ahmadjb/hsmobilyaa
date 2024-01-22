@@ -37,7 +37,7 @@ const Doors = () => {
       <div className='main-page-top-menu'>
         <div style={{ width: 800 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link to="/home" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
+          <Link  className='text-style-3' style={{ textDecoration:'' }}>Mutfak</Link>
             <div className='text-style-3'>Yatak odaları</div>
             <div className='text-style-3'>Vestiyer</div>
             <div className='text-style-3'>Koltuk</div>

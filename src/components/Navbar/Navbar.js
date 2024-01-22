@@ -74,18 +74,24 @@ const Navbar = () => {
     useEffect(() => {
         handleDropDown();
         menuRef.current.checked = false;
+    setIsDropDownVisible(false);
     }, [activeNavRoute])
+
+    const handleLogoClick = () => {
+    // Only navigate if not on a mobile device
+    setIsDropDownVisible(true);
+};
 
     return (
         <div className="main" >
             <div className="navbar" style={{ backgroundColor: bgColor}}>
                 <div className="row " style={{paddingLeft:'5%',marginTop:0,backgroundColor:''}}>
 
-                    <Link to="/home" className="logoContainer col-md-4 mb-6" style={{ textDecoration: 'none', backgroundColor: '' }}>
+                    <Link to="/home"  onClick={handleLogoClick} className="logoContainer col-md-4 col-8" style={{ textDecoration: 'none', backgroundColor: '' }}>
                         <img src={HSlogo} alt="degree" className="mira-logo" />
                         <div className="logo-text"> MİRA DEKOR</div>
                     </Link>
-                    <div className="navsContainer col-md-8 mb-6 " style={{ color: nonThemeColor }}>
+                    <div className="navsContainer col-md-8 col-4 " style={{ color: nonThemeColor }}>
                         <Routes />
                     </div>
                 </div>
