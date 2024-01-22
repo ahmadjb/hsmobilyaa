@@ -434,7 +434,6 @@ margin-left: 5px;
 	font-Size: 25px;
 	margin-Top: 0px;
 	width: 100%;
-	background-color: white;
 	border-radius: 3px;
 	width: 70%;
 	opacity: 0.8;
@@ -671,7 +670,7 @@ margin-left: 5px;
 	overflow: auto;
 	background: white;
 	/* Optional: Add a background color */
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.522);
 	/* Optional: Add a box shadow for a bordered look */
 	border-radius: 8px;
 	/* Optional: Add rounded corners */
