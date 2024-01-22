@@ -8,24 +8,35 @@ import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 
 const Workcard = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-    const isMobile = window.innerWidth;
 
     const [doors, setDoors] = useState(props?.doors);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth);
 
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth);
+      };
+    
+      window.addEventListener('resize', handleResize);
+    
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
-    const maxIndex = Math.max(0, doors?.length - (isMobile ? 1 : 5));
-
+    const photosPerPage = isMobile > 800 ? 5 : 1;
+    
+    const maxIndex = Math.max(0, doors?.length - photosPerPage);
+    
     const navigateToNextPhoto = () => {
-        if (currentPhotoIndex < maxIndex) {
-            setCurrentPhotoIndex((prevIndex) => prevIndex + 1);
-        }
+        const newCurrentIndex = Math.min(currentPhotoIndex + 1, maxIndex);
+        setCurrentPhotoIndex(newCurrentIndex);
     };
-
+    
     const navigateToPrevPhoto = () => {
-        if (currentPhotoIndex > 0) {
-            setCurrentPhotoIndex((prevIndex) => prevIndex - 1);
-        }
+        const newCurrentIndex = Math.max(currentPhotoIndex - 1, 0);
+        setCurrentPhotoIndex(newCurrentIndex);
     };
 
     const visiblePhotos = doors?.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));

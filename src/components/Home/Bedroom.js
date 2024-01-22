@@ -10,26 +10,38 @@ import photo3 from '../../Data/3rd.webp';
 import photo4 from '../../Data/4th.webp';
 const Workcard = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-    const isMobile = window.innerWidth;
+  
 
     const [bedrooms, setBedrooms] = useState(props.bedrooms);
     const [selectedImage, setSelectedImage] = useState(null);
+    const [isMobile, setIsMobile] = useState(window.innerWidth);
 
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth);
+      };
+    
+      window.addEventListener('resize', handleResize);
+    
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
+    
+    const photosPerPage = isMobile > 800 ? 5 : 1;
+    
+const maxIndex = Math.max(0, bedrooms?.length - photosPerPage);
 
+const navigateToNextPhoto = () => {
+    const newCurrentIndex = Math.min(currentPhotoIndex + 1, maxIndex);
+    setCurrentPhotoIndex(newCurrentIndex);
+};
 
-    const maxIndex = Math.max(0, bedrooms?.length - (isMobile ? 1 : 5));
+const navigateToPrevPhoto = () => {
+    const newCurrentIndex = Math.max(currentPhotoIndex - 1, 0);
+    setCurrentPhotoIndex(newCurrentIndex);
+};
 
-    const navigateToNextPhoto = () => {
-        if (currentPhotoIndex < maxIndex) {
-            setCurrentPhotoIndex((prevIndex) => prevIndex + 1);
-        }
-    };
-
-    const navigateToPrevPhoto = () => {
-        if (currentPhotoIndex > 0) {
-            setCurrentPhotoIndex((prevIndex) => prevIndex - 1);
-        }
-    };
 
     const openImageModal = (imageUrl) => {
         setSelectedImage(imageUrl);

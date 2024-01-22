@@ -157,11 +157,11 @@ function Home(props) {
         <div className='main-page-top-menu'>
           <div style={{ width: 800 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
+              <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Kapı</Link>
               <div className='text-style-3'>Yatak odaları</div>
               <div className='text-style-3'>Vestiyer</div>
               <div className='text-style-3'>Koltuk</div>
-              <div className='text-style-3'>Kapı</div>
+              <div className='text-style-3'>Mutfak</div>
               
             </div>
 
@@ -192,31 +192,31 @@ function Home(props) {
           <div>
             <img src={photoo1} alt="Image 1" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2">Mutfak</div>
+              <div className="text-style-2a">Mutfak</div>
             </div>
           </div>
           <div>
             <img src={photoo2} alt="Image 2" className="constant-photo" />
             <div className="photo-text text-style-container">
-              <div className="text-style-2">Yatak odaları</div>
+              <div className="text-style-2a">Yatak odaları</div>
             </div>
           </div>
           <div>
             <img src={photoo3} alt="Image 3" className="constant-photo" />
             <div className="photo-text text-style-container">
-              <div className="text-style-2">Vestiyer</div>
+              <div className="text-style-2a">Vestiyer</div>
             </div>
           </div>
           <div >
             <img src={photoo1} alt="Image 4" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2">Koltuk</div>
+              <div className="text-style-2a">Koltuk</div>
             </div>
           </div>
           <div >
             <img src={photoo5} alt="Image 5" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2">Kapı</div>
+              <div className="text-style-2a">Kapı</div>
             </div>
           </div>
         </div>

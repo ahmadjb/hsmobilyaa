@@ -37,17 +37,17 @@ const Doors = () => {
       <div className='main-page-top-menu'>
         <div style={{ width: 800 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Link  className='text-style-3' style={{ textDecoration:'' }}>Mutfak</Link>
+          <Link  className='text-style-3' style={{ textDecoration:'' }}>Kapı </Link>
             <div className='text-style-3'>Yatak odaları</div>
             <div className='text-style-3'>Vestiyer</div>
             <div className='text-style-3'>Koltuk</div>
-            <div className='text-style-3'>Kapı</div>
+            <div className='text-style-3'>Mutfak</div>
           </div>
         </div>
       </div>
       <div className='main-contianer'>
       <div style={{paddingBottom:60}}></div>
-      <div className='text-style'>Mutfaklar</div>
+      <div className='text-style'>Kapılar sayfası</div>
       <div style={{paddingBottom:30}}></div>
       
       <div style={{fontSize:20}} >{doors.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
