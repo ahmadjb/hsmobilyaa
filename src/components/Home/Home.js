@@ -23,10 +23,10 @@ import photo1 from '../../Data/1st.webp';
 import photo2 from '../../Data/nn4.png';
 import photo3 from '../../Data/1st.webp';
 import photo4 from '../../Data/4th.webp';
-import photoo1 from '../../Data/la1.jpg';
-import photoo2 from '../../Data/la2.jpg';
-import photoo3 from '../../Data/la3.jpg';
-import photoo4 from '../../Data/la4.jpg';
+import photoo1 from '../../Data/new mutfak.webp';
+import photoo2 from '../../Data/yatakodası.jpg';
+import photoo3 from '../../Data/vistiyer.jpg';
+import photoo4 from '../../Data/kultuk.jpg';
 import photoo5 from '../../Data/la5.jpg';
 import LastWorksPhoto from '../../Data/lastwork.svg';
 import LastWorkToLeft from "./LastWorkToLeftt";
@@ -161,13 +161,9 @@ function Home(props) {
               <div className='text-style-3'>Yatak odaları</div>
               <div className='text-style-3'>Vestiyer</div>
               <div className='text-style-3'>Koltuk</div>
-              <div className='text-style-3'>Mutfak</div>
-              
+              <Link to="/kitchenPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
             </div>
-
           </div>
-
-
         </div>
         <div style={{ paddingTop: 20 }}></div>
 
@@ -208,7 +204,7 @@ function Home(props) {
             </div>
           </div>
           <div >
-            <img src={photoo1} alt="Image 4" className="constant-photo" />
+            <img src={photoo4} alt="Image 4" className="constant-photo" />
             <div className="photo-text text-style-container" >
               <div className="text-style-2a">Koltuk</div>
             </div>

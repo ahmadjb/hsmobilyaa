@@ -307,14 +307,16 @@ margin-left: 7px;
 
 .constant-photo-container {
 	width: 70%;
-	height: 120%;
+	height: 100%;
 	border-radius: 5px;
 	overflow: hidden;
 }
 
 .constant-photo {
-	width: 85%;
-	height: 80%;
+	max-width: 85%;
+	max-height: 80%;
+	width: 35vh;
+	height: 20vw;
 	object-fit: cover;
 	border-radius: 18px;
 	box-shadow: 12px 9px 9px rgba(31, 31, 31, 0.592);
@@ -323,10 +325,13 @@ margin-left: 7px;
 
 @media (max-width: 767px) {
 	.constant-photo {
-		width: 85%;
-		height: 150%;
-		border-radius: 10px;
-	box-shadow: 6px 5px 9px rgba(31, 31, 31, 0.592);
+		max-width: 85%;
+		max-height: 80%;
+		width: 35vh;
+		height: 20vw;
+		object-fit: cover;
+		border-radius: 18px;
+		box-shadow: 12px 9px 9px rgba(31, 31, 31, 0.592);
 	}
 }
 
@@ -1472,11 +1477,7 @@ section {
 
 
 
-  /* Styles for the container */
-.photo-container {
-  display: flex;
-  justify-content: center;
-}
+
 
 /* Styles for the card container */
 .card-container {

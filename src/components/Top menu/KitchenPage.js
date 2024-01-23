@@ -8,21 +8,21 @@ import { EyeOutlined } from '@ant-design/icons';
 
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 
-const Doors = () => {
+const Kitchen = () => {
 
 
-  const [doors, setDoors] = useState([]);
+  const [kitchen, setKitchen] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  const getDataDoors = async () => {
-    const valRef = collection(txtDB, 'doors');
+  const getDataKitchen = async () => {
+    const valRef = collection(txtDB, 'kitchen');
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
-    setDoors(alldata);
+    setKitchen(alldata);
 
   }
   useEffect(() => {
-    getDataDoors();
+    getDataKitchen();
   }, []);
   const openImageModal = (imageUrl) => {
     setSelectedImage(imageUrl);
@@ -32,29 +32,29 @@ const Doors = () => {
     setSelectedImage(null);
   };
   const renderImages = () => {
-    return doors.map((door, index) => (
+    return kitchen.map((kitchen, index) => (
       <div key={index} className="col-lg-3" style={{paddingBottom:40}}>
         {index % 4 === 0 && <div className="row">{/* Start a new row after every 4th item */}</div>}
         
         <div className='photo-new-container'>
           <div className='card-container-a'>
             <div className='centered' style={{ height: '90%', backgroundColor: '', maxHeight: '90%' }}>
-              {door.imgUrl && <img className='photo-new-a' src={door.imgUrl} alt={door.txtval} />}
+              {kitchen.imgUrl && <img className='photo-new-a' src={kitchen.imgUrl} alt={kitchen.txtval} />}
             </div>
             <div className='card-footer-a'>
               <div className='row'>
                 <div className='col-md-8 col-8'>
-                  <div className='photo-explanation-a'>{door.txtval}</div>
+                  <div className='photo-explanation-a'>{kitchen.txtval}</div>
                 </div>
                 <div className='col-md-4 col-4'>
                   <div className='centered'>
                     <div className="overlay">
-                      <span className="eye-icon" onClick={() => openImageModal(door.imgUrl)}>
+                      <span className="eye-icon" onClick={() => openImageModal(kitchen.imgUrl)}>
                         <EyeOutlined />
                       </span>
                     </div>
                     <div style={{ zIndex: 9 }}>
-                      <WhatsAppIcon phoneNumber="+905530173042" imageUrl={door.imgUrl} text={door.txtval} />
+                      <WhatsAppIcon phoneNumber="+905530173042" imageUrl={kitchen.imgUrl} text={kitchen.txtval} />
                     </div>
                   </div>
                 </div>
@@ -82,20 +82,20 @@ const Doors = () => {
       <div className='main-page-top-menu'>
         <div style={{ width: 800 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <Link className='text-style-3' style={{ textDecoration: '' }}>Kapı </Link>
+            <div className='text-style-3' style={{ textDecoration: '' }}>Kapı </div>
             <div className='text-style-3'>Yatak odaları</div>
             <div className='text-style-3'>Vestiyer</div>
             <div className='text-style-3'>Koltuk</div>
-            <div className='text-style-3'>Mutfak</div>
+            <Link className='text-style-3' style={{ textDecoration: '' }}>Mutfak </Link>
           </div>
         </div>
       </div>
       <div className='main-contianer'>
         <div style={{ paddingBottom: 60 }}></div>
-        <div className='text-style'>Kapılar sayfası</div>
+        <div className='text-style'>Mutfaklar sayfası</div>
         <div style={{ paddingBottom: 30 }}></div>
 
-        <div style={{ fontSize: 20 }} >{doors.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
+        <div style={{ fontSize: 20 }} >{kitchen.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
         <div style={{ paddingTop: 20 }}>
           <div className="row" >
             {renderImages()}
@@ -106,4 +106,4 @@ const Doors = () => {
   );
 };
 
-export default Doors;
+export default Kitchen;

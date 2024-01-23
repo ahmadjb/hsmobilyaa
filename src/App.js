@@ -13,6 +13,7 @@ import Projects from "./components/Projects/Project";
 import AboutMe from "./components/About Me/AboutMe";
 import Admin from './components/Admin/Admin';
 import DoorPage from './components/Top menu/DoorPage';
+import Kitchen from './components/Top menu/KitchenPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -55,6 +56,9 @@ const App = () => {
                             </Route>
                             <Route path="/doorPage">
                                 <DoorPage />
+                            </Route>
+                            <Route path="/kitchenPage">
+                                <Kitchen />
                             </Route>
                             <Route path="*">
                                 <Redirect to="/home" />
