@@ -67,28 +67,24 @@ const navigateToPrevPhoto = () => {
                             <LeftOutlined />
                         </button>
                     </div>
+                    
                     {visiblePhotos.map((item, index) => (
-
                         <div className='photo-new-container' key={index}>
-                            <div className='card-container'>
-
-                                <div className='centered' style={{ height: '80%', backgroundColor: '' }}>
-                                    {item.imgUrl && <img className='photo-new ' src={item.imgUrl} alt={item.txtval} />}
+                            <div className='card-container-a'>
+                                <div className='centered' style={{ height: '90%', backgroundColor: '', maxHeight: '90%' }}>
+                                    {item.imgUrl && <img className='photo-new-a' src={item.imgUrl} alt={item.txtval} />}
                                 </div>
-
-                                <div style={{ backgroundColor: '', width: '100%', height: '20%' }}>
+                                <div className='card-footer-a'>
                                     <div className='row'>
-                                        <div className='col-md-8 col-8' style={{ wordWrap: 'break-word', paddingLeft: 20 }}>
-                                            <div className='photo-explenation'> {item.txtval}</div>
+                                        <div className='col-md-8 col-8'>
+                                            <div className='photo-explanation-a'>{item.txtval}</div>
                                         </div>
-                                        <div className='col-md-4 col-4' style={{ backgroundColor: '' }}>
+                                        <div className='col-md-4 col-4'>
                                             <div className='centered'>
-                                                <div>
-                                                    <div className="overlay">
-                                                        <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
-                                                            <EyeOutlined />
-                                                        </span>
-                                                    </div>
+                                                <div className="overlay">
+                                                    <span className="eye-icon" onClick={() => openImageModal(item.imgUrl)}>
+                                                        <EyeOutlined />
+                                                    </span>
                                                 </div>
                                                 <div style={{ zIndex: 9 }}>
                                                     <WhatsAppIcon phoneNumber="+905530173042" imageUrl={item.imgUrl} text={item.txtval} />
@@ -98,10 +94,7 @@ const navigateToPrevPhoto = () => {
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
-
                     ))}
                     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: 10 }}>
                         <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>

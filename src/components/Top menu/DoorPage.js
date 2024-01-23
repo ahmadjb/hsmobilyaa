@@ -33,40 +33,46 @@ const Doors = () => {
   };
   const renderImages = () => {
     return doors.map((door, index) => (
-      <div key={index} className="col-lg-4 col-md-6 col-12 mb-3 centered" style={{ backgroundColor: '', padding: 5 }}>
-        {/* Adjust the classes as per your styling needs */}
-        <div className='' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: 35, backgroundColor: 'rgba(48, 34, 124, 0.144)', width: '97%', height: '100%', borderRadius: 10 }}>
-          <div className='row' style={{ backgroundColor: '', width: '100%' }}>
-            <div className='col-6' style={{ display: 'flex', justifyContent: 'flex-start' }}>
-
-              <div>
-                <div className="" style={{ marginBottom: '' }}>
-                  <span className="eye-icon" onClick={() => openImageModal(door.imgUrl)}>
-                    <EyeOutlined />
-                  </span>
+      <div key={index} className="col-lg-3">
+        {index % 4 === 0 && <div className="row">{/* Start a new row after every 4th item */}</div>}
+        
+        <div className='photo-new-container'>
+          <div className='card-container-a'>
+            <div className='centered' style={{ height: '90%', backgroundColor: '', maxHeight: '90%' }}>
+              {door.imgUrl && <img className='photo-new-a' src={door.imgUrl} alt={door.txtval} />}
+            </div>
+            <div className='card-footer-a'>
+              <div className='row'>
+                <div className='col-md-8 col-8'>
+                  <div className='photo-explanation-a'>{door.txtval}</div>
+                </div>
+                <div className='col-md-4 col-4'>
+                  <div className='centered'>
+                    <div className="overlay">
+                      <span className="eye-icon" onClick={() => openImageModal(door.imgUrl)}>
+                        <EyeOutlined />
+                      </span>
+                    </div>
+                    <div style={{ zIndex: 9 }}>
+                      <WhatsAppIcon phoneNumber="+905530173042" imageUrl={door.imgUrl} text={door.txtval} />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className='col-6' style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              <div className='eye-icon' style={{ paddingLeft: 30 }}>
-                <WhatsAppIcon phoneNumber="+905530173042" imageUrl={door.imgUrl} text={door.txtval} />
-              </div>
-            </div>
           </div>
-          <div className='centered' style={{ height: '100%', backgroundColor: '' }}>
-            <img src={door.imgUrl} style={{ maxWidth: '100%', backgroundColor: '', borderRadius: 10 }} alt={`Door ${index}`} className="page-of-images" />
-          </div>
-          <div className='text-style-2' style={{ backgroundColor: '', width: '90%' }}>{door.txtval}</div>
         </div>
         {
-          selectedImage && (
+        selectedImage && (
             <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
-          )
-        }
+        )
+    }
+        
+        {index % 4 === 3 && <div className="w-100"></div>} {/* Add a new row after every 4th item */}
       </div>
-
     ));
   };
+  
 
 
 
