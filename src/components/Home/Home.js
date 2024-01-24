@@ -234,8 +234,7 @@ function Home(props) {
 
 
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
-        <Workcard />
-
+        { /* <Workcard />  */}
       </div>
     );
   };
@@ -243,7 +242,7 @@ function Home(props) {
   return (
     <main>
       {dataLoaded1 && dataLoaded2 && (
-        <div className="photo-carousel-container">
+        <div className="">
           <PhotoCarousel />
           <ScrollButtons />
 
