@@ -6,36 +6,15 @@ import { getDocs, addDoc, collection, deleteDoc, doc } from 'firebase/firestore'
 import Addingdoor from './Adding/AddingDoors';
 import Addingbedroom from './Adding/AddingBedrooms';
 import AddingKitchen from './Adding/AddingKitchens';
+import LastWorkOfMira from './Adding/AddingLastWorkOfMira';
 
 const Adding = () => {
-
-    const [loading, setLoading] = useState(false);
-
-    const handleUpload = async (e, setImage) => {
-        const imgs = ref(imgDB, `Imgs/${v4()}`);
-
-        setLoading(true);
-
-        try {
-            const snapshot = await uploadBytes(imgs, e.target.files[0]);
-            const url = await getDownloadURL(snapshot.ref);
-            setImage(url);
-        } catch (error) {
-            console.error("Error uploading image:", error);
-            // Handle the error as needed
-        } finally {
-            setLoading(false);
-        }
-    };
-
-
-
 
 
 
     return (
         <div className="text-style-3 delete-container">
-            
+            <LastWorkOfMira />
             <AddingKitchen />
             <Addingbedroom />
             <Addingdoor />

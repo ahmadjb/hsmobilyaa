@@ -8,7 +8,7 @@ import classes from '../About Me/aboutMe.module.css'
 import SocialLinks from "../SocialLinks/SocialLinks";
 import Qrcode from '../../Data/Mira Dekor.svg';
 import HSlogo from "../../Data/newlogo.png";
-
+import MIRADEKOR from "../../Data/miradekor.svg";
 function Footer() {
     const nonThemeColor = useSelector(state => state.nonThemeColor);
     let currentYear = new Date().getFullYear();
@@ -23,7 +23,11 @@ function Footer() {
                             <div className="col-md-6 col-6 centered" style={{ display: 'flex', justifyContent: 'flex-end' }}>
                                 <img src={HSlogo} alt="Image 1" className="footer-mira-logo"  />
                             </div>
-                            <div className="col-md-6 col-6  text-style-footer" > MİRA DEKOR</div>
+                            <div className="col-md-6 col-6" >
+                            
+                            <img src={MIRADEKOR} alt="Image 1" className="" style={{width:'70%',paddingTop:40,marginLeft:-20}} />
+
+                            </div> 
                         </div>
                         <div className="text-style-3 centered" style={{ paddingTop: 20 }}> Bize buradan da ulaşabilirsiniz </div>
                         <div className="centered">
@@ -56,7 +60,7 @@ function Footer() {
                     </div>
                     <div className="col-md-4 col-12 centered row" style={{ backgroundColor: '' }}>
                         <div>
-                            <div className="centered text-style-3">Bize her yerden ulaşabilirsiniz</div>
+                            <div className="centered text-style-3" style={{}}>Bize her yerden ulaşabilirsiniz</div>
                             <div className="centered">
                                 <img src={Qrcode} alt="Image 1" className="" style={{ width: '30%', borderRadius: 10,paddingTop:5 }} /></div>
                         </div>

@@ -1,27 +1,16 @@
 import React, { useState } from 'react';
-import photo1 from '../../Data/1st.webp';
-import photo2 from '../../Data/2nd.webp';
-import photo3 from '../../Data/3rd.webp';
+
+import photo1 from '../../Data/newp1.jpeg';
+import photo2 from '../../Data/newp2.jpg';
+import photo3 from '../../Data/newp5.webp';
 import photo4 from '../../Data/4th.webp';
 
-const PhotoSlider = () => {
-    const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+const PhotoSlider = (props) => {
+    const [lastWork, setLastWork] = useState(props?.lastWorks);
 
-    const photos = [
-        photo1,
-        photo2,
-        photo3,
-        photo4,
-        photo1,
-        photo2,
-        photo3,
-        photo2,
-        photo3,
-        photo4,
-        photo1,
-        photo2,
-        photo3,
-    ];
+    console.log(lastWork);
+    
+    const photos = lastWork.map((obj) => obj.imgUrl);
 
     return (
         <div className="photo-slider-container">
@@ -31,7 +20,7 @@ const PhotoSlider = () => {
                         <img
                             src={photo}
                             alt={`photo-${index + 1}`}
-                            style={{ width: '100%', height: 'auto' }}
+                            style={{ }}
                         />
                     </div>
                 ))}

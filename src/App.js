@@ -7,13 +7,14 @@ import './app.css';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
-import Education from './components/Education/Education';
+import LastWorks from './components/MiraLastWork/LastWorkOfMira';
 import Certifications from "./components/Certifications/Certifications";
 import Projects from "./components/Projects/Project";
 import AboutMe from "./components/About Me/AboutMe";
 import Admin from './components/Admin/Admin';
 import DoorPage from './components/Top menu/DoorPage';
 import Kitchen from './components/Top menu/KitchenPage';
+import BedRooms from './components/Top menu/BedRoomsPage';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -40,8 +41,8 @@ const App = () => {
                                 <AboutMe />
                             </Route>
 
-                            <Route path="/education">
-                                <Education />
+                            <Route path="/lastWorks">
+                                <LastWorks />
                             </Route>
 
                             <Route path="/certifications">
@@ -60,8 +61,11 @@ const App = () => {
                             <Route path="/kitchenPage">
                                 <Kitchen />
                             </Route>
+                            <Route path="/bedRoomsPage">
+                                <BedRooms />
+                            </Route>
                             <Route path="*">
-                                <Redirect to="/home" />
+                                <Redirect to="/" />
                             </Route>
 
                             {/* <ProgrammingSkills /> */}

@@ -33,9 +33,9 @@ const Kitchen = () => {
   };
   const renderImages = () => {
     return kitchen.map((kitchen, index) => (
-      <div key={index} className="col-lg-3" style={{paddingBottom:40}}>
+      <div key={index} className="col-lg-3" style={{ paddingBottom: 40 }}>
         {index % 4 === 0 && <div className="row">{/* Start a new row after every 4th item */}</div>}
-        
+
         <div className='photo-new-container'>
           <div className='card-container-a'>
             <div className='centered' style={{ height: '90%', backgroundColor: '', maxHeight: '90%' }}>
@@ -63,16 +63,16 @@ const Kitchen = () => {
           </div>
         </div>
         {
-        selectedImage && (
+          selectedImage && (
             <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
-        )
-    }
-        
+          )
+        }
+
         {index % 4 === 3 && <div className="w-100"></div>} {/* Add a new row after every 4th item */}
       </div>
     ));
   };
-  
+
 
 
 
@@ -81,13 +81,13 @@ const Kitchen = () => {
       <div style={{ paddingTop: 25 }}></div>
       <div className='main-page-top-menu'>
         <div style={{ width: 800 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div className='text-style-3' style={{ textDecoration: '' }}>Kapı </div>
-            <div className='text-style-3'>Yatak odaları</div>
-            <div className='text-style-3'>Vestiyer</div>
-            <div className='text-style-3'>Koltuk</div>
-            <Link className='text-style-3' style={{ textDecoration: '' }}>Mutfak </Link>
-          </div>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Kapı</Link>
+              <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odaları</Link>
+              <div className='text-style-3'>Vestiyer</div>
+              <div className='text-style-3'>Koltuk</div>
+              <Link  className='text-style-3' style={{ textDecoration: '' }}>Mutfak</Link>
+            </div>
         </div>
       </div>
       <div className='main-contianer'>

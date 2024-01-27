@@ -201,7 +201,7 @@ margin-left: 7px;
 .photo {
 	width: 100%;
 	height: 150%;
-	margin-right: 10px;
+	margin-right: 0px;
 	/* Any additional styling for .photo */
 
 }
@@ -505,9 +505,8 @@ margin-left: 7px;
 /* styles.css or styles.scss */
 
 .mira-logo {
-	width: 40%;
-	padding-top: 0px;
-	padding-bottom: 15px;
+	height: 100%;
+	padding-top: 10px;
 	padding-left: 1%;
 }
 
@@ -561,7 +560,7 @@ margin-left: 7px;
 	display: flex;
 	justify-content: flex-end;
 	align-items: self-start;
-	padding-top: 15px;
+	padding-top: 0px;
 	
 	opacity: 0;
 	/* Initially hidden */
@@ -888,12 +887,12 @@ margin-left: 7px;
 
 .photo-slider-to-left {
     display: flex;
-    animation: moveLeftToRight 30s linear infinite; /* Adjust the duration as needed */
+    animation: moveLeftToRight 20s linear infinite; /* Adjust the duration as needed */
 }
 
 .photo-slider-to-right {
     display: flex;
-    animation: moveRightToLeft 30s linear infinite; /* Adjust the duration as needed */
+    animation: moveRightToLeft 20s linear infinite; /* Adjust the duration as needed */
 }
 .photo-slider-to-right:hover {
     animation-play-state: paused; /* Pause the animation when hovering over the slider */
@@ -902,16 +901,24 @@ margin-left: 7px;
     animation-play-state: paused; /* Pause the animation when hovering over the slider */
 }
 .photo-slider-item {
-    flex: 0 0 33.33%;
+   
     padding: 5px;
 }
 
 .photo-slider-item img {
-    width: 100%;
-    height: auto;
+    height: 30vh;
     display: block; /* Fix for potential spacing issues */
     border: none; /* Remove any potential borders */
-	border-radius: 5px;
+	border-radius: 10px;
+}
+@media (max-width: 767px) {
+	.photo-slider-item img {
+		height: 13vh;
+		display: block; /* Fix for potential spacing issues */
+		border: none; /* Remove any potential borders */
+		border-radius: 10px;
+	}
+
 }
 
 @keyframes moveLeftToRight {
@@ -1417,7 +1424,7 @@ section {
   .card-footer-a {
 	background-color: white;
 	width: 100%;
-	height: 20%;
+	height: 10vh;
 	padding: 10px;
   }
   .overlay-a {
@@ -1535,3 +1542,7 @@ section {
   width: 90%;
 }
 
+.last-works-text2{
+
+	width: 70%;
+}

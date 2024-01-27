@@ -50,8 +50,18 @@ function Home(props) {
   const [doors, setDoors] = useState([]);
   const [bedrooms, setBedrooms] = useState([]);
   const [kitchens, setKitchens] = useState([]);
+  const [lastWorks, setLastWorks] = useState([]);
 
 
+
+  const getDataLastWorkOfMira = async () => {
+    const valRef = collection(txtDB, 'lastWorks');
+    const dataDB = await getDocs(valRef);
+    const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
+    setLastWorks(alldata);
+
+
+  }
   const getDataDoors = async () => {
     const valRef = collection(txtDB, 'doors');
     const dataDB = await getDocs(valRef);
@@ -83,6 +93,7 @@ function Home(props) {
     getDataKitchen();
     getDataBedRooms();
     getDataDoors();
+    getDataLastWorkOfMira();
   }, []);
 
 
@@ -158,7 +169,7 @@ function Home(props) {
           <div style={{ width: 800 }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Kapı</Link>
-              <div className='text-style-3'>Yatak odaları</div>
+              <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odaları</Link>
               <div className='text-style-3'>Vestiyer</div>
               <div className='text-style-3'>Koltuk</div>
               <Link to="/kitchenPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
@@ -225,8 +236,8 @@ function Home(props) {
 
 
 
-        <LastWorkToLeft />
-        <LastWorkToRight />
+        <LastWorkToLeft  lastWorks={lastWorks}/>
+        <LastWorkToRight lastWorks={lastWorks}/>
 
         <Kitchen kitchen={kitchens} />
         <Bedrooms bedrooms={bedrooms} />

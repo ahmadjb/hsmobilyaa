@@ -1,10 +1,11 @@
-footer{
+.footer{
     font-size: 1.2rem;
     font-family: 'Barlow Condensed';
     /* position: fixed; */
     top: auto;
    
     width: 100%;
+  
 }
 .footer-first{
     background-color: 'rgba(48, 34, 124, 0.144)';
