@@ -31,8 +31,7 @@ var newPathWithSlash = newPathSegments.length > 1 ? '/' : '';
 
 l.replace(
   l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-  newPath +
-  newPathWithSlash +
+  newPathWithSlash +  // Add newPathWithSlash here to avoid trailing slash
   (l.search ? '?' + l.search.slice(1).replace(/&/g, '~and~') : '') +
   l.hash
 );
