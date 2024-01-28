@@ -7,10 +7,11 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import useMediaQuery from '@mui/material/useMediaQuery';  // Import the useMediaQuery hook from Material-UI
 import MIRADEKOR from "../../Data/miradekor.svg";
-
+import MapIcon from "../Map/map";
 
 
 import WhatsAppIcon from '../WhatsApp/whatsApp';
+
 import './navbar.css';
 
 import { themeActions } from "../../store/theme";
@@ -85,7 +86,7 @@ const Navbar = () => {
         handleDropDown();
         menuRef.current.checked = false;
         setIsDropDownVisible(false);
-        
+
 
 
     }, [activeNavRoute])
@@ -98,23 +99,26 @@ const Navbar = () => {
     return (
         <div className="main" >
             <div className="navbar" style={{ backgroundColor: bgColor }}>
-                <div className="row " style={{ paddingLeft: '2%', backgroundColor: '',height:'100%',width:'100%' }}>
+                <div className="row " style={{ paddingLeft: '2%', backgroundColor: '', height: '100%', width: '100%' }}>
 
-                    <Link to="/home" onClick={handleLogoClick} className="logoContainer col-md-4 col-8" style={{height:'100%', textDecoration: 'none', backgroundColor: '' }}>
+                    <Link to="/home" onClick={handleLogoClick} className="logoContainer col-md-4 col-8" style={{ height: '100%', textDecoration: 'none', backgroundColor: '' }}>
                         <img src={HSlogo} alt="degree" className="mira-logo" />
-                        <img src={MIRADEKOR} alt="Image 1" className="mira-text-logo"  />
+                        <img src={MIRADEKOR} alt="Image 1" className="mira-text-logo" />
                     </Link>
-                    <div className="navsContainer col-md-7 col-4 " style={{ color: nonThemeColor, backgroundColor: '',height:'100%',paddingBottom:25 }}>
+                    <div className="navsContainer col-md-7 col-4 " style={{ color: nonThemeColor, backgroundColor: '', height: '100%', paddingBottom: 25 }}>
                         <Routes />
                     </div>
                     <div className="col-md-1 centered" style={{ backgroundColor: '' }}>
 
-                    {!isMobile && (
-                            <div>
+                        {!isMobile && (
+                            <div className="centered">
                                 <WhatsAppIcon phoneNumber="+905530173042" />
+                                <div style={{ cursor: 'pointer' }}>
+                                    <MapIcon />
+                                </div>
                             </div>
                         )}
-                        
+
                     </div>
                 </div>
                 <div className="selectTheme">
@@ -139,8 +143,12 @@ const Navbar = () => {
             </div>
             {isDropDownVisible && <div className="mob-nav" style={{ color: nonThemeColor }}>
                 <Routes />
-                {isMobile && <div>
+                {isMobile && <div className="centered" style={{ marginLeft: '50%' }}>
                     <WhatsAppIcon phoneNumber="+905530173042" />
+                    <div style={{ cursor: 'pointer', width: '50px', height: '50px' }}>
+                        <MapIcon />
+                    </div>
+
                 </div>}
             </div>}
         </div>
