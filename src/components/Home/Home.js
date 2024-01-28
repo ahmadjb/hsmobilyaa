@@ -6,6 +6,7 @@ import { getDocs, addDoc, collection } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import WhatsAppIcon from '../WhatsApp/whatsApp';
 import ScrollButtons from './ScrollButtons';
+import TopMenu from '../Top menu/TopMenu';
 
 
 
@@ -165,17 +166,7 @@ function Home(props) {
     return (
       <div className="photo-carousel-container">
         <div style={{ paddingTop: 25 }}></div>
-        <div className='main-page-top-menu'>
-          <div style={{ width: 800 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Kapı</Link>
-              <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odaları</Link>
-              <div className='text-style-3'>Vestiyer</div>
-              <div className='text-style-3'>Koltuk</div>
-              <Link to="/kitchenPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
-            </div>
-          </div>
-        </div>
+        <TopMenu />
         <div style={{ paddingTop: 20 }}></div>
 
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -236,8 +227,8 @@ function Home(props) {
 
 
 
-        <LastWorkToLeft  lastWorks={lastWorks}/>
-        <LastWorkToRight lastWorks={lastWorks}/>
+        <LastWorkToLeft lastWorks={lastWorks} />
+        <LastWorkToRight lastWorks={lastWorks} />
 
         <Kitchen kitchen={kitchens} />
         <Bedrooms bedrooms={bedrooms} />

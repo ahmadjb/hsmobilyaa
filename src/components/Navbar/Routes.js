@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 function Dropdown(props) {
     return (
         <React.Fragment>
-            <NavLink activeClassName="active" to="/">
+            <NavLink activeClassName="active" to="/home">
                 <div className="navs">Ana Sayfa</div>
             </NavLink>
             <NavLink to="/lastWorks" activeClassName="active">

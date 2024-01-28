@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
 import  LastWorkPhoto  from '../../Data/lastworktext.svg';
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
+import TopMenu from '../Top menu/TopMenu';
 
 const LastWorkOfMira = () => {
 
@@ -81,17 +82,9 @@ const LastWorkOfMira = () => {
     return (
         <div style={{ paddingTop: 10 }}>
             <div style={{ paddingTop: 25 }}></div>
-            <div className='main-page-top-menu'>
-                <div style={{ width: 800 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                        <div className='text-style-3' style={{ textDecoration: '' }}>Kapı </div>
-                        <div className='text-style-3'>Yatak odaları</div>
-                        <div className='text-style-3'>Vestiyer</div>
-                        <div className='text-style-3'>Koltuk</div>
-                        <div className='text-style-3' style={{ textDecoration: '' }}>Mutfak </div>
-                    </div>
-                </div>
-            </div>
+            
+            <TopMenu />
+            
             <div className='main-contianer'>
                 <div style={{ paddingBottom: 60 }}></div>
                <div   className='centered' > 

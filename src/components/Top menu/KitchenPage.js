@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { getDocs, addDoc, collection } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
-
+import TopMenu from './TopMenu';
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 
 const Kitchen = () => {
@@ -79,17 +79,7 @@ const Kitchen = () => {
   return (
     <div style={{ paddingTop: 10 }}>
       <div style={{ paddingTop: 25 }}></div>
-      <div className='main-page-top-menu'>
-        <div style={{ width: 800 }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Kapı</Link>
-              <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odaları</Link>
-              <div className='text-style-3'>Vestiyer</div>
-              <div className='text-style-3'>Koltuk</div>
-              <Link  className='text-style-3' style={{ textDecoration: '' }}>Mutfak</Link>
-            </div>
-        </div>
-      </div>
+          <TopMenu />
       <div className='main-contianer'>
         <div style={{ paddingBottom: 60 }}></div>
         <div className='text-style'>Mutfaklar sayfası</div>
