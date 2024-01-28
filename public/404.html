@@ -22,20 +22,16 @@
       // https://username.github.io/repo-name/one/two?a=b&c=d#qwe becomes
       // https://username.github.io/repo-name/?/one/two&a=b~and~c=d#qwe
       // Otherwise, leave pathSegmentsToKeep as 0.
-    var pathSegmentsToKeep = 2;  // Change this based on your requirements
+   var pathSegmentsToKeep = 0;
 
-var l = window.location;
-var currentURL = l.href;  // Save the current URL
-
-var newPathSegments = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep);
-var newPath = newPathSegments.join('/');
-
-l.replace(
-  currentURL.split('?')[0].split('#')[0] +  // Use the current URL without query and hash
-  newPath +
-  (l.search ? '?' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-  l.hash
-);
+      var l = window.location;
+      l.replace(
+        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+        l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
+        l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
 
 
 
