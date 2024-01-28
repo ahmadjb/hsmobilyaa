@@ -60,7 +60,7 @@ const AddingKitchen = () => {
     const openmenuToSowPage = () => {
         setOpenMenu(prevOpenMenu => !prevOpenMenu);
     };
-console.log(imgKitchen);
+    
     return (
         <div className='text-admin-1 ' style={{ paddingTop: 30 }}>
             <div onClick={openmenuToSowPage} className='row admin-arrow'>

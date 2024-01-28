@@ -7,8 +7,6 @@ import photo4 from '../../Data/4th.webp';
 
 const PhotoSlider = (props) => {
     const [lastWork, setLastWork] = useState(props?.lastWorks);
-
-    console.log(lastWork);
     
     const photos = lastWork.map((obj) => obj.imgUrl);
 

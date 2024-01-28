@@ -38,8 +38,7 @@ const Admin = () => {
     const handleChildData = (data) => {
         setOpenAdminPage(data);
     };
-    console.log("openAdminPage");
-    console.log(openAdminPage);
+   
 
     return (
         <div className="center-container">
