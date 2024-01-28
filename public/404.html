@@ -25,12 +25,14 @@
     var pathSegmentsToKeep = 2;  // Change this based on your requirements
 
 var l = window.location;
+var currentURL = l.href;  // Save the current URL
+
 var newPathSegments = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep);
 var newPath = newPathSegments.join('/');
 var newPathWithSlash = newPathSegments.length > 1 ? '/' : '';
 
 l.replace(
-  l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+  currentURL.split('?')[0].split('#')[0] +  // Use the current URL without query and hash
   newPathWithSlash +  // Add newPathWithSlash here to avoid trailing slash
   (l.search ? '?' + l.search.slice(1).replace(/&/g, '~and~') : '') +
   l.hash
