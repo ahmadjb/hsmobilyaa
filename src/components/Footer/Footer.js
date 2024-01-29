@@ -1,4 +1,4 @@
-import React from "react";
+import {React,useState} from "react";
 
 import PersonalData from "../../Data/PersonalData";
 import CopyrightIcon from '@mui/icons-material/Copyright';
@@ -12,12 +12,13 @@ import MIRADEKOR from "../../Data/miradekor.svg";
 function Footer() {
     const nonThemeColor = useSelector(state => state.nonThemeColor);
     let currentYear = new Date().getFullYear();
+   
+
     return (
         <footer className="footer" style={{ color: nonThemeColor, backgroundColor: 'rgba(48, 34, 124, 0.144)' }}>
 
             <div>
-
-                <div className="row">
+                <div className="row" style={{width:'100%'}}>
                     <div className="col-md-4 col-12 " style={{ backgroundColor: '', paddingTop: 20 }}>
                         <div className="row" style={{ display: 'flex' }}>
                             <div className="col-md-6 col-6 centered" style={{ display: 'flex', justifyContent: 'flex-end' }}>
@@ -25,7 +26,7 @@ function Footer() {
                             </div>
                             <div className="col-md-6 col-6" >
                             
-                            <img src={MIRADEKOR} alt="Image 1" className="" style={{width:'70%',paddingTop:40,marginLeft:-20}} />
+                            <img src={MIRADEKOR} alt="Image 1" className="" style={{width:'70%',paddingTop:40,marginRight:10}} />
 
                             </div> 
                         </div>
@@ -66,6 +67,7 @@ function Footer() {
                         </div>
                     </div>
                 </div>
+               
                 <div className="centered">
                     <CopyrightIcon />
                     &nbsp;{currentYear}

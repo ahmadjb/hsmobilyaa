@@ -282,14 +282,14 @@
 }*/
 
 .mira-text-logo{
-	height: 6vh;
+	height: 5vh;
 	margin-top: 8%;
 	padding-right: 10;
 }
 
 @media (max-width: 768px) {
 	.mira-text-logo{
-		height: 4vh;
+		height: 3vh;
 		margin-top: 20%;
 		padding-right: 10;
 	}

@@ -20,8 +20,8 @@ import Workcard from "./lastWorks";
 import Bedrooms from "./Bedroom";
 import Kitchen from './Kitchen';
 import Doors from "./Doors"
-import photo1 from '../../Data/1st.webp';
-import photo2 from '../../Data/nn4.png';
+import photo1 from '../../Data/MainPh1.png';
+import photo2 from '../../Data/MiraMutfagi.png';
 import photo3 from '../../Data/1st.webp';
 import photo4 from '../../Data/4th.webp';
 import photoo1 from '../../Data/new mutfak.webp';
@@ -38,7 +38,7 @@ function Home(props) {
   const nonThemeColor = useSelector(state => state.nonThemeColor);
   const uiColor = useSelector(state => state.uiColor);
   const [isMobile, setIsMobile] = useState(window.innerWidth);
-  const [mainPhoto, setMainPhoto] = useState(isMobile < 800 ? '20vh' : '55vh');
+  const [mainPhoto, setMainPhoto] = useState(isMobile < 800 ? '18.5vh' : '64vh');
   const [bedroomsUrl, setBedroomsUrl] = useState([]);
   const [bedroomsNames, setBedroomsNames] = useState([]);
   const [doorsUrl, setDoorsUrl] = useState([]);
