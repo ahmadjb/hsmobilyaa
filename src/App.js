@@ -9,7 +9,7 @@ import Home from './components/Home/Home';
 import Footer from './components/Footer/Footer';
 import LastWorks from './components/MiraLastWork/LastWorkOfMira';
 import Certifications from './components/Certifications/Certifications';
-import Projects from './components/Projects/Project';
+import AboutUs from './components/AboutUs/Aboutus';
 import AboutMe from './components/About Me/AboutMe';
 import Admin from './components/Admin/Admin';
 import DoorPage from './components/Top menu/DoorPage';
@@ -35,7 +35,7 @@ const App = () => {
           <Route path="/about-me" component={AboutMe} />
           <Route path="/lastWorks" component={LastWorks} />
           <Route path="/certifications" component={Certifications} />
-          <Route path="/projects" component={Projects} />
+          <Route path="/projects" component={AboutUs} />
           <Route path="/admin" component={Admin} />
           <Route path="/doorPage" component={DoorPage} />
           <Route path="/kitchenPage" component={Kitchen} />

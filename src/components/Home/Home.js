@@ -109,7 +109,7 @@ function Home(props) {
     const handleResize = () => {
       const newWidth = window.innerWidth;
       setIsMobile(newWidth);
-      setMainPhoto(newWidth < 800 ? '20vh' : '55vh');
+      setMainPhoto(newWidth < 800 ? '25%' : '55%');
     };
 
     window.addEventListener('resize', handleResize);
@@ -235,7 +235,7 @@ function Home(props) {
         <Doors doors={doors} />
 
           <div className='centered' style={{paddingTop:50}}>
-          <img src={SimplePhoto} style={{width:'70%'}} />
+          <img src={SimplePhoto} style={{width:'90%'}} />
           </div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
         
