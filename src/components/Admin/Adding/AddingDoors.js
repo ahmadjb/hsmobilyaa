@@ -88,9 +88,9 @@ const Addingdoors = () => {
                             <Button onClick={() => fileInputRef.current.click()}>
                                 <div>Resim Ekle</div>
                             </Button>
-                            {imgDoors && <div style={{ color: 'green',paddingLeft:'5%' }}>Eklendi</div>}
+                            {imgDoors && <div style={{ color: 'green',paddingLeft:'5%' }}>Seçildi</div>}
                             {imgDoors && <CheckCircleFilled style={{ color: 'green', marginLeft: '8px' }} />}
-                            {!imgDoors && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Eklenmedi</div>}
+                            {!imgDoors && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Seçilmedi</div>}
                             {!imgDoors && <CloseCircleFilled style={{ color: 'red', marginLeft: '8px' }} />}
                         </div>
                         <button className="action-button" onClick={handleAddDoors} disabled={loading}>Ekle</button>

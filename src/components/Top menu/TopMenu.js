@@ -10,9 +10,13 @@ const TopMenu = () => {
             <div style={{ width: 800 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Link to="/doorPage" className='text-style-3' style={{ textDecoration: 'none' }}>Kapı</Link>
-                    <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odaları</Link>
+                    <div className='seperator-style'>|</div>
+                    <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odası</Link>
+                    <div className='seperator-style'>|</div>
                     <Link className='text-style-3' style={{ textDecoration: 'none' }}>Vestiyer</Link>
+                    <div className='seperator-style'>|</div>
                     <Link className='text-style-3' style={{ textDecoration: 'none' }}>Koltuk</Link>
+                    <div className='seperator-style'>|</div>
                     <Link to="/kitchenPage" className='text-style-3' style={{ textDecoration: 'none' }}>Mutfak</Link>
                 </div>
             </div>

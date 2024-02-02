@@ -79,11 +79,7 @@
 	margin-bottom: 20px;
 }
 
-.photo {
-	width: 20%;
-	height: auto;
-	margin-right: 10px;
-}
+
 
 .title {
 	font-size: 18px;
@@ -124,9 +120,7 @@
 }
 
 @media (max-width: 767px) {
-	.photo-slider-container-new {
-		
-	}
+	.photo-slider-container-new {}
 }
 
 .photo-slider-new {
@@ -149,16 +143,17 @@
 
 
 }
-.card-container{
-background-color: rgba(48, 34, 124, 0.144);
-width: 98%;
-height: 100%;
-border-radius: 10px;
-justify-content: center;
-align-items: center;
-display: flex; 
-flex-direction: column;
-margin-left: 7px;
+
+.card-container {
+	background-color: rgba(48, 34, 124, 0.144);
+	width: 98%;
+	height: 100%;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-left: 7px;
 }
 
 @media (max-width: 767px) {
@@ -177,7 +172,7 @@ margin-left: 7px;
 	align-items: center;
 	justify-content: center;
 	width: 90%;
-	
+
 	margin-right: 10px;
 	border-radius: 10px;
 	/*border: 2px solid red; */
@@ -200,12 +195,20 @@ margin-left: 7px;
 
 .photo {
 	width: 100%;
-	height: 150%;
+	height: 65vh;
 	margin-right: 0px;
 	/* Any additional styling for .photo */
 
 }
 
+@media (max-width: 767px) {
+	.photo {
+		width: 100%;
+		height: 200%;
+		/* Any additional styling for .photo */
+
+	}
+}
 
 
 /* You can add more styles based on your preferences */
@@ -224,20 +227,20 @@ margin-left: 7px;
 	border-radius: 500px;
 	/* Add rounded corners */
 	cursor: pointer;
-	
+
 	height: 40px;
 	width: 40px;
 	margin-top: -10%;
-	margin-right:10px ;
-	
+	margin-right: 10px;
+
 	/* Add some spacing between buttons */
 
 	/* Background and text colors */
 	background-color: rgb(228, 228, 236);
 	/* Light blue background */
 	color: rgb(19, 39, 127);
-	font-size:20px ;
-	border: 1px solid  rgb(19, 39, 127);
+	font-size: 20px;
+	border: 1px solid rgb(19, 39, 127);
 	/* White text */
 
 	/* Hover effects */
@@ -257,6 +260,7 @@ margin-left: 7px;
 		cursor: not-allowed;
 	}
 }
+
 @media (max-width: 767px) {
 	.cool-button {
 		/* Basic styling */
@@ -269,19 +273,19 @@ margin-left: 7px;
 		border-radius: 500px;
 		/* Add rounded corners */
 		cursor: pointer;
-		
+
 		height: 35px;
 		width: 35px;
 		/* Add some spacing between buttons */
-	
+
 		/* Background and text colors */
 		background-color: rgb(228, 228, 236);
 		/* Light blue background */
 		color: rgb(19, 39, 127);
-		font-size:20px ;
-		border: 1px solid  rgb(19, 39, 127);
+		font-size: 20px;
+		border: 1px solid rgb(19, 39, 127);
 		/* White text */
-	
+
 		/* Hover effects */
 		&:hover {
 			background-color: #abc1d0;
@@ -289,7 +293,7 @@ margin-left: 7px;
 			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 			/* Add a subtle shadow */
 		}
-	
+
 		/* Disabled state */
 		&:disabled {
 			background-color: #ddd;
@@ -381,7 +385,14 @@ margin-left: 7px;
 		font-family: inherit;
 	}
 }
+
 .text-style-3 {
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-size: 22px;
+	font-family: inherit;
+}
+.seperator-style {
 	font-weight: bold;
 	color: rgb(19, 39, 127);
 	font-size: 22px;
@@ -392,9 +403,16 @@ margin-left: 7px;
 	.text-style-3 {
 		font-weight: bold;
 		color: rgb(19, 39, 127);
-		font-size: 15px;
+		font-size: 17px;
 		font-family: inherit;
 		padding: 10px;
+		display: block;
+	}
+	.seperator-style {
+		font-weight: bold;
+		color: rgb(19, 39, 127);
+		font-size: 16px;
+		font-family: inherit;
 	}
 }
 
@@ -426,7 +444,7 @@ margin-left: 7px;
 		justify-content: center;
 		align-items: center;
 		margin-top: -37%;
-		
+
 
 	}
 }
@@ -444,9 +462,10 @@ margin-left: 7px;
 	border-radius: 3px;
 	width: 70%;
 	opacity: 0.8;
-	
+
 
 }
+
 .text-style-2a {
 
 	padding: 7px 5px;
@@ -460,7 +479,7 @@ margin-left: 7px;
 	border-radius: 3px;
 	width: 70%;
 	opacity: 0.8;
-	
+
 
 }
 
@@ -475,7 +494,7 @@ margin-left: 7px;
 		width: 80%;
 		background-color: white;
 		border-radius: 99px;
-		
+
 
 	}
 }
@@ -497,7 +516,7 @@ margin-left: 7px;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
 		font-size: 20px;
-		display:inline;
+		display: inline;
 	}
 
 }
@@ -561,7 +580,7 @@ margin-left: 7px;
 	justify-content: flex-end;
 	align-items: self-start;
 	padding-top: 0px;
-	
+
 	opacity: 0;
 	/* Initially hidden */
 	transition: opacity 0.3s ease;
@@ -571,6 +590,7 @@ margin-left: 7px;
 	opacity: 1;
 	/* Show the overlay on hover */
 }
+
 @media (max-width: 767px) {
 	.overlay {
 		position: absolute;
@@ -586,6 +606,7 @@ margin-left: 7px;
 		/* Initially hidden */
 		transition: opacity 0.3s ease;
 	}
+
 	.photo-new-container .overlay {
 		opacity: 1;
 		/* Show the overlay on hover */
@@ -610,6 +631,7 @@ margin-left: 7px;
 	}
 
 }
+
 .eye-icon-2 {
 	font-size: 20px;
 	color: rgb(96, 8, 8);
@@ -778,53 +800,54 @@ margin-left: 7px;
 	/* Fullscreen width and height for a seamless mirror surface */
 	width: 100%;
 	height: 12vh;
-  
+
 	/* Remove border and background color for transparency */
 	border: none;
 	background-color: transparent;
-  
+
 	/* Center and stretch content for optimal positioning */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  
+
 	/* Optional: Add subtle gradient overlay for depth */
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.977) 0%, rgba(68, 72, 167, 0.24) 100%);
-  
+
 	/* Optional: Add subtle border for visual separation */
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.611);
-  }
-  
-  /* Ensure transparency for content within the mirror element */
-  .last-works > * {
+}
+
+/* Ensure transparency for content within the mirror element */
+.last-works>* {
 	background-color: transparent;
-  }
+}
 
-  .main-page-top-menu{
+.main-page-top-menu {
 
-  /* Fullscreen width and height for a seamless mirror surface */
+	/* Fullscreen width and height for a seamless mirror surface */
 	width: 100%;
 	height: 7vh;
-  
+
 	/* Remove border and background color for transparency */
 	border: none;
 	background-color: transparent;
-  
+
 	/* Center and stretch content for optimal positioning */
 	display: flex;
 	justify-content: center;
 	align-items: center;
-  
+
 	/* Optional: Add subtle gradient overlay for depth */
 	background: linear-gradient(to bottom, rgba(255, 255, 255, 0.977) 0%, rgba(68, 72, 167, 0.24) 100%);
-  
+
 	/* Optional: Add subtle border for visual separation */
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.611);
-  }
-  .main-page-top-menu > * {
+}
+
+.main-page-top-menu>* {
 	background-color: transparent;
-  }
-  
+}
+
 
 
 @media (max-width: 767px) {
@@ -842,32 +865,34 @@ margin-left: 7px;
 	.container-last-works {
 		padding-top: 0px;
 	}
-	.main-page-top-menu{
+
+	.main-page-top-menu {
 
 		/* Fullscreen width and height for a seamless mirror surface */
-		  width: 100%;
-		  height: 5vh;
-		  z-index: 9999999;
-		
-		  /* Remove border and background color for transparency */
-		  border: none;
-		  background-color: transparent;
-		
-		  /* Center and stretch content for optimal positioning */
-		  display: flex;
-		  justify-content: center;
-		  align-items: center;
-		
-		  /* Optional: Add subtle gradient overlay for depth */
-		  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.977) 0%, rgba(68, 72, 167, 0.24) 100%);
-		
-		  /* Optional: Add subtle border for visual separation */
-		  box-shadow: 0 0 5px rgba(0, 0, 0, 0.611);
-		}
-		.main-page-top-menu > * {
-		  background-color: transparent;
-		}
-		
+		width: 100%;
+		height: 5vh;
+		z-index: 9999999;
+
+		/* Remove border and background color for transparency */
+		border: none;
+		background-color: transparent;
+
+		/* Center and stretch content for optimal positioning */
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		/* Optional: Add subtle gradient overlay for depth */
+		background: linear-gradient(to bottom, rgba(255, 255, 255, 0.977) 0%, rgba(68, 72, 167, 0.24) 100%);
+
+		/* Optional: Add subtle border for visual separation */
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.611);
+	}
+
+	.main-page-top-menu>* {
+		background-color: transparent;
+	}
+
 }
 
 .mira-last-work {
@@ -882,65 +907,80 @@ margin-left: 7px;
 }
 
 .photo-slider-container {
-    overflow: hidden;
+	overflow: hidden;
 }
 
 .photo-slider-to-left {
-    display: flex;
-    animation: moveLeftToRight 20s linear infinite; /* Adjust the duration as needed */
+	display: flex;
+	animation: moveLeftToRight 20s linear infinite;
+	/* Adjust the duration as needed */
 }
 
 .photo-slider-to-right {
-    display: flex;
-    animation: moveRightToLeft 20s linear infinite; /* Adjust the duration as needed */
+	display: flex;
+	animation: moveRightToLeft 20s linear infinite;
+	/* Adjust the duration as needed */
 }
+
 .photo-slider-to-right:hover {
-    animation-play-state: paused; /* Pause the animation when hovering over the slider */
+	animation-play-state: paused;
+	/* Pause the animation when hovering over the slider */
 }
+
 .photo-slider-to-left:hover {
-    animation-play-state: paused; /* Pause the animation when hovering over the slider */
+	animation-play-state: paused;
+	/* Pause the animation when hovering over the slider */
 }
+
 .photo-slider-item {
-   
-    padding: 5px;
+
+	padding: 5px;
 }
 
 .photo-slider-item img {
-    height: 30vh;
-    display: block; /* Fix for potential spacing issues */
-    border: none; /* Remove any potential borders */
+	height: 30vh;
+	display: block;
+	/* Fix for potential spacing issues */
+	border: none;
+	/* Remove any potential borders */
 	border-radius: 10px;
 }
+
 @media (max-width: 767px) {
 	.photo-slider-item img {
 		height: 13vh;
-		display: block; /* Fix for potential spacing issues */
-		border: none; /* Remove any potential borders */
+		display: block;
+		/* Fix for potential spacing issues */
+		border: none;
+		/* Remove any potential borders */
 		border-radius: 10px;
 	}
 
 }
 
 @keyframes moveLeftToRight {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
 }
 
 @keyframes moveRightToLeft {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(0%);
-    }
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
 }
 
-.photo-explenation{
-	color:  rgb(19, 39, 127);;
+.photo-explenation {
+	color: rgb(19, 39, 127);
+	;
 	padding-left: 10%;
 	font-size: 20px;
 	font-weight: 200;
@@ -956,27 +996,28 @@ margin-left: 7px;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-  }
-  
-  /* Section styles */
-  .form-section {
+}
+
+/* Section styles */
+.form-section {
 	margin-top: 20px;
 	text-align: center;
-  }
-  
-  /* Input and button styles */
-  .input-field {
+}
+
+/* Input and button styles */
+.input-field {
 	margin-top: 10px;
 	padding: 8px;
 	font-size: 16px;
-	width: 200px; /* Adjust width as needed */
-  }
-  
-  .file-input {
+	width: 200px;
+	/* Adjust width as needed */
+}
+
+.file-input {
 	margin-top: 10px;
-  }
-  
-  .action-button {
+}
+
+.action-button {
 	margin-top: 10px;
 	padding: 10px;
 	font-size: 16px;
@@ -984,30 +1025,32 @@ margin-left: 7px;
 	color: white;
 	border: none;
 	cursor: pointer;
-  }
-  
-  .action-button[disabled] {
+}
+
+.action-button[disabled] {
 	background-color: #ccc;
 	cursor: not-allowed;
-  }
-.page-of-images{
+}
+
+.page-of-images {
 	max-height: 200px;
 	max-width: 400px;
 }
 
-.main-contianer{
+.main-contianer {
 
 	padding-left: 10%;
 	padding-right: 10%;
 }
-@media (max-width: 767px) {
-	.main-contianer{
 
-	}
+@media (max-width: 767px) {
+	.main-contianer {}
 
 }
+
 .delete-button {
-	background-color: #dc3545; /* Bootstrap danger color */
+	background-color: #dc3545;
+	/* Bootstrap danger color */
 	color: #fff;
 	border: none;
 	padding: 8px 16px;
@@ -1017,13 +1060,16 @@ margin-left: 7px;
 	font-size: 20px;
 	padding-left: 50px;
 	padding-right: 50px;
-  }
-  
-  .delete-button:hover {
-	background-color: #c82333; /* Darker shade on hover */
-  }
-  .edit-button {
-	background-color: #dca534; /* Bootstrap danger color */
+}
+
+.delete-button:hover {
+	background-color: #c82333;
+	/* Darker shade on hover */
+}
+
+.edit-button {
+	background-color: #dca534;
+	/* Bootstrap danger color */
 	color: #fff;
 	border: none;
 	padding: 8px 16px;
@@ -1031,96 +1077,103 @@ margin-left: 7px;
 	cursor: pointer;
 	transition: background-color 0.3s ease;
 	font-size: 20px;
-  }
-  
-  .edit-button:hover {
-	background-color: #c8b533; /* Darker shade on hover */
-  }
-  
-  /* Global CSS file */
+}
+
+.edit-button:hover {
+	background-color: #c8b533;
+	/* Darker shade on hover */
+}
+
+/* Global CSS file */
 
 /* Styling for the main container */
 .delete-container {
-	background-color: ''; /* Add your background color */
+	background-color: '';
+	/* Add your background color */
 	width: 60%;
 	font-size: 30px;
 	padding-top: 0px;
-  }
-  @media (max-width: 767px) {
+	padding-bottom: 50px;
+}
+
+@media (max-width: 767px) {
 	.delete-container {
-		background-color: ''; /* Add your background color */
+		background-color: '';
+		/* Add your background color */
 		width: 90%;
 		font-size: 20px;
 		padding-top: 0px;
-	  }
+		padding-bottom: 50px;
+	}
 
 }
-  
-  /* Styling for the inner container */
-  .inner-container {
+
+/* Styling for the inner container */
+.inner-container {
 	width: 100%;
 	background: rgba(255, 255, 255, 0.875);
 	border-radius: 7px;
 	padding: 20px;
 	padding-bottom: 10px;
-  }
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
 	.inner-container {
 		width: 100%;
 		background: rgba(255, 255, 255, 0.875);
 		border-radius: 7px;
 		padding: 20px;
 		padding-bottom: 10px;
-	  }
+	}
 }
-  
-  /* Styling for the red text */
-  .red-text {
+
+/* Styling for the red text */
+.red-text {
 	padding: 10px;
 	padding-bottom: 10px;
 	color: red;
-  }
-  
-  /* Styling for the parent container of the items */
-  .items-container {
-	max-height: 450px;
+}
+
+/* Styling for the parent container of the items */
+.items-container {
+	max-height: 550px;
 	overflow-y: auto;
-	border: 1px solid #ccc;
+	border: 1px solid #9dac27;
 	border-radius: 10px;
 	padding: 20px;
-  }
-  
-  /* Styling for the loading message */
-  .loading-message {
+}
+
+/* Styling for the loading message */
+.loading-message {
 	/* Add your loading styles here */
-  }
-  
-  /* Styling for each item row */
-  .item-row {
+}
+
+/* Styling for each item row */
+.item-row {
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 0px;
 	padding-bottom: 0px;
 	display: flex;
-  }
-  
-  /* Styling for the image */
-  .item-image {
+}
+
+/* Styling for the image */
+.item-image {
 	height: auto;
 	max-width: 140px;
 	background-color: red;
 	border-radius: 5px;
-  }
-  
-  /* Styling for the text */
-  .item-text {
+}
+
+/* Styling for the text */
+.item-text {
 	background: '';
 	display: flex;
 	justify-content: flex-start;
 	padding-left: 0px;
 	align-items: center;
-  }
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
 	.item-text {
 		background: '';
 		display: flex;
@@ -1128,43 +1181,48 @@ margin-left: 7px;
 		padding-left: 20px;
 		align-items: center;
 		margin-top: -20px;
-	  }
+	}
 }
-  
-  /* Styling for the delete button container */
-  .delete-button-container {
+
+/* Styling for the delete button container */
+.delete-button-container {
 	background: '';
 	display: flex;
 	justify-content: flex-end;
 	padding-right: 20px;
 	align-items: center;
-  }
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
 	.delete-button-container {
 		background: '';
 		display: flex;
 		justify-content: center;
 		padding-right: 20px;
 		align-items: center;
-	  }
-}
-  
-  /* Styling for the delete button */
-  .delete-button {
-	/* Add your button styles here */
-  }
-  .separator-line {
-    border-bottom: 1px solid #ccc; /* Adjust the color and thickness as needed */
-    padding-bottom: 10px; /* Optional: Add some spacing between rows */
+	}
 }
 
-.admin-text-1{
+/* Styling for the delete button */
+.delete-button {
+	/* Add your button styles here */
+}
+
+.separator-line {
+	border-bottom: 1px solid #ccc;
+	/* Adjust the color and thickness as needed */
+	padding-bottom: 10px;
+	/* Optional: Add some spacing between rows */
+}
+
+.admin-text-1 {
 	font-weight: bold;
 	color: rgb(19, 39, 127);
 	font-size: 42px;
 	font-family: inherit;
 }
-.admin-text-2{
+
+.admin-text-2 {
 	font-weight: bold;
 	color: rgb(19, 39, 127);
 	font-family: inherit;
@@ -1173,25 +1231,28 @@ margin-left: 7px;
 }
 
 @media (max-width: 767px) {
-	.admin-text-1{
+	.admin-text-1 {
 		font-weight: bold;
 		color: rgb(19, 39, 127);
 		font-size: 22px;
 		font-family: inherit;
 	}
-	.admin-text-2{
+
+	.admin-text-2 {
 		font-weight: bold;
 		color: rgb(19, 39, 127);
 		font-family: inherit;
 		font-Size: 15px;
 		border-radius: 3px;
 	}
-	.mob-button{
+
+	.mob-button {
 		padding-bottom: 10px;
 	}
 }
+
 /* Add these styles to your global CSS or in a style sheet */
-.mob-button{
+.mob-button {
 	padding-bottom: 0px;
 }
 
@@ -1210,11 +1271,13 @@ margin-left: 7px;
 	font-size: 20px;
 	font-weight: 400;
 
-  }
-  @media (max-width: 767px) {
-	.mob-button{
+}
+
+@media (max-width: 767px) {
+	.mob-button {
 		padding-bottom: 10px;
 	}
+
 	.action-button {
 		display: block;
 		width: 100%;
@@ -1228,42 +1291,50 @@ margin-left: 7px;
 		height: 90%;
 		font-size: 20px;
 		font-weight: 400;
-	
-	  }
+
+	}
 }
-  
-  .adding-button {
-	background-color: #4caf50; /* Green color */
-	color: #fff; /* White text */
-  }
-  
-  .deleting-button {
-	background-color: #Dc3545; /* Red color */
-	color: #fff; /* White text */
-  }
-  
-  .editing-button {
-	background-color: #dca534; /* Blue color */
-	color: #fff; /* White text */
-  }
-  
-  /* Hover effect */
-  .action-button:hover {
-	background-color: #555; /* Dark background on hover */
-	color: #fff; /* White text on hover */
-  }
-  
+
+.adding-button {
+	background-color: #4caf50;
+	/* Green color */
+	color: #fff;
+	/* White text */
+}
+
+.deleting-button {
+	background-color: #Dc3545;
+	/* Red color */
+	color: #fff;
+	/* White text */
+}
+
+.editing-button {
+	background-color: #dca534;
+	/* Blue color */
+	color: #fff;
+	/* White text */
+}
+
+/* Hover effect */
+.action-button:hover {
+	background-color: #555;
+	/* Dark background on hover */
+	color: #fff;
+	/* White text on hover */
+}
 
 
-  
-  /* Add this CSS to your stylesheets or component */
+
+
+/* Add this CSS to your stylesheets or component */
 section {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  }
-  
-  .container {
+}
+
+.container {
 	width: 100%;
 	display: flex;
 	flex-direction: column;
@@ -1271,26 +1342,26 @@ section {
 	padding: 1rem;
 	background-color: rgba(47, 34, 124, 0.471);
 	border-radius: 0.5rem;
-  }
-  
-  .heading {
+}
+
+.heading {
 	text-align: center;
 	color: white;
 	font-size: 1.5rem;
 	font-weight: 600;
 	margin-bottom: 1rem;
-  }
-  
-  .lockIcon {
+}
+
+.lockIcon {
 	display: flex;
 	justify-content: center;
-  }
-  
-  .label {
+}
+
+.label {
 	color: white;
-  }
-  
-  .otbInput {
+}
+
+.otbInput {
 	width: 100%;
 	font-size: 1rem;
 	border-radius: 0.25rem;
@@ -1299,11 +1370,13 @@ section {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
-  }
-  
-  .verifyButton {
-	background-color: rgba(20, 9, 84, 0.695);; /* Emerald color */
+
+}
+
+.verifyButton {
+	background-color: rgba(20, 9, 84, 0.695);
+	;
+	/* Emerald color */
 	width: 100%;
 	display: flex;
 	gap: 0.5rem;
@@ -1316,128 +1389,139 @@ section {
 	border-radius: 0.25rem;
 	cursor: pointer;
 	overflow: hidden;
-  }
-  
-  .spinner {
-	margin-top: 3px;
-  }
-  
-  .animate-spin {
-	animation: spin 1s linear infinite;
-  }
-  
-  @keyframes spin {
-	0% {
-	  transform: rotate(0deg);
-	}
-	100% {
-	  transform: rotate(360deg);
-	}
-  }
+}
 
-  .admin-contaner{
+.spinner {
+	margin-top: 3px;
+}
+
+.animate-spin {
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.admin-contaner {
 	width: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding-bottom: 30%;
-  }
-  @media (max-width: 767px) {
-	.admin-contaner{
+}
+
+@media (max-width: 767px) {
+	.admin-contaner {
 		width: 90%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding-bottom: 30%;
-	  }
+	}
 }
 
-  .admin-photo{
+.admin-photo {
 	width: 100%;
-  }
-  .admin-arrow{
+}
+
+.admin-arrow {
 	cursor: pointer;
 	display: flex;
 
-  }/* ScrollButtons.css */
+}
+
+/* ScrollButtons.css */
 
 .scroll-buttons-container {
 	position: fixed;
-	top: 80%; /* Adjust this value to position it according to your needs */
+	top: 80%;
+	/* Adjust this value to position it according to your needs */
 	left: 20px;
 	display: flex;
 	flex-direction: column;
 	opacity: 0;
 	transition: opacity 0.3s ease-in-out;
 	z-index: 9999;
-  }
-  @media (max-width: 767px) {
+}
+
+@media (max-width: 767px) {
 	.scroll-buttons-container {
 		position: fixed;
-		top: 87%; /* Adjust this value to position it according to your needs */
+		top: 87%;
+		/* Adjust this value to position it according to your needs */
 		left: 20px;
 		display: flex;
 		flex-direction: column;
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out;
 		z-index: 9999;
-	  }
+	}
 }
-  
-  .scroll-buttons-container.visible {
+
+.scroll-buttons-container.visible {
 	opacity: 1;
-  }
-  
-  .scroll-button {
+}
+
+.scroll-button {
 	margin-bottom: 10px;
-	background-color: rgb(19, 39, 127);;
+	background-color: rgb(19, 39, 127);
+	;
 	color: #fff;
 	border: none;
 	border-radius: 5px;
 	padding: 5px;
 	cursor: pointer;
-  }
-  
+}
 
- 
-  
-  /* Styles for the card container */
-  .card-container-a {
+
+
+
+/* Styles for the card container */
+.card-container-a {
 	border: 2px solid #ccc;
 	border-radius: 8px;
 	overflow: hidden;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-	
-	
-  }
-  
- 
-  /* Styles for the photo inside the centered div */
-  .photo-new-a {
+
+
+}
+
+
+/* Styles for the photo inside the centered div */
+.photo-new-a {
 	max-width: 100%;
 	max-height: 100%;
 	object-fit: cover;
-	height:40vh;
-  }
-  
-  /* Styles for the white section below the photo */
-  .card-footer-a {
+	height: 40vh;
+}
+
+/* Styles for the white section below the photo */
+.card-footer-a {
 	background-color: white;
 	width: 100%;
 	height: 10vh;
 	padding: 10px;
-  }
-  .overlay-a {
+}
+
+.overlay-a {
 	position: relative;
-  }
-  /* Styles for the row in the white section */
-  .card-footer-a .row {
+}
+
+/* Styles for the row in the white section */
+.card-footer-a .row {
 	display: flex;
 	align-items: center;
-  }
-  
-  /* Styles for the photo explanation */
-  .photo-explanation-a {
+}
+
+/* Styles for the photo explanation */
+.photo-explanation-a {
 	word-wrap: break-word;
 	padding-left: 10px;
 	font-weight: bold;
@@ -1447,40 +1531,40 @@ section {
 	width: 100%;
 	width: 100%;
 	opacity: 0.8;
-  }
-  
-  
-  
-  .eye-icon-a {
+}
+
+
+
+.eye-icon-a {
 	cursor: pointer;
 	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	color: #fff;
-  }
-  
-  /* Styles for the WhatsApp icon container */
-  .whatsapp-icon-container-a {
+}
+
+/* Styles for the WhatsApp icon container */
+.whatsapp-icon-container-a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-  }
-  
-  /* Styles for the WhatsApp icon */
-  .whatsapp-icon-a {
+}
+
+/* Styles for the WhatsApp icon */
+.whatsapp-icon-a {
 	cursor: pointer;
 	margin-left: 10px;
 	color: #25d366;
-  }
-  
-  /* Optional: Add hover effect to the eye icon */
-  .overlay-a:hover .eye-icon {
+}
+
+/* Optional: Add hover effect to the eye icon */
+.overlay-a:hover .eye-icon {
 	background-color: rgba(0, 0, 0, 0.7);
 	border-radius: 50%;
 	padding: 5px;
-  }
-  
+}
+
 
 
 
@@ -1488,61 +1572,112 @@ section {
 
 /* Styles for the card container */
 .card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 35px;
-  background-color: rgba(48, 34, 124, 0.144);
-  width: 97%;
-  height: 100%;
-  border-radius: 10px;
-  overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 35px;
+	background-color: rgba(48, 34, 124, 0.144);
+	width: 97%;
+	height: 100%;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 /* Styles for the row inside the card container */
 .card-container .row {
-  width: 100%;
-  background-color: transparent; /* Change this to your desired background color */
+	width: 100%;
+	background-color: transparent;
+	/* Change this to your desired background color */
 }
 
 /* Styles for the left and right columns inside the row */
 .card-container .col-6 {
-  display: flex;
-  justify-content: flex-start; /* For the left column */
+	display: flex;
+	justify-content: flex-start;
+	/* For the left column */
 }
 
 .card-container .col-6:last-child {
-  justify-content: flex-end; /* For the right column */
+	justify-content: flex-end;
+	/* For the right column */
 }
 
 /* Styles for the eye icon */
 .eye-icon {
-  cursor: pointer;
-  padding: 10px; /* Adjust the padding as needed */
+	cursor: pointer;
+	padding: 10px;
+	/* Adjust the padding as needed */
 }
 
 /* Styles for the centered div with the image */
 .centered-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
 }
 
 /* Styles for the image inside the centered div */
 .page-of-images {
-  max-width: 100%;
-  border-radius: 10px;
+	max-width: 100%;
+	border-radius: 10px;
 }
 
 /* Styles for the text below the image */
 .text-style-2 {
-  background-color: transparent; /* Change this to your desired background color */
-  width: 90%;
+	background-color: transparent;
+	/* Change this to your desired background color */
+	width: 90%;
 }
 
-.last-works-text2{
+.last-works-text2 {
 
 	width: 70%;
+}
+
+.small-btn-1 {
+	width: 130px;
+	height: 45px;
+}
+
+.small-text-1 {
+	font-size: 20px;
+}
+
+.small-green-text {
+	font-size: 20px;
+	color: green;
+	padding-left: 10px;
+}
+.small-red-text{
+color: red;
+font-size: 20px;
+padding-left: 10px;
+
+}
+
+@media (max-width: 767px) {
+	.small-btn-1 {
+		width: 50%;
+		height: 45px;
+
+	}
+
+	.small-text-1 {
+		font-size: 16px;
+	}
+
+	.small-green-text {
+		font-size: 15px;
+		color: green;
+		padding-left: 5px;
+		
+	}
+	.small-red-text{
+		color: red;
+		font-size: 15px;
+		padding-left: 5px;
+		
+		}
 }

@@ -1,20 +1,42 @@
 // Editing.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { imgDB, txtDB } from '../firebaseConfig';
 import { collection, updateDoc, doc, getDoc, getDocs } from 'firebase/firestore';
 import { v4 } from 'uuid';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { CaretRightFilled, CaretDownFilled } from '@ant-design/icons';
 
-const EditingDoors = () => {
+import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
+import { Button, message } from 'antd';
+
+
+import { EyeOutlined } from '@ant-design/icons';
+import ModalPhoto from '../../Home/ModalPhoto';// Make sure the path is correct
+
+
+const EditingBedrooms = () => {
 
     const [data, setData] = useState([]);
-    const [txtKitchen, setTxKitchen] = useState("");
-    const [imgKitchen, setImgKitchen] = useState("");
+    const [txtBedrooms, setBedrooms] = useState("");
+    const [imgBedrooms, setImgBedrooms] = useState("");
     const [loading, setLoading] = useState(false);
     const [editingId, setEditingId] = useState(""); // Set the desired ID
     const [openMenu, setOpenMenu] = useState(false); // Set the desired ID
+    const fileInputRef = useRef(null);
 
+    const [indexLoop, setIndexLoop] = useState(""); // Set the desired ID
+    const [slash, setSlash] = useState(false); // Set the desired ID
+    const [eyeClicked, setEyeClicked] = useState(false); // Set the desired ID
+
+    const openImageModal = (imageUrl) => {
+        setImgBedrooms(imageUrl);
+        setEyeClicked(true);
+    };
+
+    const closeImageModal = () => {
+        setImgBedrooms(null);
+        setEyeClicked(false);
+    };
 
     const fetchData = async () => {
         setLoading(true);
@@ -38,20 +60,25 @@ const EditingDoors = () => {
     const handleUpload = async (e, setImage) => {
         const imgs = ref(imgDB, `Imgs/${v4()}`);
 
-        setLoading(true);
+
 
         try {
+            setSlash(true);
             const snapshot = await uploadBytes(imgs, e.target.files[0]);
             const url = await getDownloadURL(snapshot.ref);
             setImage(url);
+            setSlash(false);
         } catch (error) {
             console.error("Error uploading image:", error);
             // Handle the error as needed
         } finally {
             setLoading(false);
+
         }
+
     };
     useEffect(() => {
+
         // Fetch the existing data for editing when editingId changes
         const fetchDataForEditing = async () => {
             setLoading(true);
@@ -61,8 +88,8 @@ const EditingDoors = () => {
                     const docSnap = await getDoc(valRef);
                     if (docSnap.exists()) {
                         const data = docSnap.data();
-                        setTxKitchen(data.txtval);
-                        setImgKitchen(data.imgUrl);
+                        setBedrooms(data.txtval);
+                        setImgBedrooms(data.imgUrl);
                     }
                 }
             } catch (error) {
@@ -78,74 +105,80 @@ const EditingDoors = () => {
 
 
     const handleUpdate = async (id) => {
-        setLoading(true);
 
-        try {
-            if (id) {
-                const valRef = collection(txtDB, 'bedrooms');
-                const updateData = {};
+        if (txtBedrooms === "" && imgBedrooms === "") {
+            message.error('Please fill the text or the photo.');
+        } else {
 
-                if (txtKitchen !== "") {
-                    updateData.txtval = txtKitchen;
-                }
+            try {
+                setLoading(true);
+                if (id) {
+                    const valRef = collection(txtDB, 'bedrooms');
+                    const updateData = {};
 
-                if (imgKitchen !== "") {
-                    updateData.imgUrl = imgKitchen;
-                }
+                    if (txtBedrooms !== "") {
+                        updateData.txtval = txtBedrooms;
+                    }
 
-                await updateDoc(doc(valRef, id), updateData);
+                    if (imgBedrooms !== "") {
+                        updateData.imgUrl = imgBedrooms;
+                    }
 
-                // Update local state after successful update
-                setData((prevData) => {
-                    const updatedData = prevData.map(item => {
-                        if (item.id === id) {
-                            return {
-                                ...item,
-                                txtval: updateData.txtval || item.txtval,
-                                imgUrl: updateData.imgUrl || item.imgUrl,
-                            };
-                        }
-                        return item;
+                    await updateDoc(doc(valRef, id), updateData);
+
+                    // Update local state after successful update
+                    setData((prevData) => {
+                        const updatedData = prevData.map(item => {
+                            if (item.id === id) {
+                                return {
+                                    ...item,
+                                    txtval: updateData.txtval || item.txtval,
+                                    imgUrl: updateData.imgUrl || item.imgUrl,
+                                };
+                            }
+                            return item;
+                        });
+                        return updatedData;
                     });
-                    return updatedData;
-                });
 
-                alert(`Data with ID ${id} updated successfully in 'doors' collection`);
-                setEditingId(""); // Reset the editing state
+                    alert(`Data with ID ${id} updated successfully in 'bedrooms' collection`);
+                    setEditingId(""); // Reset the editing state
+                }
+
+            } catch (error) {
+                console.error("Error updating data:", error);
+                // Handle the error as needed
+            } finally {
+                setLoading(false);
+                setIndexLoop("");
+                setImgBedrooms("");
             }
-        } catch (error) {
-            console.error("Error updating data:", error);
-            // Handle the error as needed
-        } finally {
-            setLoading(false);
         }
     };
+
 
     const openmenuToSowPage = () => {
         setOpenMenu(prevOpenMenu => !prevOpenMenu);
     };
 
-
-
     return (
 
 
-        <div className='text-admin-1 ' style={{ paddingTop: 30 }}>
+        <div className='text-admin-1' style={{ paddingTop: 30 }}>
 
             <div onClick={openmenuToSowPage} className='row admin-arrow'>
                 <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
-                    Yatak Odaları düzenleme sayfası
+                Yatak Odaları düzenleme sayfası
                 </div>
                 <div className='col-md-4 col-3'>
                     {openMenu ? (
+
                         <CaretDownFilled style={{ marginTop: 10 }} />
                     ) : (
                         <CaretRightFilled style={{ marginTop: 10 }} />
                     )}
                 </div>
             </div>
-
-
             {openMenu ? (
                 <div className='text-style-2 inner-container'>
 
@@ -162,25 +195,72 @@ const EditingDoors = () => {
                                         <img className="item-image" src={item.imgUrl} />
                                     </div>
                                     <div className="col-md-8 mb-4" style={{ backgroundColor: '' }}>
-                                        <div className="text-style-3 item-text " style={{ backgroundColor: '' }}>
-                                            {item.txtval}
+                                        <div className='row'>
+                                                <div className="col-md-10 col-10 text-style-3 item-text " style={{ backgroundColor: '' }}>
+                                                    {item.txtval}
+                                                </div>
+                                                <div className='col-md-2 col-2'>
+                                                <div>
+                                            <span className="eye-icon-2" onClick={() => openImageModal(item.imgUrl)}>
+                                                <EyeOutlined />
+                                            </span>
+                                        </div>
+                                                </div>
+                                           
                                         </div>
                                         <div className="delete-button-container row">
-                                            <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
+                                            <div className="col-md-6 mb-12 d-flex justify-content-center align-items-center">
                                                 <input
                                                     className="input-field"
-                                                    onChange={(e) => setTxKitchen(e.target.value)}
+                                                    onChange={(e) => setBedrooms(e.target.value)}
+                                                    placeholder='Resmin yeni açıklamasını girin'
                                                 />
                                             </div>
-                                            <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
-                                                <input className="file-input" style={{ fontSize: 20 }} type='file' onChange={(e) => handleUpload(e, setImgKitchen)} />
+                                            <div className="col-md-6 mb-12 d-flex justify-content-center align-items-center">
+
+                                                <div style={{ display: 'flex', paddingTop: 10 }}>
+                                                    <input
+                                                        className="file-input"
+                                                        type="file"
+                                                        onChange={(e) => handleUpload(e, setImgBedrooms)}
+                                                        style={{ display: 'none' }}
+                                                        ref={fileInputRef}
+                                                    />
+                                                    <Button
+                                                        onClick={() => {
+                                                            setIndexLoop(index);
+                                                            fileInputRef.current.click();
+                                                        }}
+                                                        className='small-btn-1'
+                                                    >
+                                                        <div className='small-text-1 centered'>Resim Ekle</div>
+                                                    </Button>
+
+                                                    {((index === indexLoop) && imgBedrooms) ? (
+                                                        <>
+                                                            <div className='small-green-text centered'>Seçildi</div>
+                                                            <CheckCircleFilled style={{ color: 'green', marginLeft: '3px' }} />
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <div className='small-red-text centered'>Seçilmedi</div>
+                                                            <CloseCircleFilled style={{ color: 'red', marginLeft: '3px' }} />
+                                                        </>
+                                                    )}
+                                                </div>
+
                                             </div>
-                                            <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
+                                            <div className="col-md-12 mb-12 d-flex justify-content-center align-items-center">
                                                 <button
                                                     className="action-button edit-button"
                                                     onClick={() => handleUpdate(item.id)}
-                                                    disabled={loading}
-                                                >Düzenle
+                                                    disabled={index === indexLoop ? slash : false}
+                                                >
+                                                    {((index === indexLoop) && slash) ? (
+                                                        <LoadingOutlined />
+                                                    ) : (
+                                                        "Düzenle"
+                                                    )}
                                                 </button>
                                             </div>
                                         </div>
@@ -192,10 +272,12 @@ const EditingDoors = () => {
                     </div>
                 </div>
             ) : ""}
-
+            {imgBedrooms && eyeClicked && (
+                <ModalPhoto imageUrl={imgBedrooms} onClose={closeImageModal} />
+            )}
         </div>
     );
 };
 
-export default EditingDoors;
+export default EditingBedrooms;
 

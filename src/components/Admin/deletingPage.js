@@ -5,6 +5,7 @@ import { EyeOutlined } from '@ant-design/icons';
 import DeletingDoor from './Deleting/DeletingDoors';
 import DeletingBedroom from './Deleting/DeletingBedrooms';
 import DeletingKitchen from './Deleting/DeletingKitchens';
+import DeletingLastWorkOfMira from './Deleting/DeletingLastWorkOfMira';
 
 import ModalPhoto from '../Home/ModalPhoto'; // Make sure the path is correct
 const Deleting = () => {
@@ -13,6 +14,7 @@ const Deleting = () => {
 
     return (
         <div className='text-style-3 delete-container'>
+            <DeletingLastWorkOfMira />
             <DeletingKitchen />
             <DeletingBedroom />
             <DeletingDoor />

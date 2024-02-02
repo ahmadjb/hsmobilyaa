@@ -14,11 +14,11 @@ import { EyeOutlined } from '@ant-design/icons';
 import ModalPhoto from '../../Home/ModalPhoto';// Make sure the path is correct
 
 
-const EditingKitchen = () => {
+const EditingLastWorkOfMira = () => {
 
     const [data, setData] = useState([]);
-    const [txtKitchen, setTxtKitchen] = useState("");
-    const [imgKitchen, setImgKitchen] = useState("");
+    const [txtlastWorks, setTxtlastWorks] = useState("");
+    const [imglastWorks, setImglastWorks] = useState("");
     const [loading, setLoading] = useState(false);
     const [editingId, setEditingId] = useState(""); // Set the desired ID
     const [openMenu, setOpenMenu] = useState(false); // Set the desired ID
@@ -29,12 +29,12 @@ const EditingKitchen = () => {
     const [eyeClicked, setEyeClicked] = useState(false); // Set the desired ID
 
     const openImageModal = (imageUrl) => {
-        setImgKitchen(imageUrl);
+        setImglastWorks(imageUrl);
         setEyeClicked(true);
     };
 
     const closeImageModal = () => {
-        setImgKitchen(null);
+        setImglastWorks(null);
         setEyeClicked(false);
     };
 
@@ -42,7 +42,7 @@ const EditingKitchen = () => {
         setLoading(true);
 
         try {
-            const valRef = collection(txtDB, 'kitchen'); // Change 'doors' to your collection name
+            const valRef = collection(txtDB, 'lastWorks'); // Change 'doors' to your collection name
             const dataDB = await getDocs(valRef);
             const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
             setData(alldata);
@@ -84,12 +84,12 @@ const EditingKitchen = () => {
             setLoading(true);
             try {
                 if (editingId) {
-                    const valRef = doc(collection(txtDB, 'kitchen'), editingId);
+                    const valRef = doc(collection(txtDB, 'lastWorks'), editingId);
                     const docSnap = await getDoc(valRef);
                     if (docSnap.exists()) {
                         const data = docSnap.data();
-                        setTxtKitchen(data.txtval);
-                        setImgKitchen(data.imgUrl);
+                        setTxtlastWorks(data.txtval);
+                        setImglastWorks(data.imgUrl);
                     }
                 }
             } catch (error) {
@@ -106,22 +106,22 @@ const EditingKitchen = () => {
 
     const handleUpdate = async (id) => {
 
-        if (txtKitchen === "" && imgKitchen === "") {
+        if (txtlastWorks === "" && imglastWorks === "") {
             message.error('Please fill the text or the photo.');
         } else {
 
             try {
                 setLoading(true);
                 if (id) {
-                    const valRef = collection(txtDB, 'kitchen');
+                    const valRef = collection(txtDB, 'lastWorks');
                     const updateData = {};
 
-                    if (txtKitchen !== "") {
-                        updateData.txtval = txtKitchen;
+                    if (txtlastWorks !== "") {
+                        updateData.txtval = txtlastWorks;
                     }
 
-                    if (imgKitchen !== "") {
-                        updateData.imgUrl = imgKitchen;
+                    if (imglastWorks !== "") {
+                        updateData.imgUrl = imglastWorks;
                     }
 
                     await updateDoc(doc(valRef, id), updateData);
@@ -141,7 +141,7 @@ const EditingKitchen = () => {
                         return updatedData;
                     });
 
-                    alert(`Data with ID ${id} updated successfully in 'kitchen' collection`);
+                    alert(`Data with ID ${id} updated successfully in 'doors' collection`);
                     setEditingId(""); // Reset the editing state
                 }
 
@@ -151,7 +151,7 @@ const EditingKitchen = () => {
             } finally {
                 setLoading(false);
                 setIndexLoop("");
-                setImgKitchen("");
+                setImglastWorks("");
             }
         }
     };
@@ -161,8 +161,6 @@ const EditingKitchen = () => {
         setOpenMenu(prevOpenMenu => !prevOpenMenu);
     };
 
-
-
     return (
 
 
@@ -170,7 +168,7 @@ const EditingKitchen = () => {
 
             <div onClick={openmenuToSowPage} className='row admin-arrow'>
                 <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
-                    Mutfaklar düzenleme sayfası
+                    Son Işler düzenleme sayfası
                 </div>
                 <div className='col-md-4 col-3'>
                     {openMenu ? (
@@ -214,7 +212,7 @@ const EditingKitchen = () => {
                                             <div className="col-md-6 mb-12 d-flex justify-content-center align-items-center">
                                                 <input
                                                     className="input-field"
-                                                    onChange={(e) => setTxtKitchen(e.target.value)}
+                                                    onChange={(e) => setTxtlastWorks(e.target.value)}
                                                     placeholder='Resmin yeni açıklamasını girin'
                                                 />
                                             </div>
@@ -224,7 +222,7 @@ const EditingKitchen = () => {
                                                     <input
                                                         className="file-input"
                                                         type="file"
-                                                        onChange={(e) => handleUpload(e, setImgKitchen)}
+                                                        onChange={(e) => handleUpload(e, setImglastWorks)}
                                                         style={{ display: 'none' }}
                                                         ref={fileInputRef}
                                                     />
@@ -238,7 +236,7 @@ const EditingKitchen = () => {
                                                         <div className='small-text-1 centered'>Resim Ekle</div>
                                                     </Button>
 
-                                                    {((index === indexLoop) && imgKitchen) ? (
+                                                    {((index === indexLoop) && imglastWorks) ? (
                                                         <>
                                                             <div className='small-green-text centered'>Seçildi</div>
                                                             <CheckCircleFilled style={{ color: 'green', marginLeft: '3px' }} />
@@ -274,12 +272,12 @@ const EditingKitchen = () => {
                     </div>
                 </div>
             ) : ""}
-            {imgKitchen && eyeClicked && (
-                <ModalPhoto imageUrl={imgKitchen} onClose={closeImageModal} />
+            {imglastWorks && eyeClicked && (
+                <ModalPhoto imageUrl={imglastWorks} onClose={closeImageModal} />
             )}
         </div>
     );
 };
 
-export default EditingKitchen;
+export default EditingLastWorkOfMira;
 

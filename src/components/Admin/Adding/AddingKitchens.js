@@ -60,7 +60,7 @@ const AddingKitchen = () => {
     const openmenuToSowPage = () => {
         setOpenMenu(prevOpenMenu => !prevOpenMenu);
     };
-    
+
     return (
         <div className='text-admin-1 ' style={{ paddingTop: 30 }}>
             <div onClick={openmenuToSowPage} className='row admin-arrow'>
@@ -92,9 +92,9 @@ const AddingKitchen = () => {
                             <Button onClick={() => fileInputRef.current.click()}>
                                 <div>Resim Ekle</div>
                             </Button>
-                            {imgKitchen && <div style={{ color: 'green',paddingLeft:'5%' }}>Eklendi</div>}
+                            {imgKitchen && <div style={{ color: 'green',paddingLeft:'5%' }}>Seçildi</div>}
                             {imgKitchen && <CheckCircleFilled style={{ color: 'green', marginLeft: '8px' }} />}
-                            {!imgKitchen && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Eklenmedi</div>}
+                            {!imgKitchen && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Seçilmedi</div>}
                             {!imgKitchen && <CloseCircleFilled style={{ color: 'red', marginLeft: '8px' }} />}
                         </div>
 

@@ -10,6 +10,7 @@ const Kitchen = (props) => {
     const [kitchen, setKitchen] = useState(props?.kitchen);
     const [selectedImage, setSelectedImage] = useState(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const handleResize = () => {
@@ -41,10 +42,12 @@ const Kitchen = (props) => {
 
     const openImageModal = (imageUrl) => {
         setSelectedImage(imageUrl);
+        setShowModal(true);
     };
 
     const closeImageModal = () => {
         setSelectedImage(null);
+        setShowModal(false);
     };
 
     return (

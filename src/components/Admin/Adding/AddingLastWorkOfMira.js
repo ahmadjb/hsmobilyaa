@@ -88,9 +88,9 @@ const LastWorkOfMira = () => {
                             <Button onClick={() => fileInputRef.current.click()}>
                                 <div>Resim Ekle</div>
                             </Button>
-                            {imgLastWork && <div style={{ color: 'green',paddingLeft:'5%' }}>Eklendi</div>}
+                            {imgLastWork && <div style={{ color: 'green',paddingLeft:'5%' }}>Seçildi</div>}
                             {imgLastWork && <CheckCircleFilled style={{ color: 'green', marginLeft: '8px' }} />}
-                            {!imgLastWork && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Eklenmedi</div>}
+                            {!imgLastWork && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Seçilmedi</div>}
                             {!imgLastWork && <CloseCircleFilled style={{ color: 'red', marginLeft: '8px' }} />}
                         </div>
                         <button className="action-button" onClick={handleAddLastWorks} disabled={loading}>Ekle</button>

@@ -1,19 +1,42 @@
 // Editing.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { imgDB, txtDB } from '../firebaseConfig';
 import { collection, updateDoc, doc, getDoc, getDocs } from 'firebase/firestore';
 import { v4 } from 'uuid';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { CaretRightFilled, CaretDownFilled } from '@ant-design/icons';
 
+import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
+import { Button, message } from 'antd';
+
+
+import { EyeOutlined } from '@ant-design/icons';
+import ModalPhoto from '../../Home/ModalPhoto';// Make sure the path is correct
+
+
 const EditingDoors = () => {
 
     const [data, setData] = useState([]);
-    const [txtDoors, setTxtDoors] = useState("");
+    const [txtDoors, setTxtdoors] = useState("");
     const [imgDoors, setImgDoors] = useState("");
     const [loading, setLoading] = useState(false);
     const [editingId, setEditingId] = useState(""); // Set the desired ID
     const [openMenu, setOpenMenu] = useState(false); // Set the desired ID
+    const fileInputRef = useRef(null);
+
+    const [indexLoop, setIndexLoop] = useState(""); // Set the desired ID
+    const [slash, setSlash] = useState(false); // Set the desired ID
+    const [eyeClicked, setEyeClicked] = useState(false); // Set the desired ID
+
+    const openImageModal = (imageUrl) => {
+        setImgDoors(imageUrl);
+        setEyeClicked(true);
+    };
+
+    const closeImageModal = () => {
+        setImgDoors(null);
+        setEyeClicked(false);
+    };
 
     const fetchData = async () => {
         setLoading(true);
@@ -37,12 +60,12 @@ const EditingDoors = () => {
     const handleUpload = async (e, setImage) => {
         const imgs = ref(imgDB, `Imgs/${v4()}`);
 
-        setLoading(true);
-
         try {
+            setSlash(true);
             const snapshot = await uploadBytes(imgs, e.target.files[0]);
             const url = await getDownloadURL(snapshot.ref);
             setImage(url);
+            setSlash(false);
         } catch (error) {
             console.error("Error uploading image:", error);
             // Handle the error as needed
@@ -51,6 +74,7 @@ const EditingDoors = () => {
         }
     };
     useEffect(() => {
+
         // Fetch the existing data for editing when editingId changes
         const fetchDataForEditing = async () => {
             setLoading(true);
@@ -60,7 +84,7 @@ const EditingDoors = () => {
                     const docSnap = await getDoc(valRef);
                     if (docSnap.exists()) {
                         const data = docSnap.data();
-                        setTxtDoors(data.txtval);
+                        setTxtdoors(data.txtval);
                         setImgDoors(data.imgUrl);
                     }
                 }
@@ -77,61 +101,65 @@ const EditingDoors = () => {
 
 
     const handleUpdate = async (id) => {
-        setLoading(true);
-    
-        try {
-            if (id) {
-                const valRef = collection(txtDB, 'doors');
-                const updateData = {};
-    
-                if (txtDoors !== "") {
-                    updateData.txtval = txtDoors;
-                }
-    
-                if (imgDoors !== "") {
-                    updateData.imgUrl = imgDoors;
-                }
-    
-                await updateDoc(doc(valRef, id), updateData);
-    
-                // Update local state after successful update
-                setData((prevData) => {
-                    const updatedData = prevData.map(item => {
-                        if (item.id === id) {
-                            return {
-                                ...item,
-                                txtval: updateData.txtval || item.txtval,
-                                imgUrl: updateData.imgUrl || item.imgUrl,
-                            };
-                        }
-                        return item;
+
+        if (txtDoors === "" && imgDoors === "") {
+            message.error('Please fill the text or the photo.');
+        } else {
+
+            try {
+                setLoading(true);
+                if (id) {
+                    const valRef = collection(txtDB, 'doors');
+                    const updateData = {};
+
+                    if (txtDoors !== "") {
+                        updateData.txtval = txtDoors;
+                    }
+
+                    if (imgDoors !== "") {
+                        updateData.imgUrl = imgDoors;
+                    }
+
+                    await updateDoc(doc(valRef, id), updateData);
+
+                    // Update local state after successful update
+                    setData((prevData) => {
+                        const updatedData = prevData.map(item => {
+                            if (item.id === id) {
+                                return {
+                                    ...item,
+                                    txtval: updateData.txtval || item.txtval,
+                                    imgUrl: updateData.imgUrl || item.imgUrl,
+                                };
+                            }
+                            return item;
+                        });
+                        return updatedData;
                     });
-                    return updatedData;
-                });
-    
-                alert(`Data with ID ${id} updated successfully in 'doors' collection`);
-                setEditingId(""); // Reset the editing state
+
+                    alert(`Data with ID ${id} updated successfully in 'doors' collection`);
+                    setEditingId(""); // Reset the editing state
+                }
+            } catch (error) {
+                console.error("Error updating data:", error);
+                // Handle the error as needed
+            } finally {
+                setLoading(false);
+                setIndexLoop("");
+                setImgDoors("");
             }
-        } catch (error) {
-            console.error("Error updating data:", error);
-            // Handle the error as needed
-        } finally {
-            setLoading(false);
         }
     };
-    
+
     const openmenuToSowPage = () => {
         setOpenMenu(prevOpenMenu => !prevOpenMenu);
     };
-   
+
     return (
-
-
-        <div className='text-admin-1'  style={{paddingTop:30}}>
-          
+        <div className='text-admin-1' style={{ paddingTop: 30 }}>
             <div onClick={openmenuToSowPage} className='row admin-arrow'>
                 <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
-                kapıları düzenleme sayfası
+                    Kapılar düzenleme sayfası
                 </div>
                 <div className='col-md-4 col-3'>
                     {openMenu ? (
@@ -142,53 +170,101 @@ const EditingDoors = () => {
                     )}
                 </div>
             </div>
-
             {openMenu ? (
-            <div className='text-style-2 inner-container'>
+                <div className='text-style-2 inner-container'>
+                    <div className='text-style-3 red-text' style={{ color: '#dca534' }}>Gerekli verileri doldurun ve ardından ilgili öğe için düzenle butona tıklayın</div>
+                    <div className='items-container'>
+                        {loading ? (
+                            <p className='loading-message'>Yükleniyor...</p>
+                        ) : (
+                            data.map((item, index) => (
 
-                <div className='text-style-3 red-text' style={{ color: '#dca534' }}>Gerekli verileri doldurun ve ardından ilgili öğe için düzenle butona tıklayın</div>
-                <div className='items-container'>
-                    {loading ? (
-                        <p className='loading-message'>Yükleniyor...</p>
-                    ) : (
-                        data.map((item, index) => (
-
-                            <div className={`row mb-4${index !== data.length - 1 ? ' separator-line' : ''}`} key={item.id}>
-                                {/* For medium and larger screens, use Bootstrap's grid system */}
-                                <div className="col-md-4 mb-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '' }}>
-                                    <img className="item-image" src={item.imgUrl} />
-                                </div>
-                                <div className="col-md-8 mb-4" style={{ backgroundColor: '' }}>
-                                    <div className="text-style-3 item-text " style={{ backgroundColor: '' }}>
-                                        {item.txtval}
+                                <div className={`row mb-4${index !== data.length - 1 ? ' separator-line' : ''}`} key={item.id}>
+                                    {/* For medium and larger screens, use Bootstrap's grid system */}
+                                    <div className="col-md-4 mb-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '' }}>
+                                        <img className="item-image" src={item.imgUrl} />
                                     </div>
-                                    <div className="delete-button-container row">
-                                        <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
-                                            <input
-                                                className="input-field"
-                                                onChange={(e) => setTxtDoors(e.target.value)}
-                                            />
+                                    <div className="col-md-8 mb-4" style={{ backgroundColor: '' }}>
+                                        <div className='row'>
+                                            <div className="col-md-10 col-10 text-style-3 item-text " style={{ backgroundColor: '' }}>
+                                                {item.txtval}
+                                            </div>
+                                            <div className='col-md-2 col-2'>
+                                                <div>
+                                                    <span className="eye-icon-2" onClick={() => openImageModal(item.imgUrl)}>
+                                                        <EyeOutlined />
+                                                    </span>
+                                                </div>
+                                            </div>
+
                                         </div>
-                                        <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
-                                            <input className="file-input" style={{fontSize:20}} type='file' onChange={(e) => handleUpload(e, setImgDoors)} />
-                                        </div>
-                                        <div className="col-md-4 mb-12 d-flex justify-content-center align-items-center">
-                                            <button
-                                                className="action-button edit-button"
-                                                onClick={() => handleUpdate(item.id)}
-                                                disabled={loading}
-                                            >Düzenle
-                                            </button>
+                                        <div className="delete-button-container row">
+                                            <div className="col-md-6 mb-12 d-flex justify-content-center align-items-center">
+                                                <input
+                                                    className="input-field"
+                                                    onChange={(e) => setTxtdoors(e.target.value)}
+                                                    placeholder='Resmin yeni açıklamasını girin'
+                                                />
+                                            </div>
+                                            <div className="col-md-6 mb-12 d-flex justify-content-center align-items-center">
+
+                                                <div style={{ display: 'flex', paddingTop: 10 }}>
+                                                    <input
+                                                        className="file-input"
+                                                        type="file"
+                                                        onChange={(e) => handleUpload(e, setImgDoors)}
+                                                        style={{ display: 'none' }}
+                                                        ref={fileInputRef}
+                                                    />
+                                                    <Button
+                                                        onClick={() => {
+                                                            setIndexLoop(index);
+                                                            fileInputRef.current.click();
+                                                        }}
+                                                        className='small-btn-1'
+                                                    >
+                                                        <div className='small-text-1 centered'>Resim Ekle</div>
+                                                    </Button>
+
+                                                    {((index === indexLoop) && imgDoors) ? (
+                                                        <>
+                                                            <div className='small-green-text centered'>Seçildi</div>
+                                                            <CheckCircleFilled style={{ color: 'green', marginLeft: '3px' }} />
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            <div className='small-red-text centered'>Seçilmedi</div>
+                                                            <CloseCircleFilled style={{ color: 'red', marginLeft: '3px' }} />
+                                                        </>
+                                                    )}
+                                                </div>
+
+                                            </div>
+                                            <div className="col-md-12 mb-12 d-flex justify-content-center align-items-center">
+                                                <button
+                                                    className="action-button edit-button"
+                                                    onClick={() => handleUpdate(item.id)}
+                                                    disabled={index === indexLoop ? slash : false}
+                                                >
+                                                    {((index === indexLoop) && slash) ? (
+                                                        <LoadingOutlined />
+                                                    ) : (
+                                                        "Düzenle"
+                                                    )}
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                            </div>
-                        ))
-                    )}
+                                </div>
+                            ))
+                        )}
+                    </div>
                 </div>
-            </div>
             ) : ""}
+            {imgDoors && eyeClicked && (
+                <ModalPhoto imageUrl={imgDoors} onClose={closeImageModal} />
+            )}
         </div>
     );
 };

@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import WhatsAppIcon from '../WhatsApp/whatsApp';
 import ScrollButtons from './ScrollButtons';
 import TopMenu from '../Top menu/TopMenu';
+import SimplePhoto from '../../Data/simplePhoto.png';
 
 
 
@@ -22,7 +23,7 @@ import Kitchen from './Kitchen';
 import Doors from "./Doors"
 import photo1 from '../../Data/MainPh1.png';
 import photo2 from '../../Data/MiraMutfagi.png';
-import photo3 from '../../Data/1st.webp';
+import photo3 from '../../Data/MainPh2.png';
 import photo4 from '../../Data/4th.webp';
 import photoo1 from '../../Data/new mutfak.webp';
 import photoo2 from '../../Data/yatakodası.jpg';
@@ -228,15 +229,16 @@ function Home(props) {
 
 
         <LastWorkToLeft lastWorks={lastWorks} />
-        <LastWorkToRight lastWorks={lastWorks} />
 
         <Kitchen kitchen={kitchens} />
         <Bedrooms bedrooms={bedrooms} />
         <Doors doors={doors} />
 
-
+          <div className='centered' style={{paddingTop:50}}>
+          <img src={SimplePhoto} style={{width:'70%'}} />
+          </div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
-        { /* <Workcard />  */}
+        
       </div>
     );
   };
