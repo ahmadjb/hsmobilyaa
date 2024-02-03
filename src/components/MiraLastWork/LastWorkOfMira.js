@@ -10,6 +10,7 @@ import { EyeOutlined } from '@ant-design/icons';
 import  LastWorkPhoto  from '../../Data/lastworktext.svg';
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 import TopMenu from '../Top menu/TopMenu';
+import ScrollButtons from '../Home/ScrollButtons';
 
 const LastWorkOfMira = () => {
 
@@ -72,6 +73,7 @@ const LastWorkOfMira = () => {
                 }
 
                 {index % 4 === 3 && <div className="w-100"></div>} {/* Add a new row after every 4th item */}
+                <ScrollButtons />
             </div>
         ));
     };
@@ -84,7 +86,7 @@ const LastWorkOfMira = () => {
             <div style={{ paddingTop: 25 }}></div>
             
             <TopMenu />
-            
+
             <div className='main-contianer'>
                 <div style={{ paddingBottom: 60 }}></div>
                <div   className='centered' > 

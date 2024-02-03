@@ -391,6 +391,7 @@
 	font-size: 22px;
 	font-family: inherit;
 }
+
 .seperator-style {
 	font-weight: bold;
 	color: rgb(19, 39, 127);
@@ -407,6 +408,7 @@
 		padding: 10px;
 		display: block;
 	}
+
 	.seperator-style {
 		font-weight: bold;
 		color: rgb(19, 39, 127);
@@ -1649,10 +1651,11 @@ section {
 	color: green;
 	padding-left: 10px;
 }
-.small-red-text{
-color: red;
-font-size: 20px;
-padding-left: 10px;
+
+.small-red-text {
+	color: red;
+	font-size: 20px;
+	padding-left: 10px;
 
 }
 
@@ -1671,18 +1674,20 @@ padding-left: 10px;
 		font-size: 15px;
 		color: green;
 		padding-left: 5px;
-		
+
 	}
-	.small-red-text{
+
+	.small-red-text {
 		color: red;
 		font-size: 15px;
 		padding-left: 5px;
-		
-		}
-		.last-works-text2 {
 
-			width: 100%;
-		}
+	}
+
+	.last-works-text2 {
+
+		width: 100%;
+	}
 }
 
 .overlayText {
@@ -1691,46 +1696,57 @@ padding-left: 10px;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	color: #fff; /* Set the desired text color */
-	font-size: 50px; /* Set the desired font size */
-	font-weight: bold; /* Set the desired font weight */
+	color: #fff;
+	/* Set the desired text color */
+	font-size: 50px;
+	/* Set the desired font size */
+	font-weight: bold;
+	/* Set the desired font weight */
 	/* Add any additional styles as needed */
-  }
+}
 
-  .overlayMira {
+.overlayMira {
 	position: absolute;
 	top: 30%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	text-align: center;
-	color: #fff; /* Set the desired text color */
-	font-size: 90px; /* Set the desired font size */
-	font-weight: bolder; /* Set the desired font weight */
+	color: #fff;
+	/* Set the desired text color */
+	font-size: 90px;
+	/* Set the desired font size */
+	font-weight: bolder;
+	/* Set the desired font weight */
 	/* Add any additional styles as needed */
-  }
-  /* Set the initial styling for the hidden images */
+}
 
-  /* project.module.css or your custom CSS file */
+/* Set the initial styling for the hidden images */
+
+/* project.module.css or your custom CSS file */
 
 .hiddenImage {
 	display: none;
-  }
-  
-  /* Show the current image */
-  .currentImage {
-	display: block;
-  }
-  .imageAboutUs {
-    height: 20vh;
-    width: 20vh;
-    position: absolute;
-    bottom: 40px;
-    top: 75%; /* Center vertically */
-    left: 20%; /* Center horizontally */
-    transform: translate(-50%, -50%);
-    border-radius: 100px;
-	border:2px  solid rgb(255, 255, 255);
 }
+
+/* Show the current image */
+.currentImage {
+	display: block;
+}
+
+.imageAboutUs {
+	height: 20vh;
+	width: 20vh;
+	position: absolute;
+	bottom: 40px;
+	top: 75%;
+	/* Center vertically */
+	left: 20%;
+	/* Center horizontally */
+	transform: translate(-50%, -50%);
+	border-radius: 100px;
+	border: 2px solid rgb(255, 255, 255);
+}
+
 @media (max-width: 767px) {
 
 	.overlayText {
@@ -1739,45 +1755,105 @@ padding-left: 10px;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		text-align: center;
-		color: #fff; /* Set the desired text color */
-		font-size: 15px; /* Set the desired font size */
-		font-weight: bold; /* Set the desired font weight */
+		color: #fff;
+		/* Set the desired text color */
+		font-size: 15px;
+		/* Set the desired font size */
+		font-weight: bold;
+		/* Set the desired font weight */
 		/* Add any additional styles as needed */
-	  }
-	
-	  .overlayMira {
+	}
+
+	.overlayMira {
 		position: absolute;
 		top: 30%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		text-align: center;
-		color: #fff; /* Set the desired text color */
-		font-size: 30px; /* Set the desired font size */
-		font-weight: bolder; /* Set the desired font weight */
+		color: #fff;
+		/* Set the desired text color */
+		font-size: 30px;
+		/* Set the desired font size */
+		font-weight: bolder;
+		/* Set the desired font weight */
 		/* Add any additional styles as needed */
-	  }
-	  /* Set the initial styling for the hidden images */
-	
-	  /* project.module.css or your custom CSS file */
-	
+	}
+
+	/* Set the initial styling for the hidden images */
+
+	/* project.module.css or your custom CSS file */
+
 	.hiddenImage {
 		display: none;
-	  }
-	  
-	  /* Show the current image */
-	  .currentImage {
+	}
+
+	/* Show the current image */
+	.currentImage {
 		display: block;
-	  }
-	  .imageAboutUs {
+	}
+
+	.imageAboutUs {
 		height: 8vh;
 		width: 8vh;
 		position: absolute;
 		bottom: 40px;
-		top: 77%; /* Center vertically */
-		left: 15%; /* Center horizontally */
+		top: 77%;
+		/* Center vertically */
+		left: 15%;
+		/* Center horizontally */
 		transform: translate(-50%, -50%);
 		border-radius: 100px;
-		border:2px  solid rgb(255, 255, 255);
+		border: 2px solid rgb(255, 255, 255);
 	}
 
+}
+
+/* project.module.css */
+
+
+.sosyal-media {
+    width: 100px;
+    padding: 10px;
+    transition: width 0.3s ease; /* Move transition to the base class */
+}
+
+.sosyal-media:hover {
+    width: 120px !important;
+    /* Using !important to override inline styles */
+}
+
+
+@media (max-width: 767px) {
+
+	.sosyal-media {
+		width: 100%;
+		padding: 10px;
+		transition: width 0.3s ease; /* Move transition to the base class */
+	}
+	
+	.sosyal-media:hover {
+		width: 110% !important;
+		/* Using !important to override inline styles */
+	}
+	
+
+}
+
+.welcom-text {
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-size: 60px;
+	font-family: inherit;
+	padding-top: 50px;
+}
+@media (max-width: 767px) {
+	
+.welcom-text {
+	font-weight: bold;
+	color: rgb(19, 39, 127);
+	font-size: 32px;
+	font-family: inherit;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
 }

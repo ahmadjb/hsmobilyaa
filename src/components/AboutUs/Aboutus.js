@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from "react";
 import styles from "./project.module.css";
 import MainPhoto from "../../Data/aboutUs.png";
-
+import SocialData from "../../Data/SocialData";
+import SosyalMedia from "../Home/SosyalMedia";
+import ScrollButtons from "../Home/ScrollButtons";
 import photo1 from '../../Data/new mutfak.webp';
 import photo2 from '../../Data/yatakodası.jpg';
 import photo3 from '../../Data/vistiyer.jpg';
 import photo4 from '../../Data/kultuk.jpg';
 import photo5 from '../../Data/la5.jpg';
 
+import Facebook from "../../Data/Facebook.png";
+import WhatsApp from "../../Data/whatsapp.png";
+import Instagram from "../../Data/instgram.png";
+import Mail from "../../Data/mail.png";
 const AboutUs = (props) => {
     const [text, setText] = useState("");
     const [mira, setMira] = useState("");
@@ -19,15 +25,15 @@ const AboutUs = (props) => {
     const [isMobile, setIsMobile] = useState(window.innerWidth);
 
     useEffect(() => {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth);
-      };
-    
-      window.addEventListener('resize', handleResize);
-    
-      return () => {
-        window.removeEventListener('resize', handleResize);
-      };
+        const handleResize = () => {
+            setIsMobile(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     const [mainPhoto, setMainPhoto] = useState(isMobile < 800 ? '18.5vh' : '64vh');
@@ -101,6 +107,26 @@ const AboutUs = (props) => {
                         />
                     ))}
                 </div>
+            </div>
+            <div >
+                <div className="centered" style={{ backgroundColor: '' }}>
+                    <div className="welcom-text">
+                        Miray'a Hoş Geldiniz
+                    </div>
+                </div>
+                <div style={{ paddingLeft: 60 }}>
+                    <div>
+                        Hakkımızda:
+                    </div>
+                    <div>
+                        Acıklaması Acıklaması Acıklaması
+                    </div>
+                </div>
+                <SosyalMedia />
+                <ScrollButtons />
+                
+
+
             </div>
         </React.Fragment>
     );

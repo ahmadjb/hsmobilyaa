@@ -8,6 +8,8 @@ import WhatsAppIcon from '../WhatsApp/whatsApp';
 import ScrollButtons from './ScrollButtons';
 import TopMenu from '../Top menu/TopMenu';
 import SimplePhoto from '../../Data/simplePhoto.png';
+import SosyalMedia from './SosyalMedia';
+import WiatingHand from '../../Data/wiatingHand.gif';
 
 
 
@@ -45,8 +47,10 @@ function Home(props) {
   const [doorsUrl, setDoorsUrl] = useState([]);
   const [doorsNames, setDoorsNames] = useState([]);
 
-  const [dataLoaded1, setDataLoaded1] = useState(true);
-  const [dataLoaded2, setDataLoaded2] = useState(true);
+  const [dataLoaded1, setDataLoaded1] = useState(false);
+  const [dataLoaded2, setDataLoaded2] = useState(false);
+  const [dataLoaded3, setDataLoaded3] = useState(false);
+  const [dataLoaded4, setDataLoaded4] = useState(false);
 
 
   const [doors, setDoors] = useState([]);
@@ -61,6 +65,7 @@ function Home(props) {
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setLastWorks(alldata);
+    setDataLoaded1(true);
 
 
   }
@@ -69,6 +74,7 @@ function Home(props) {
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setDoors(alldata);
+    setDataLoaded2(true);
 
 
   }
@@ -78,6 +84,7 @@ function Home(props) {
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setBedrooms(alldata);
+    setDataLoaded3(true);
 
 
   }
@@ -87,6 +94,7 @@ function Home(props) {
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setKitchens(alldata);
+    setDataLoaded4(true);
 
 
   }
@@ -96,6 +104,8 @@ function Home(props) {
     getDataBedRooms();
     getDataDoors();
     getDataLastWorkOfMira();
+
+
   }, []);
 
 
@@ -109,7 +119,7 @@ function Home(props) {
     const handleResize = () => {
       const newWidth = window.innerWidth;
       setIsMobile(newWidth);
-      setMainPhoto(newWidth < 800 ? '25%' : '55%');
+      setMainPhoto(newWidth < 800 ? '25vh' : '55vh');
     };
 
     window.addEventListener('resize', handleResize);
@@ -226,34 +236,39 @@ function Home(props) {
           </div>
         </div>
 
-
-
         <LastWorkToLeft lastWorks={lastWorks} />
-
         <Kitchen kitchen={kitchens} />
         <Bedrooms bedrooms={bedrooms} />
         <Doors doors={doors} />
 
-          <div className='centered' style={{paddingTop:50}}>
-          <img src={SimplePhoto} style={{width:'90%'}} />
-          </div>
+        <div className='centered' style={{ paddingTop: 50, paddingBottom: 50 }}>
+          <img src={SimplePhoto} style={{ width: '90%' }} />
+        </div>
+
+        <SosyalMedia />
+
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 60, paddingTop: 30 }}> Geliştirilmekte</div>
-        
+
       </div>
     );
   };
 
   return (
     <main>
-      {dataLoaded1 && dataLoaded2 && (
+      {dataLoaded1 && dataLoaded2 && dataLoaded3 && dataLoaded4 ? (
         <div className="">
           <PhotoCarousel />
           <ScrollButtons />
-
+        </div>
+      ) : (
+        <div className='centered' style={{height:"50vh"}}>
+          <img src={WiatingHand} alt="Waiting Hand" />
         </div>
       )}
     </main>
+
   );
+
 }
 
 export default Home;
