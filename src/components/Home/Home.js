@@ -119,7 +119,7 @@ function Home(props) {
     const handleResize = () => {
       const newWidth = window.innerWidth;
       setIsMobile(newWidth);
-      setMainPhoto(newWidth < 800 ? '25vh' : '55vh');
+      setMainPhoto(newWidth < 800 ? '19vh' : '55vh');
     };
 
     window.addEventListener('resize', handleResize);
