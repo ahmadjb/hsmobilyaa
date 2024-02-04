@@ -42,7 +42,7 @@ const AboutUs = (props) => {
 
     useEffect(() => {
         const textToDisplay = "Mobilya ve dekorasyonda 20 yılı aşkın deneyim."; // Your text here
-        const Mira = "MIRA DEKOR"; // Your text here
+        const Mira = "MD Dekorasyon"; // Your text here
 
         const delay = 100; // Delay between each letter in milliseconds
 
@@ -111,20 +111,80 @@ const AboutUs = (props) => {
             <div >
                 <div className="centered" style={{ backgroundColor: '' }}>
                     <div className="welcom-text">
-                        Miray'a Hoş Geldiniz
+                        MD Dekorasyon'a Hoş Geldiniz
                     </div>
                 </div>
-                <div style={{ paddingLeft: 60 }}>
-                    <div>
-                        Hakkımızda:
+                <div className="padding-l">
+                    <div >
+                        <div className="aboutus-s" >
+                            Hakkımızda:
+                        </div>
+                        <div className="text-aboutus-s">
+                            Tutkumuzla Hayalinizdeki Evleri Şekillendiriyoruz.
+                        </div>
                     </div>
-                    <div>
-                        Acıklaması Acıklaması Acıklaması
+                    <div className="text-aboutus-s">
+                        MD Dekorasyon'a hoş geldiniz, burada zanaatı yaratıcılıkla birleştirerek yaşam alanlarınızı benzersiz tarzınızın bir ifadesine dönüştürüyoruz.
                     </div>
+                    <div className="text-aboutus-s">
+                        "Mobilya ve dekorasyon" dünyasında öncü olarak, ev tasarımının sanatını yeniden tanımlayan bir dizi hizmet sunmaktan gurur duyuyoruz.
+                    </div>
+                    <div className="aboutus-s">
+                        Ev tadilatı dekorasyonu:
+                    </div>
+                    <div className="text-aboutus-s">
+                        iyi düzenlenmiş ve güzel dekore edilmiş bir evin, uyumlu bir yaşam için temel olduğuna inanıyoruz.<br/> Uzman ekibimiz, kişiliğinizi yansıtmakla kalmayıp aynı zamanda işlevselliği optimize eden yaşam alanları yaratmada mükemmel bir beceriye sahiptir.
+                    </div>
+                    <div className="aboutus-s">
+                        Anahtar Teslim İşlemleri:
+                    </div>
+                    <div className="text-aboutus-s">
+                        Hayalinizdeki evinizi gerçeğe dönüştürmenin kolaylığını bizimle yaşayın. <br/>Kapsamlı anahtar teslim çözümlerimizle her detayı yönetiyor, sorunsuz ve stres-free bir dönüşüm sunuyoruz.<br/> Sadece eski evinizin anahtarını bize verin, size yeni evinizin anahtarını vererek sizi sürprizlerle şaşırtacağız!
+                    </div>
+
+                    <div className="aboutus-s">
+                        Mutfak:
+                    </div>
+                    <div className="text-aboutus-s">
+                        Her evin kalbi özenli bir dikkat gerektirir.<br/> Mutfak tasarımlarımız, işlevselliği estetikle buluşturarak mutfak alanınızın yaratıcılık ve verimlilik merkezi olmasını sağlar.
+                    </div>
+                    <div className="aboutus-s">
+                        Kapı:                </div>
+                    <div className="text-aboutus-s">
+                        Kapılar sadece girişler değildir; evinizin kişiliğini belirlerler.<br/> Kapılarımızın her biri, yaşam alanlarınızın karakterini artırmak için özenle tasarlanmıştır.
+                    </div>
+
+                    <div className="aboutus-s">
+                        Vestiyer:
+                    </div>
+                    <div className="text-aboutus-s">
+                        Zarafet, düzenli bir gardırop ile başlar. Özel tasarlanmış vestiyer çözümlerimiz,<br/> yaşam tarzınıza uygun depolama çözümleri sunarak pratiklikle şıklığı bir araya getirir.
+                    </div>
+
+                    <div className="aboutus-s">
+                        Giyinme Odası:
+                    </div>
+                    <div className="text-aboutus-s">
+                        Kişisel tarzınıza uygun bir giyinme odasının lüksüne kapılın.<br/> Giyinme odası çözümlerimiz, fonksiyonellik ve ihtişamı mükemmel bir şekilde birleştirir.
+                    </div>
+                    <div className="aboutus-s">
+                        Banyo:
+                    </div>
+                    <div className="text-aboutus-s">
+                        Kişisel sığınaklarınızı, dinlenmeyi ve estetiği öncelikleyen banyo tasarımlarımızla canlandırın.<br/> Modern minimalizmden zamansız klasiklere kadar, günlük ritüelleriniz için mükemmel ambiyansı keşfedin.
+                    </div>
+
+                    <div className="centered text-aboutus-s padding-50" >
+                    sadece evleri donatmıyoruz; deneyimler düzenliyoruz. Kalitemize, yeniliğimize ve müşteri memnuniyetimize olan bağlılığımız bizi farklı kılıyor. Bu yolculuğa birlikte çıkalım, benzersiz hikayenizi anlatan mekanlar şekillendirelim.
+                    </div>
+
+
+
+
                 </div>
                 <SosyalMedia />
                 <ScrollButtons />
-                
+
 
 
             </div>
