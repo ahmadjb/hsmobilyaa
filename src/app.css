@@ -949,7 +949,7 @@
 
 @media (max-width: 767px) {
 	.photo-slider-item img {
-		height: 13vh;
+		height: 17vh;
 		display: block;
 		/* Fix for potential spacing issues */
 		border: none;
@@ -1757,7 +1757,7 @@ section {
 		text-align: center;
 		color: #fff;
 		/* Set the desired text color */
-		font-size: 15px;
+		font-size: 17px;
 		/* Set the desired font size */
 		font-weight: bold;
 		/* Set the desired font weight */
@@ -1772,7 +1772,7 @@ section {
 		text-align: center;
 		color: #fff;
 		/* Set the desired text color */
-		font-size: 30px;
+		font-size: 35px;
 		/* Set the desired font size */
 		font-weight: bolder;
 		/* Set the desired font weight */
@@ -1892,14 +1892,14 @@ font-size: 30px;
 	.aboutus-s {
 		font-weight: bold;
 		color: rgb(19, 39, 127);
-		font-size: 33px;
+		font-size: 28px;
 		font-family: inherit;
 		padding-top: 30px;
 	}
 	.text-aboutus-s {
 		font-weight: bold;
 		color: rgb(1, 4, 17);
-		font-size: 22px;
+		font-size: 17px;
 		font-family: inherit;
 	}
 	.padding-l{
