@@ -26,7 +26,9 @@ import Doors from "./Doors"
 import photo1 from '../../Data/MainPh1.png';
 import photo2 from '../../Data/MiraMutfagi.png';
 import photo3 from '../../Data/MainPh2.png';
-import photo4 from '../../Data/4th.webp';
+import photo5 from '../../Data/mutfak1.png';
+import photo6 from '../../Data/mutfak2.png';
+
 import photoo1 from '../../Data/new mutfak.webp';
 import photoo2 from '../../Data/yatakodası.jpg';
 import photoo3 from '../../Data/vistiyer.jpg';
@@ -146,7 +148,7 @@ function Home(props) {
 
   const PhotoCarousel = () => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-    const photos = [photo1, photo2, photo3, photo4];
+    const photos = [photo1, photo2, photo3,photo5,photo6];
 
     useEffect(() => {
       // Set up an interval to automatically navigate every 3 seconds
