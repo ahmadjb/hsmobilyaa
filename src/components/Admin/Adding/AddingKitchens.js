@@ -1,11 +1,11 @@
-import React, { useState, useEffect ,useRef} from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { imgDB, txtDB } from '../firebaseConfig';
 import { v4 } from 'uuid';
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { getDocs, addDoc, collection, deleteDoc, doc } from 'firebase/firestore';
 import { CaretRightFilled, CaretDownFilled } from '@ant-design/icons';
 
-import { CheckCircleFilled, CloseCircleFilled } from '@ant-design/icons';
+import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 
 import { Button, message } from 'antd';
 
@@ -39,21 +39,26 @@ const AddingKitchen = () => {
 
 
     const handleAddKitchen = async () => {
-        setLoading(true);
 
-        try {
-            const valRef = collection(txtDB, 'kitchen');
-            await addDoc(valRef, { txtval: txtKitchen, imgUrl: imgKitchen });
-            alert('Data added to "yatak odası" collection successfully');
-           
-        } catch (error) {
-            console.error("Error adding data to 'yatak odası' collection:", error);
-            // Handle the error as needed
-        } finally {
-            setLoading(false);
+
+        if (txtKitchen === "" || imgKitchen === "") {
+            message.error('Please fill the text or the photo.');
+        } else {
+            try {
+                setLoading(true);
+                const valRef = collection(txtDB, 'kitchen');
+                await addDoc(valRef, { txtval: txtKitchen, imgUrl: imgKitchen });
+                alert('Data added to "yatak odası" collection successfully');
+
+            } catch (error) {
+                console.error("Error adding data to 'yatak odası' collection:", error);
+                // Handle the error as needed
+            } finally {
+                setLoading(false);
+            }
+            setImgKitchen("");
+            setKitchen("");
         }
-        setImgKitchen("");
-        setKitchen("");
     };
 
 
@@ -64,10 +69,10 @@ const AddingKitchen = () => {
     return (
         <div className='text-admin-1 ' style={{ paddingTop: 30 }}>
             <div onClick={openmenuToSowPage} className='row admin-arrow'>
-                <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
-                    Mutfak ekleme
+                <div className='col-md-7 col-11' style={{ marginTop: 7 }}>
+                    Mutfak ekleme sayfası
                 </div>
-                <div className='col-md-4 col-3'>
+                <div className='col-md-4 col-1'>
                     {openMenu ? (
                         <CaretDownFilled style={{ marginTop: 10 }} />
                     ) : (
@@ -92,13 +97,19 @@ const AddingKitchen = () => {
                             <Button onClick={() => fileInputRef.current.click()}>
                                 <div>Resim Ekle</div>
                             </Button>
-                            {imgKitchen && <div style={{ color: 'green',paddingLeft:'5%' }}>Seçildi</div>}
+                            {imgKitchen && <div style={{ color: 'green', paddingLeft: '5%' }}>Seçildi</div>}
                             {imgKitchen && <CheckCircleFilled style={{ color: 'green', marginLeft: '8px' }} />}
-                            {!imgKitchen && <div style={{ color: 'red', fontSize: 20 ,paddingLeft:'5%'}}>Seçilmedi</div>}
+                            {!imgKitchen && <div style={{ color: 'red', fontSize: 20, paddingLeft: '5%' }}>Seçilmedi</div>}
                             {!imgKitchen && <CloseCircleFilled style={{ color: 'red', marginLeft: '8px' }} />}
                         </div>
 
-                        <button className="action-button" onClick={handleAddKitchen} disabled={loading} >Ekle</button>
+                        <button className="action-button" onClick={handleAddKitchen} disabled={loading} >
+                            {(loading) ? (
+                                <LoadingOutlined />
+                            ) : (
+                                "Ekle"
+                            )}
+                        </button>
                     </div>
                 </div>
             ) : ""}

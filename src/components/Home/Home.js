@@ -186,7 +186,7 @@ function Home(props) {
           <div className="left-arrow">
             <LeftArrow onClick={navigateToPrevPhoto} />
           </div>
-          <div style={{ borderColor: 'white', borderRadius: 20, borderStyle: 'solid', borderWidth: 3, overflow: 'hidden', width: '92%', height: mainPhoto }}>
+          <div style={{ borderColor: 'white', borderRadius: 15, borderStyle: '', borderWidth: 3, overflow: 'hidden', width: '100%', height: mainPhoto }}>
             <div style={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
               <div className="" style={photoSliderStyle}>
                 {photos.map((photo, index) => (
@@ -221,7 +221,7 @@ function Home(props) {
           <div >
             <img src={photoo4} alt="Image 4" className="constant-photo" />
             <div className="photo-text text-style-container" >
-              <div className="text-style-2a">Koltuk</div>
+              <div className="text-style-2a">Banyo</div>
             </div>
           </div>
           <div >

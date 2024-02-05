@@ -10,7 +10,7 @@ const DeletingKitchen = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
-    
+
     const [openMenu, setOpenMenu] = useState(false); // Set the desired ID
 
     const openImageModal = (imageUrl) => {
@@ -62,13 +62,13 @@ const DeletingKitchen = () => {
 
 
     return (
-        <div className='text-admin-1 ' style={{paddingTop:30}}>
-           
+        <div className='text-admin-1 ' style={{ paddingTop: 30 }}>
+
             <div onClick={openmenuToSowPage} className='row admin-arrow'>
-                <div className='col-md-5 col-9' style={{ marginTop: 7 }}>
-                Yatak Odaları Silme Sayfası
+                <div className='col-md-7 col-11' style={{ marginTop: 7 }}>
+                    Yatak Odaları & Gardrops Silme Sayfası
                 </div>
-                <div className='col-md-4 col-3'>
+                <div className='col-md-4 col-1'>
                     {openMenu ? (
                         <CaretDownFilled style={{ marginTop: 10 }} />
                     ) : (
@@ -77,44 +77,51 @@ const DeletingKitchen = () => {
                 </div>
             </div>
             {openMenu ? (
-            <div className='text-style-2 inner-container'>
+                <div className='text-style-2 inner-container'>
 
-                <div className='text-style-3 red-text' style={{ color: 'red' }}> İlgili öğeyi silmek için lütfen sil düğmesine tıklayınız:</div>
-                <div className='items-container'>
-                    {loading ? (
-                        <p className='loading-message'>Yükleniyor...</p>
-                    ) : (
-                        data.map((item,index) => (
-                           
-                            <div className={`row mb-4${index !== data.length - 1 ? ' separator-line' : ''}`} key={item.id}>
-                                {/* For medium and larger screens, use Bootstrap's grid system */}
-                                <div className="col-md-4 mb-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '' }}>
-                                    <img className="item-image" src={item.imgUrl} />
-                                </div>
-                                <div className="col-md-8 mb-4">
-                                    <div className="text-style-3 item-text " style={{backgroundColor:''}}>{item.txtval}</div>
-                                    <div className="delete-button-container ">
+                    <div className='text-style-3 red-text' style={{ color: 'red' }}> İlgili öğeyi silmek için lütfen sil düğmesine tıklayınız,   ( -- {data.length}-- ) öğemiz var </div>
+                    <div className='items-container'>
+                        {loading ? (
+                            <p className='loading-message'>Yükleniyor...</p>
+                        ) : (
+                            data.map((item, index) => (
+
+                                <div className={`row mb-4${index !== data.length - 1 ? ' separator-line' : ''}`} key={item.id}>
+                                    {/* For medium and larger screens, use Bootstrap's grid system */}
+                                    <div className="col-md-4 mb-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '' }}>
                                         <div>
-                                            <span className="eye-icon-2" onClick={() => openImageModal(item.imgUrl)}>
-                                                <EyeOutlined />
-                                            </span>
+                                            <div>
+                                                <img className="item-image" src={item.imgUrl} />
+                                            </div>
+                                            <div className='centered' style={{fontSize:15}}>
+                                                {index + 1}
+                                            </div>
                                         </div>
-                                        <button className="delete-button" onClick={() => handleDelete(item.id)} disabled={loading}>
-                                            Sil
-                                        </button>
                                     </div>
+                                    <div className="col-md-8 mb-4">
+                                        <div className="text-style-3 item-text " style={{ backgroundColor: '' }}>{item.txtval}</div>
+                                        <div className="delete-button-container ">
+                                            <div>
+                                                <span className="eye-icon-2" onClick={() => openImageModal(item.imgUrl)}>
+                                                    <EyeOutlined />
+                                                </span>
+                                            </div>
+                                            <button className="delete-button" onClick={() => handleDelete(item.id)} disabled={loading}>
+                                                Sil
+                                            </button>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                
-                            </div>
-                        ))
-                    )}
+                            ))
+                        )}
+                    </div>
                 </div>
-            </div>
             ) : ""}
             {selectedImage && (
                 <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
             )}
-            
+
         </div>
     );
 };

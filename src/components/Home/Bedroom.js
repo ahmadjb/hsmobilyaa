@@ -58,7 +58,7 @@ const navigateToPrevPhoto = () => {
             <div className="photo-slider-container-new">
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div className='text-style'>
-                        Yatak Odaları
+                        Yatak Odaları & Gardrops
                     </div>
                 </div>
                 <div className="photo-slider-new " >

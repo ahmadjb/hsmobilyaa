@@ -43,9 +43,9 @@ function Footer() {
                             <h4>Kategorilerimiz</h4>
                             <ul>
                                 <li>Kapı</li>
-                                <li>Yatak odaları</li>
+                                <li>Yatak odaları & Gardrops</li>
                                 <li>Vestiyer</li>
-                                <li>Koltuk</li>
+                                <li>Banyo</li>
                                 <li>Mutfak</li>
                             </ul>
                         </div>

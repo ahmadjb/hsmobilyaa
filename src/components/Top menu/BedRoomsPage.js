@@ -80,7 +80,7 @@ const BedRooms = () => {
                
             <div className='main-contianer'>
                 <div style={{ paddingBottom: 60 }}></div>
-                <div className='text-style'>Yatak Odalar sayfası</div>
+                <div className='text-style'>Yatak Odalar & Gardrops sayfası</div>
                 <div style={{ paddingBottom: 30 }}></div>
 
                 <div style={{ fontSize: 20 }} >{bedRoom.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
