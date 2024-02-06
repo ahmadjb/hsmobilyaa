@@ -10,24 +10,24 @@ import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 import WiatingHand from '../../Data/wiatingHand.gif';
 
 
-const BedRooms = () => {
+const Cloakroom = () => {
 
 
-    const [bedRoom, setBedRoom] = useState([]);
+    const [cloakroom, setCloakroom] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
     const [dataLoaded, setDataLoaded] = useState(false);
 
 
-    const getDataBedRooms = async () => {
-        const valRef = collection(txtDB, 'bedrooms');
+    const getDataCloakroom = async () => {
+        const valRef = collection(txtDB, 'cloakroom');
         const dataDB = await getDocs(valRef);
         const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
-        setBedRoom(alldata);
+        setCloakroom(alldata);
         setDataLoaded(true);
 
     }
     useEffect(() => {
-        getDataBedRooms();
+        getDataCloakroom();
     }, []);
     const openImageModal = (imageUrl) => {
         setSelectedImage(imageUrl);
@@ -37,7 +37,7 @@ const BedRooms = () => {
         setSelectedImage(null);
     };
     const renderImages = () => {
-        return bedRoom.map((door, index) => (
+        return cloakroom.map((door, index) => (
             <div key={index} className="col-lg-3" style={{ paddingBottom: 40 }}>
                 {index % 4 === 0 && <div className="row">{/* Start a new row after every 4th item */}</div>}
 
@@ -85,10 +85,10 @@ const BedRooms = () => {
 
             <div className='main-contianer'>
                 <div style={{ paddingBottom: 60 }}></div>
-                <div className='text-style'>Yatak Odalar & Gardrop sayfası</div>
+                <div className='text-style'>Vestiyer sayfası</div>
                 <div style={{ paddingBottom: 30 }}></div>
 
-                <div style={{ fontSize: 20 }} >{bedRoom.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
+                <div style={{ fontSize: 20 }} >{cloakroom.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
                 <div style={{ paddingTop: 20 }}>
                     {dataLoaded ? (
                         <div className="row" >
@@ -105,4 +105,4 @@ const BedRooms = () => {
     );
 };
 
-export default BedRooms;
+export default Cloakroom;

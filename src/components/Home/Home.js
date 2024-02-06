@@ -10,7 +10,10 @@ import TopMenu from '../Top menu/TopMenu';
 import SimplePhoto from '../../Data/simplePhoto.png';
 import SosyalMedia from './SosyalMedia';
 import WiatingHand from '../../Data/wiatingHand.gif';
-
+import Kapı from "../../Data/PhotoKategories/kapı.png";
+import Dekor1 from "../../Data/PhotoKategories/dekor.png";
+import Dekor2 from "../../Data/PhotoKategories/dekor2.png";
+import Dekor3 from "../../Data/PhotoKategories/Frame 16.png";
 
 
 import React, { useEffect, useState } from "react";
@@ -22,7 +25,8 @@ import { autoTypeData } from "../../Data/PersonalData";
 import Workcard from "./lastWorks";
 import Bedrooms from "./Bedroom";
 import Kitchen from './Kitchen';
-import Doors from "./Doors"
+import Doors from "./Doors";
+import Cloakroom from "./Cloakroom";
 import photo1 from '../../Data/MainPh1.png';
 import photo2 from '../../Data/MiraMutfagi.png';
 import photo3 from '../../Data/MainPh2.png';
@@ -53,12 +57,14 @@ function Home(props) {
   const [dataLoaded2, setDataLoaded2] = useState(false);
   const [dataLoaded3, setDataLoaded3] = useState(false);
   const [dataLoaded4, setDataLoaded4] = useState(false);
+  const [dataLoaded5, setDataLoaded5] = useState(false);
 
 
   const [doors, setDoors] = useState([]);
   const [bedrooms, setBedrooms] = useState([]);
   const [kitchens, setKitchens] = useState([]);
   const [lastWorks, setLastWorks] = useState([]);
+  const [cloakroom, setcloakroom] = useState([]);
 
 
 
@@ -100,12 +106,22 @@ function Home(props) {
 
 
   }
+  const getDatacloakroom = async () => {
+    const valRef = collection(txtDB, 'cloakroom');
+    const dataDB = await getDocs(valRef);
+    const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
+    setcloakroom(alldata);
+    setDataLoaded5(true);
+
+
+  }
 
   useEffect(() => {
     getDataKitchen();
     getDataBedRooms();
     getDataDoors();
     getDataLastWorkOfMira();
+    getDatacloakroom();
 
 
   }, []);
@@ -148,7 +164,7 @@ function Home(props) {
 
   const PhotoCarousel = () => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
-    const photos = [photo1, photo2, photo3,photo5,photo6];
+    const photos = [photo1, photo2, photo3, photo5, photo6];
 
     useEffect(() => {
       // Set up an interval to automatically navigate every 3 seconds
@@ -239,13 +255,45 @@ function Home(props) {
         </div>
 
         <LastWorkToLeft lastWorks={lastWorks} />
-        <Kitchen kitchen={kitchens} />
-        <Bedrooms bedrooms={bedrooms} />
         <Doors doors={doors} />
+        <Bedrooms bedrooms={bedrooms} />
+        <Kitchen kitchen={kitchens} />
+        <Cloakroom cloakroom={cloakroom} />
+
 
         <div className='centered' style={{ paddingTop: 50, paddingBottom: 50 }}>
           <img src={SimplePhoto} style={{ width: '90%' }} />
         </div>
+
+
+        <div className="centered" style={{}}>
+          <div className="" style={{ width: '95%' }}>
+            <div className="row">
+              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
+                <img src={Dekor1} alt="Image 1" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
+              </div>
+              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
+                <img src={Dekor2} alt="Image 2" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
+              </div>
+              {/* Add more col-md-6 divs with images as needed */}
+            </div>
+          </div>
+        </div>
+
+        <div className="centered" style={{}}>
+          <div className="" style={{ width: '95%' }}>
+            <div className="row">
+              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
+                <img src={Dekor3} alt="Image 1" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
+              </div>
+              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
+                <img src={Kapı} alt="Image 2" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
+              </div>
+              {/* Add more col-md-6 divs with images as needed */}
+            </div>
+          </div>
+        </div>
+
 
         <SosyalMedia />
 
@@ -257,13 +305,13 @@ function Home(props) {
 
   return (
     <main>
-      {dataLoaded1 && dataLoaded2 && dataLoaded3 && dataLoaded4 ? (
+      {dataLoaded1 && dataLoaded2 && dataLoaded3 && dataLoaded4 && dataLoaded5 ? (
         <div className="">
           <PhotoCarousel />
           <ScrollButtons />
         </div>
       ) : (
-        <div className='centered' style={{height:"50vh"}}>
+        <div className='centered' style={{ height: "50vh" }}>
           <img src={WiatingHand} alt="Waiting Hand" />
         </div>
       )}

@@ -7,22 +7,25 @@ import React, { useState, useEffect } from 'react';
 import { getDocs, addDoc, collection } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
-import  LastWorkPhoto  from '../../Data/lastworktext.svg';
+import LastWorkPhoto from '../../Data/lastworktext.svg';
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 import TopMenu from '../Top menu/TopMenu';
 import ScrollButtons from '../Home/ScrollButtons';
+import WiatingHand from '../../Data/wiatingHand.gif';
 
 const LastWorkOfMira = () => {
 
 
     const [lastWorksOfMira, setLastWorksOfMira] = useState([]);
     const [lastWorkImage, setlastWorkImage] = useState(null);
+    const [dataLoaded, setDataLoaded] = useState(false);
 
     const getDataLastWorkOfMira = async () => {
         const valRef = collection(txtDB, 'lastWorks');
         const dataDB = await getDocs(valRef);
         const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
         setLastWorksOfMira(alldata);
+        setDataLoaded(true);
 
     }
     useEffect(() => {
@@ -84,23 +87,29 @@ const LastWorkOfMira = () => {
     return (
         <div style={{ paddingTop: 10 }}>
             <div style={{ paddingTop: 25 }}></div>
-            
+
             <TopMenu />
 
             <div className='main-contianer'>
                 <div style={{ paddingBottom: 60 }}></div>
-               <div   className='centered' > 
-               <img className='last-works-text2' src={LastWorkPhoto} />
-               </div>
+                <div className='centered' >
+                    <img className='last-works-text2' src={LastWorkPhoto} />
+                </div>
                 <div style={{ paddingBottom: 30 }}></div>
 
                 <div className='admin-text-2'>Galereyi dolaşmaktan çekinmeyin ve Mira'nın sanatının arkasındaki zanaati keşfedin. Sizi etkileyen bir şey bulursanız, özelleştirme hakkında bilgi almak veya sipariş vermek için çekinmeyin.</div>
 
-                <div style={{ fontSize: 20,paddingTop:30 }} >{lastWorksOfMira.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
+                <div style={{ fontSize: 20, paddingTop: 30 }} >{lastWorksOfMira.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
                 <div style={{ paddingTop: 20 }}>
-                    <div className="row" >
-                        {renderImages()}
-                    </div>
+                    {dataLoaded ? (
+                        <div className="row" >
+                            {renderImages()}
+                        </div>
+                    ) : (
+                        <div className='centered' style={{ height: "50vh" }}>
+                            <img src={WiatingHand} alt="Waiting Hand" />
+                        </div>
+                    )}
                 </div>
             </div>
         </div>

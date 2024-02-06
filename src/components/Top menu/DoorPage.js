@@ -7,18 +7,22 @@ import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
 import TopMenu from './TopMenu';
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
+import WiatingHand from '../../Data/wiatingHand.gif';
+
 
 const Doors = () => {
 
 
   const [doors, setDoors] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   const getDataDoors = async () => {
     const valRef = collection(txtDB, 'doors');
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setDoors(alldata);
+    setDataLoaded(true);
 
   }
   useEffect(() => {
@@ -79,8 +83,8 @@ const Doors = () => {
   return (
     <div style={{ paddingTop: 10 }}>
       <div style={{ paddingTop: 25 }}></div>
-        <TopMenu />
-       
+      <TopMenu />
+
       <div className='main-contianer'>
         <div style={{ paddingBottom: 60 }}></div>
         <div className='text-style'>Kapılar sayfası</div>
@@ -88,9 +92,15 @@ const Doors = () => {
 
         <div style={{ fontSize: 20 }} >{doors.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
         <div style={{ paddingTop: 20 }}>
-          <div className="row" >
-            {renderImages()}
-          </div>
+          {dataLoaded ? (
+            <div className="row" >
+              {renderImages()}
+            </div>
+          ) : (
+            <div className='centered' style={{ height: "50vh" }}>
+              <img src={WiatingHand} alt="Waiting Hand" />
+            </div>
+          )}
         </div>
       </div>
     </div>

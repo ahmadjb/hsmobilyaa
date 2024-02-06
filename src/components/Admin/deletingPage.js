@@ -6,6 +6,7 @@ import DeletingDoor from './Deleting/DeletingDoors';
 import DeletingBedroom from './Deleting/DeletingBedrooms';
 import DeletingKitchen from './Deleting/DeletingKitchens';
 import DeletingLastWorkOfMira from './Deleting/DeletingLastWorkOfMira';
+import DeletingCloakroom from './Deleting/DeletingCloakroom';
 
 import ModalPhoto from '../Home/ModalPhoto'; // Make sure the path is correct
 const Deleting = () => {
@@ -18,6 +19,7 @@ const Deleting = () => {
             <DeletingKitchen />
             <DeletingBedroom />
             <DeletingDoor />
+            <DeletingCloakroom />
 
         </div>
     );

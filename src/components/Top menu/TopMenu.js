@@ -13,7 +13,7 @@ const TopMenu = () => {
                     <div className='seperator-style'>|</div>
                     <Link to="/bedRoomsPage" className='text-style-3' style={{ textDecoration: 'none' }}>Yatak odası</Link>
                     <div className='seperator-style'>|</div>
-                    <Link className='text-style-3' style={{ textDecoration: 'none' }}>Vestiyer</Link>
+                    <Link to="/cloakroom" className='text-style-3' style={{ textDecoration: 'none' }}>Vestiyer</Link>
                     <div className='seperator-style'>|</div>
                     <Link className='text-style-3' style={{ textDecoration: 'none' }}>Banyo</Link>
                     <div className='seperator-style'>|</div>

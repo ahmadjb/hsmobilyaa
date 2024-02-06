@@ -15,6 +15,8 @@ import Admin from './components/Admin/Admin';
 import DoorPage from './components/Top menu/DoorPage';
 import Kitchen from './components/Top menu/KitchenPage';
 import BedRooms from './components/Top menu/BedRoomsPage';
+import Cloakroom from './components/Top menu/Cloakroom';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
@@ -40,6 +42,7 @@ const App = () => {
           <Route path="/doorPage" component={DoorPage} />
           <Route path="/kitchenPage" component={Kitchen} />
           <Route path="/bedRoomsPage" component={BedRooms} />
+          <Route path="/cloakroom" component={Cloakroom} />
         </div>
         <Footer />
       </div>

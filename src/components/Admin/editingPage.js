@@ -4,6 +4,7 @@ import EditingDoors from './Editing/EditingDoors';
 import EditingBedrooms from './Editing/EditingBedrooms';
 import EditingKitchen from './Editing/EditingKitchen';
 import EditingLastWorkOfMira from './Editing/EditingLastWorkOfMira';
+import EditingCloakroom from './Editing/EditingCloakroom';
 
 
 const Editing = () => {
@@ -13,6 +14,7 @@ const Editing = () => {
         <EditingKitchen />
         <EditingBedrooms />
         <EditingDoors />
+        <EditingCloakroom />
         </div>
     );
 };

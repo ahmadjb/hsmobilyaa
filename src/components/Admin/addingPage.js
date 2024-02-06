@@ -7,6 +7,7 @@ import Addingdoor from './Adding/AddingDoors';
 import Addingbedroom from './Adding/AddingBedrooms';
 import AddingKitchen from './Adding/AddingKitchens';
 import LastWorkOfMira from './Adding/AddingLastWorkOfMira';
+import AddingCloakroom from './Adding/AddingCloakroom';
 
 const Adding = () => {
 
@@ -18,6 +19,7 @@ const Adding = () => {
             <AddingKitchen />
             <Addingbedroom />
             <Addingdoor />
+            <AddingCloakroom />
         </div>
 
     );

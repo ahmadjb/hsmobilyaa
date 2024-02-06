@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import WhatsAppIcon from '../WhatsApp/whatsappInfo';
 import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
-import { EyeOutlined } from '@ant-design/icons';
 import { RightOutlined } from '@ant-design/icons';
 import { LeftOutlined } from '@ant-design/icons';
-import { blue } from '@mui/material/colors';
-import WhatsAppIcon from '../WhatsApp/whatsappInfo';
-
+import { EyeOutlined } from '@ant-design/icons';
+import photo1 from '../../Data/md.png';
+import photo2 from '../../Data/2nd.webp';
+import photo3 from '../../Data/3rd.webp';
+import photo4 from '../../Data/4th.webp';
 const Workcard = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
+  
 
-    const [doors, setDoors] = useState(props?.doors);
+    const [cloakroom, setCloakroom] = useState(props.cloakroom);
     const [selectedImage, setSelectedImage] = useState(null);
     const [isMobile, setIsMobile] = useState(window.innerWidth);
 
@@ -24,22 +27,21 @@ const Workcard = (props) => {
         window.removeEventListener('resize', handleResize);
       };
     }, []);
-
+    
     const photosPerPage = isMobile > 800 ? 5 : 1;
     
-    const maxIndex = Math.max(0, doors?.length - photosPerPage);
-    
-    const navigateToNextPhoto = () => {
-        const newCurrentIndex = Math.min(currentPhotoIndex + 1, maxIndex);
-        setCurrentPhotoIndex(newCurrentIndex);
-    };
-    
-    const navigateToPrevPhoto = () => {
-        const newCurrentIndex = Math.max(currentPhotoIndex - 1, 0);
-        setCurrentPhotoIndex(newCurrentIndex);
-    };
+const maxIndex = Math.max(0, cloakroom?.length - photosPerPage);
 
-    const visiblePhotos = doors?.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
+const navigateToNextPhoto = () => {
+    const newCurrentIndex = Math.min(currentPhotoIndex + 1, maxIndex);
+    setCurrentPhotoIndex(newCurrentIndex);
+};
+
+const navigateToPrevPhoto = () => {
+    const newCurrentIndex = Math.max(currentPhotoIndex - 1, 0);
+    setCurrentPhotoIndex(newCurrentIndex);
+};
+
 
     const openImageModal = (imageUrl) => {
         setSelectedImage(imageUrl);
@@ -49,12 +51,14 @@ const Workcard = (props) => {
         setSelectedImage(null);
     };
 
+    const visiblePhotos = cloakroom.slice(currentPhotoIndex, currentPhotoIndex + (isMobile > 800 ? 5 : 1));
+
     return (
         <div style={{ paddingTop: 20 }}>
             <div className="photo-slider-container-new">
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                     <div className='text-style'>
-                        Kapılar
+                        Vistiyer
                     </div>
                 </div>
                 <div className="photo-slider-new " >
@@ -63,25 +67,7 @@ const Workcard = (props) => {
                             <LeftOutlined />
                         </button>
                     </div>
-                    {/* {doors.map((photo, index) => (
-                        <div className='photo-new-container' key={index}>
-                            <div>
-                                <img
-                                    className='photo-new '
-                                    src={photo}
-                                    alt={`Photo ${currentPhotoIndex + index + 1}`}
-                                />
-
-                                <div className="overlay">
-                                    <span className="eye-icon" onClick={() => openImageModal(photo)}>
-                                        <EyeOutlined />
-                                    </span>
-                                </div>
-                                <div className='photo-explenation'> {doorsNames[0][currentPhotoIndex + index + 1]}</div>
-                            </div>
-                        </div>
-                    ))}*/}
-
+                    
                     {visiblePhotos.map((item, index) => (
                         <div className='photo-new-container' key={index}>
                             <div className='card-container-a'>
@@ -110,28 +96,21 @@ const Workcard = (props) => {
                             </div>
                         </div>
                     ))}
-
-
-                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: 10 }}>
-                    <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
-                        <RightOutlined />
-                    </button>
+                    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: 10 }}>
+                        <button className='cool-button' onClick={navigateToNextPhoto} disabled={currentPhotoIndex === maxIndex}>
+                            <RightOutlined />
+                        </button>
+                    </div>
                 </div>
+
             </div>
-
-        </div>
-            {/* Use ModalPhoto component for displaying the selected image */ }
-    {
-        selectedImage && (
-            <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
-        )
-    }
-
-    <div>
-
-    </div>
+            {/* Use ModalPhoto component for displaying the selected image */}
+            {selectedImage && (
+                <ModalPhoto imageUrl={selectedImage} onClose={closeImageModal} />
+            )}
         </div>
     );
+
 };
 
 export default Workcard;

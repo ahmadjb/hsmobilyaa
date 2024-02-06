@@ -7,18 +7,21 @@ import { Link } from 'react-router-dom';
 import { EyeOutlined } from '@ant-design/icons';
 import TopMenu from './TopMenu';
 import WhatsAppIcon from '../WhatsApp/whatsappInfo';
+import WiatingHand from '../../Data/wiatingHand.gif';
 
 const Kitchen = () => {
 
 
   const [kitchen, setKitchen] = useState([]);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [dataLoaded, setDataLoaded] = useState(false);
 
   const getDataKitchen = async () => {
     const valRef = collection(txtDB, 'kitchen');
     const dataDB = await getDocs(valRef);
     const alldata = dataDB.docs.map(val => ({ ...val.data(), id: val.id }));
     setKitchen(alldata);
+    setDataLoaded(true);
 
   }
   useEffect(() => {
@@ -79,7 +82,7 @@ const Kitchen = () => {
   return (
     <div style={{ paddingTop: 10 }}>
       <div style={{ paddingTop: 25 }}></div>
-          <TopMenu />
+      <TopMenu />
       <div className='main-contianer'>
         <div style={{ paddingBottom: 60 }}></div>
         <div className='text-style'>Mutfaklar sayfası</div>
@@ -87,9 +90,15 @@ const Kitchen = () => {
 
         <div style={{ fontSize: 20 }} >{kitchen.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
         <div style={{ paddingTop: 20 }}>
-          <div className="row" >
-            {renderImages()}
-          </div>
+          {dataLoaded ? (
+            <div className="row" >
+              {renderImages()}
+            </div>
+          ) : (
+            <div className='centered' style={{ height: "50vh" }}>
+              <img src={WiatingHand} alt="Waiting Hand" />
+            </div>
+          )}
         </div>
       </div>
     </div>
