@@ -10,10 +10,7 @@ import TopMenu from '../Top menu/TopMenu';
 import SimplePhoto from '../../Data/simplePhoto.png';
 import SosyalMedia from './SosyalMedia';
 import WiatingHand from '../../Data/wiatingHand.gif';
-import Kapı from "../../Data/PhotoKategories/kapı.png";
-import Dekor1 from "../../Data/PhotoKategories/dekor.png";
-import Dekor2 from "../../Data/PhotoKategories/dekor2.png";
-import Dekor3 from "../../Data/PhotoKategories/Frame 16.png";
+import KategorPhoto from './kategoriesConstantPhotos';
 
 
 import React, { useEffect, useState } from "react";
@@ -266,34 +263,7 @@ function Home(props) {
         </div>
 
 
-        <div className="centered" style={{}}>
-          <div className="" style={{ width: '95%' }}>
-            <div className="row">
-              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
-                <img src={Dekor1} alt="Image 1" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
-              </div>
-              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
-                <img src={Dekor2} alt="Image 2" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
-              </div>
-              {/* Add more col-md-6 divs with images as needed */}
-            </div>
-          </div>
-        </div>
-
-        <div className="centered" style={{}}>
-          <div className="" style={{ width: '95%' }}>
-            <div className="row">
-              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
-                <img src={Dekor3} alt="Image 1" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
-              </div>
-              <div className="centered col-md-6 md-12" style={{ backgroundColor: '',paddingTop:10 }}>
-                <img src={Kapı} alt="Image 2" style={{ maxWidth: '100%', height: 'auto',borderRadius:15,paddingTop:5,paddingBottom:5  }} />
-              </div>
-              {/* Add more col-md-6 divs with images as needed */}
-            </div>
-          </div>
-        </div>
-
+        <KategorPhoto />
 
         <SosyalMedia />
 
