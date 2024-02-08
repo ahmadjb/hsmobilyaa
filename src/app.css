@@ -1812,14 +1812,15 @@ section {
 
 
 .sosyal-media {
-    width: 100px;
-    padding: 10px;
-    transition: width 0.3s ease; /* Move transition to the base class */
+	width: 100px;
+	padding: 10px;
+	transition: width 0.3s ease;
+	/* Move transition to the base class */
 }
 
 .sosyal-media:hover {
-    width: 120px !important;
-    /* Using !important to override inline styles */
+	width: 120px !important;
+	/* Using !important to override inline styles */
 }
 
 
@@ -1828,14 +1829,15 @@ section {
 	.sosyal-media {
 		width: 100%;
 		padding: 10px;
-		transition: width 0.3s ease; /* Move transition to the base class */
+		transition: width 0.3s ease;
+		/* Move transition to the base class */
 	}
-	
+
 	.sosyal-media:hover {
 		width: 110% !important;
 		/* Using !important to override inline styles */
 	}
-	
+
 
 }
 
@@ -1846,19 +1848,20 @@ section {
 	font-family: inherit;
 	padding-top: 50px;
 }
+
 @media (max-width: 767px) {
-	
-.welcom-text {
-	font-weight: bold;
-	color: rgb(19, 39, 127);
-	font-size: 32px;
-	font-family: inherit;
-	padding-top: 50px;
-	padding-bottom: 50px;
-}
+
+	.welcom-text {
+		font-weight: bold;
+		color: rgb(19, 39, 127);
+		font-size: 32px;
+		font-family: inherit;
+		padding-top: 50px;
+		padding-bottom: 50px;
+	}
 }
 
-.padding-l{
+.padding-l {
 	padding-left: 100px;
 	padding-top: 50;
 }
@@ -1870,6 +1873,7 @@ section {
 	font-family: inherit;
 	padding-top: 50px;
 }
+
 .text-aboutus-s {
 	font-weight: bold;
 	color: rgb(1, 4, 17);
@@ -1877,18 +1881,18 @@ section {
 	font-family: inherit;
 }
 
-.padding-50{
-padding:50px;
-font-size: 30px;
+.padding-50 {
+	padding: 50px;
+	font-size: 30px;
 }
 
 
 @media (max-width: 767px) {
-	.padding-50{
-		padding:20px;
+	.padding-50 {
+		padding: 20px;
 		font-size: 30px;
-		}
-	
+	}
+
 	.aboutus-s {
 		font-weight: bold;
 		color: rgb(19, 39, 127);
@@ -1896,13 +1900,15 @@ font-size: 30px;
 		font-family: inherit;
 		padding-top: 30px;
 	}
+
 	.text-aboutus-s {
 		font-weight: bold;
 		color: rgb(1, 4, 17);
 		font-size: 17px;
 		font-family: inherit;
 	}
-	.padding-l{
+
+	.padding-l {
 		padding-left: 20px;
 		padding-right: 10px;
 		padding-top: 10;
@@ -1915,9 +1921,41 @@ font-size: 30px;
 		font-family: inherit;
 		padding-top: 50px;
 		padding-bottom: 0px;
-	
-	}
-	}
 
+	}
+}
 
+.sphoto {
+	max-width: 100%;
+	height: auto;
+}
+.sphoto-padding{
+	padding: 50px;
+}
+.contianer-simplephoto{
+	width: 60%;
+	margin-left: 17%;
+}
+
+@media (max-width: 767px) {
 	
+
+	.sphoto-padding{
+		padding: 10px;
+	}
+	.sphoto {
+		max-width: 100%;
+		height: auto;
+	}
+}
+.row{
+
+max-width: 100%;
+}
+@media (max-width: 767px) {
+	.contianer-simplephoto{
+		width: 100%;
+		margin-left: 0%;
+		padding: 5px;
+	}
+}

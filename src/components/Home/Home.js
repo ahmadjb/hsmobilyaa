@@ -7,10 +7,13 @@ import { Link } from 'react-router-dom';
 import WhatsAppIcon from '../WhatsApp/whatsApp';
 import ScrollButtons from './ScrollButtons';
 import TopMenu from '../Top menu/TopMenu';
-import SimplePhoto from '../../Data/simplePhoto.png';
+import PhotoOfParts from '../../Data/photoOfParts.png';
+import SimplePhoto from "../../Data/simplephoto2.png";
+import BigLogo from "../../Data/biglogo.png";
 import SosyalMedia from './SosyalMedia';
 import WiatingHand from '../../Data/wiatingHand.gif';
 import KategorPhoto from './kategoriesConstantPhotos';
+
 
 
 import React, { useEffect, useState } from "react";
@@ -258,8 +261,20 @@ function Home(props) {
         <Cloakroom cloakroom={cloakroom} />
 
 
-        <div className='centered' style={{ paddingTop: 50, paddingBottom: 50 }}>
-          <img src={SimplePhoto} style={{ width: '90%' }} />
+        <div className='centered' style={{backgroundColor:'', marginTop: '3%', paddingBottom: 30 }}>
+          <div className='row'>
+            <div className='col-md-6 md-12 sphoto-padding'>
+              <img src={PhotoOfParts} className='sphoto' />
+            </div>
+            <div className='col-md-6 md-12 sphoto-padding'>
+              <img src={BigLogo} className='sphoto' />
+            </div>
+          </div>
+        </div>
+
+        <div>
+        <img src={SimplePhoto} className='sphoto contianer-simplephoto'  />
+
         </div>
 
 

@@ -13,7 +13,7 @@ const SosyalMedia = (props) => {
 
     return (
         <div>
-            <div className="text-style-3 centered" style={{ fontSize: 30 }}>
+            <div className="text-style-3 centered" style={{ fontSize: 30 ,paddingTop:50}}>
                 <div>
                     Bizi Sosyal Medyada Takip Edin
                 </div>

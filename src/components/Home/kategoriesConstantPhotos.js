@@ -18,7 +18,7 @@ const kategorPhoto = (props) => {
 
             {/*1-2 */}
             <div className="centered" style={{}}>
-                <div className="" style={{ width: '95%' }}>
+                <div className="" style={{ width: '100%',paddingLeft:20 }}>
                     <div className="row">
                         <div className="centered col-md-6 md-12" style={{ backgroundColor: '', paddingTop: 10 }}>
                             <img src={Kapı} alt="Image 1" style={{ maxWidth: '100%', height: 'auto', borderRadius: 15, paddingTop: 5, paddingBottom: 5 }} />
@@ -32,7 +32,7 @@ const kategorPhoto = (props) => {
             </div>
             {/*3-4 */}
             <div className="centered" style={{}}>
-                <div className="" style={{ width: '95%' }}>
+                <div className="" style={{ width: '100%',paddingLeft:20 }}>
                     <div className="row">
                         <div className="centered col-md-6 md-12" style={{ backgroundColor: '', paddingTop: 10 }}>
                             <img src={Dekor3} alt="Image 1" style={{ maxWidth: '100%', height: 'auto', borderRadius: 15, paddingTop: 5, paddingBottom: 5 }} />
@@ -47,7 +47,7 @@ const kategorPhoto = (props) => {
 
             {/*5-6 */}
             <div className="centered" style={{}}>
-                <div className="" style={{ width: '95%' }}>
+                <div className="" style={{ width: '100%',paddingLeft:20 }}>
                     <div className="row">
                         <div className="centered col-md-6 md-12" style={{ backgroundColor: '', paddingTop: 10 }}>
                             <img src={Vistiyer1} alt="Image 1" style={{ maxWidth: '100%', height: 'auto', borderRadius: 15, paddingTop: 5, paddingBottom: 5 }} />
@@ -63,7 +63,7 @@ const kategorPhoto = (props) => {
 
             {/*7-8 */}
             <div className="centered" style={{}}>
-                <div className="" style={{ width: '95%' }}>
+                <div className="" style={{ width: '100%',paddingLeft:20 }}>
                     <div className="row">
                         <div className="centered col-md-6 md-12" style={{ backgroundColor: '', paddingTop: 10 }}>
                             <img src={Kapı1} alt="Image 1" style={{ maxWidth: '100%', height: 'auto', borderRadius: 15, paddingTop: 5, paddingBottom: 5 }} />
@@ -77,7 +77,7 @@ const kategorPhoto = (props) => {
             </div>
             {/*9-10 */}
             <div className="centered" style={{}}>
-                <div className="" style={{ width: '95%' }}>
+                <div className="" style={{ width: '100%',paddingLeft:20 }}>
                     <div className="row">
                         <div className="centered col-md-6 md-12" style={{ backgroundColor: '', paddingTop: 10 }}>
                             <img src={Dolap} alt="Image 1" style={{ maxWidth: '100%', height: 'auto', borderRadius: 15, paddingTop: 5, paddingBottom: 5 }} />
