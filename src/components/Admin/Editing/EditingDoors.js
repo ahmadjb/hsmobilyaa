@@ -175,7 +175,7 @@ const EditingDoors = () => {
             {openMenu ? (
                 <div className='text-style-2 inner-container'>
                     <div className='text-style-3 red-text' style={{ color: '#dca534' }}>Gerekli verileri doldurun ve ardından ilgili öğe için düzenle butona tıklayın, ( -- {data.length}-- ) öğemiz var</div>
-                    <div className='items-container'>
+                    <div className='items-container' >
                         {loading ? (
                             <p className='loading-message'>Yükleniyor...</p>
                         ) : (
@@ -184,17 +184,17 @@ const EditingDoors = () => {
                                 <div className={`row mb-4${index !== data.length - 1 ? ' separator-line' : ''}`} key={item.id}>
                                     {/* For medium and larger screens, use Bootstrap's grid system */}
                                     <div className="col-md-4 mb-4 d-flex justify-content-center align-items-center" style={{ backgroundColor: '' }}>
-                                       <div>
+                                        <div>
                                             <div>
                                                 <img className="item-image" src={item.imgUrl} />
                                             </div>
-                                            <div className='centered' style={{fontSize:15}}>
+                                            <div className='centered' style={{ fontSize: 15 }}>
                                                 {index + 1}
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="col-md-8 mb-4" style={{ backgroundColor: '' }}>
-                                        <div className='row'>
+                                    <div className="col-md-8 mb-4" >
+                                        <div className='row' style={{ backgroundColor: '' }}>
                                             <div className="col-md-10 col-10 text-style-3 item-text " style={{ backgroundColor: '' }}>
                                                 {item.txtval}
                                             </div>
@@ -207,7 +207,7 @@ const EditingDoors = () => {
                                             </div>
 
                                         </div>
-                                        <div className="delete-button-container row">
+                                        <div className="delete-button-container row " style={{ backgroundColor: '' }}>
                                             <div className="col-md-6 mb-12 d-flex justify-content-center align-items-center">
                                                 <input
                                                     className="input-field"

@@ -146,7 +146,7 @@ const Navbar = () => {
                 {isMobile && <div className="centered" style={{ marginLeft: '50%' }}>
                     <WhatsAppIcon phoneNumber="+905530173042" />
                     <div style={{ cursor: 'pointer', width: '50px', height: '50px' }}>
-                        <MapIcon />
+                       
                     </div>
 
                 </div>}

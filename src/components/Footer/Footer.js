@@ -26,7 +26,7 @@ function Footer() {
                             </div>
                             <div className="col-md-6 col-6" >
                             
-                            <img src={MIRADEKOR} alt="Image 1" className="" style={{width:'70%',paddingTop:40,marginRight:10}} />
+                            <img src={MIRADEKOR} alt="Image 1" className="" style={{width:'90%',paddingTop:40,marginLeft:-20}} />
 
                             </div> 
                         </div>

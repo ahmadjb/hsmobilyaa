@@ -4,11 +4,13 @@
 -my social media                                        dome
 -page of the latest work                                done
 -page of contact
--adding the number of the items ın the admin parts, to imagen the number of ıtems we have
--changing the repo installatıon from the git hub from read me file
+-adding the number of the items ın the admin parts, to imagen the number of ıtems we have             done
+-changing the repo installatıon from the git hub from read me file                          important
 
--addind slash to the important pages till featching the iteams
--adding a slash to the adding button ın the admin page
+-addind slash to the important pages till featching the iteams                                          done
+-adding a slash to the adding button ın the admin page                                                  done
+-changing the logo of the site                                                                          
+-adding map part to the site
 
 
 

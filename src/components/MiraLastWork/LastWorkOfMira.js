@@ -97,7 +97,7 @@ const LastWorkOfMira = () => {
                 </div>
                 <div style={{ paddingBottom: 30 }}></div>
 
-                <div className='admin-text-2'>Galereyi dolaşmaktan çekinmeyin ve Mira'nın sanatının arkasındaki zanaati keşfedin. Sizi etkileyen bir şey bulursanız, özelleştirme hakkında bilgi almak veya sipariş vermek için çekinmeyin.</div>
+                <div className='admin-text-2'>Galereyi dolaşmaktan çekinmeyin ve MD Dekorasyon'un sanatının arkasındaki zanaati keşfedin. Sizi etkileyen bir şey bulursanız, özelleştirme hakkında bilgi almak veya sipariş vermek için çekinmeyin.</div>
 
                 <div style={{ fontSize: 20, paddingTop: 30 }} >{lastWorksOfMira.length} sonuç gösteriliyor. En yeniye göre sıralandı</div>
                 <div style={{ paddingTop: 20 }}>

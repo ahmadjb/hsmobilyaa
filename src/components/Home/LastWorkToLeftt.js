@@ -1,8 +1,4 @@
 import React, { useState } from 'react';
-import photo1 from '../../Data/newp1.jpeg';
-import photo2 from '../../Data/newp2.jpg';
-import photo3 from '../../Data/newp5.webp';
-import photo4 from '../../Data/4th.webp';
 
 const PhotoSlider = (props) => {
     

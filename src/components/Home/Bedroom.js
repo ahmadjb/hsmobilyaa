@@ -4,10 +4,6 @@ import ModalPhoto from './ModalPhoto'; // Make sure the path is correct
 import { RightOutlined } from '@ant-design/icons';
 import { LeftOutlined } from '@ant-design/icons';
 import { EyeOutlined } from '@ant-design/icons';
-import photo1 from '../../Data/md.png';
-import photo2 from '../../Data/2nd.webp';
-import photo3 from '../../Data/3rd.webp';
-import photo4 from '../../Data/4th.webp';
 const Workcard = (props) => {
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0);
   
