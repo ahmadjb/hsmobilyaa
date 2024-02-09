@@ -748,7 +748,8 @@
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-color: #060d179f;
+	background-color: #060d179f !important;
+
 }
 
 @media (max-width: 767px) {
@@ -760,7 +761,8 @@
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	background-color: #060d1719;
+	background-color: #060d179f !important;
+
 }
 
 }
