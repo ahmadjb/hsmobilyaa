@@ -11,7 +11,7 @@
 -adding a slash to the adding button ın the admin page                                                  done
 -changing the logo of the site                                                                          
 -adding map part to the site
-
+-Disable the button if the item is the last item
 
 
 

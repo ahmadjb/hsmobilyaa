@@ -98,7 +98,7 @@ const Doors = () => {
             </div>
           ) : (
             <div className='centered' style={{ height: "50vh" }}>
-              <img src={WiatingHand} alt="Waiting Hand" />
+              <img src={WiatingHand} alt="Waiting Hand" style={{width:80}} />
             </div>
           )}
         </div>
